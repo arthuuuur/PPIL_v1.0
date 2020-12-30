@@ -1,0 +1,27 @@
+var class_forme =
+[
+    [ "Forme", "class_forme.html#a47c4f2df93db50954d4660cf36e5bec6", null ],
+    [ "Forme", "class_forme.html#a75f2948beec045d69eaa0cd841b552e0", null ],
+    [ "~Forme", "class_forme.html#af6ad0735f86713459453c9d775f44aca", null ],
+    [ "afficher", "class_forme.html#a36f4b0a62aef5cb2199c1302efd5ff73", null ],
+    [ "getArea", "class_forme.html#a9e2f354b1f3301d5d23111c33d75d8ad", null ],
+    [ "getColor", "class_forme.html#aa9774848f99428ee372b9258047eacaf", null ],
+    [ "getEstGroupee", "class_forme.html#add2b4de67847023eaa56e206e766929a", null ],
+    [ "getGravity", "class_forme.html#a89a04279154ac52d6095c08ae1ca19ed", null ],
+    [ "getID", "class_forme.html#a59615662e5fe7d21928cd4827b667e9f", null ],
+    [ "getNbID", "class_forme.html#ad02e0720506ea74216a7b5e5ba328f0a", null ],
+    [ "gravity", "class_forme.html#ac590d3b51fd88d738a94f253b6ec9779", null ],
+    [ "homothétie", "class_forme.html#a3e5920389b0d57de4ee7df96f09f8161", null ],
+    [ "rotation", "class_forme.html#a64b37394b114ab4b34371aee8043268b", null ],
+    [ "serialize", "class_forme.html#ab0387ef7c467b2ec353155ff4080784d", null ],
+    [ "setColor", "class_forme.html#ad0820870e3261f321df3be88e39c15d2", null ],
+    [ "setEstGroupee", "class_forme.html#a39506a444024277808f25948401424ed", null ],
+    [ "setGravity", "class_forme.html#ac654b431debc2540c8606eb523f02fbf", null ],
+    [ "translation", "class_forme.html#a0eb77dd1cd767b261ca6db665d101f5c", null ],
+    [ "operator<<", "class_forme.html#af345de3b87037d5290a5a8c877ba2b8c", null ],
+    [ "_color", "class_forme.html#abb6ae017776e8c49ab5e2edad548aaa4", null ],
+    [ "_colorGroupe", "class_forme.html#a896342bab8e4eec75fb9262cd0c648bc", null ],
+    [ "estGroupee", "class_forme.html#ad3afe9817a7818cac6cc551bc5e1dded", null ],
+    [ "gravityCenter", "class_forme.html#a1bd7d14addf27bf5074cdafc3c43c57f", null ],
+    [ "ID", "class_forme.html#a501e9a22cc93071ae427250794c17659", null ]
+];
