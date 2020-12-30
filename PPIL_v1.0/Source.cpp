@@ -28,7 +28,7 @@ int main() {
 
 	Shape* s2;
 	s2 = new Triangle("pink", 1, 2, 3, 0, 5, 9);
-	//test de modif
+
 
 	Group World("Blue");
 	World.addShape(s1);
