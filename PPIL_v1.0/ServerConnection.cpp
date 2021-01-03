@@ -3,6 +3,9 @@
 
 using namespace std;
 
+ServerConnection* ServerConnection::_client{ nullptr };
+mutex ServerConnection::_mutex;
+
 ServerConnection::ServerConnection() {
 	try {
 		WSADATA wsadata;
@@ -39,6 +42,18 @@ ServerConnection::ServerConnection() {
 	}
 }
 
+ServerConnection::~ServerConnection() {}
+
+ServerConnection* ServerConnection::getInstance()
+{
+	lock_guard<mutex> lock(_mutex);
+	if (_client == nullptr)
+	{
+		_client = new ServerConnection();
+	}
+	return _client;
+}
+
 void ServerConnection::openConnection() {
 	try {
 		int err = connect(_sock, (SOCKADDR*)&_sockaddr, sizeof(_sockaddr));
@@ -69,4 +84,9 @@ void ServerConnection::closeConnection() {
 		cout << err.what() << endl;
 		exit(-1);
 	}
+}
+
+SOCKET ServerConnection::getSocket()
+{
+	return _sock;
 }

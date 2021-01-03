@@ -63,34 +63,6 @@ string Polygon::serialize() const {
 	return os.str();
 }
 
-void Polygon::draw(ServerConnection * client) {
-	try {
-		int err;
-		string str = this->serialize();
-		char cstr[BUFSIZ];
-		strcpy_s(cstr, sizeof(cstr), str.c_str());
-		strcat_s(cstr, "\r\n");
-		err = send(client->_sock, cstr, strlen(cstr), 0);
-		if (err == SOCKET_ERROR) {
-			throw Error("failure to send the requeste");
-		}
-
-		char reponse[BUFSIZ];
-		err = recv(client->_sock, reponse, strlen(cstr), 0);
-		if (err == SOCKET_ERROR) {
-			throw Error("failure to receive the response");
-		}
-		char* p = strchr(reponse, '\n');
-		*p = '\0';
-
-		cout << reponse << endl;
-	}
-	catch (exception const& err) {
-		cout << err.what() << endl;
-		exit(-1);
-	}
-}
-
 void Polygon::translation(double ax, double ay) {
 	for (vector<Vector2D>::iterator it = listPoints.begin(); it != listPoints.end(); it++) {
 		it->translation(ax, ay);

@@ -55,3 +55,7 @@ ostream& ConvexPolygon::print(ostream& flux) const {
 	}
 	return flux << ">";
 }
+
+void ConvexPolygon::accepte(ShapeVisitor* S) {
+	S->visite(this);
+}

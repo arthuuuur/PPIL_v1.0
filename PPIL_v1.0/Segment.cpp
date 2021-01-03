@@ -62,34 +62,6 @@ string Segment::serialize() const {
 	return os.str();
 }
 
-void Segment::draw(ServerConnection* client) {
-	try {
-		int err;
-		string str = this->serialize();
-		char cstr[BUFSIZ];
-		strcpy_s(cstr, sizeof(cstr), str.c_str());
-		strcat_s(cstr, "\r\n");
-		err = send(client->_sock, cstr, strlen(cstr), 0);
-		if (err == SOCKET_ERROR) {
-			throw Error("failure to send the requeste");
-		}
-
-		char reponse[BUFSIZ];
-		err = recv(client->_sock, reponse, strlen(cstr), 0);
-		if (err == SOCKET_ERROR) {
-			throw Error("failure to receive the response");
-		}
-		char* p = strchr(reponse, '\n');
-		*p = '\0';
-
-		cout << reponse << endl;
-	}
-	catch (exception const& err) {
-		cout << err.what() << endl;
-		exit(-1);
-	}
-}
-
 void Segment::translation(double ax, double ay) {
 	_p1->translation(ax, ay);
 	_p2->translation(ax, ay);
@@ -109,4 +81,8 @@ ostream& Segment::print(ostream& flux) const {
 	flux << "Segment ";
 	Shape::print(flux);
 	return(flux << "[" << *_p1 << ", " << *_p2 << "] ");
+}
+
+void Segment::accepte(ShapeVisitor* S) {
+	S->visite(this);
 }

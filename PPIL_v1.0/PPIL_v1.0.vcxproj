@@ -141,23 +141,30 @@
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="ConvexPolygon.h" />
+    <ClInclude Include="DrawServerVisitor.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="Polygon.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="ServerConnection.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Group.h" />
+    <ClInclude Include="ShapesManager.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="DrawCppVisitor.h" />
+    <ClInclude Include="ShapeVisitor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="ConvexPolygon.cpp" />
+    <ClCompile Include="DrawCppVisitor.cpp" />
+    <ClCompile Include="DrawServerVisitor.cpp" />
     <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="Segment.cpp" />
     <ClCompile Include="ServerConnection.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Group.cpp" />
+    <ClCompile Include="ShapesManager.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vector2D.cpp" />

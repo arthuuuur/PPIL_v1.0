@@ -60,9 +60,9 @@ const double Group::getArea() const {
 	return area;
 }
 
-void Group::draw(ServerConnection* client) {
+void Group::draw() {
 	for (vector<Shape*>::iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		(*it)->draw(client);
+		(*it)->draw();
 	}
 }
 
@@ -94,4 +94,8 @@ ostream& Group::print(ostream& flux) const {
 		flux << endl;
 	}
 	return flux << ">";
+}
+
+void Group::accepte(ShapeVisitor* S) {
+	S->visite(this);
 }
