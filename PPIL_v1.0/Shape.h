@@ -11,6 +11,9 @@ using namespace std;
 
 class Shape {
 
+	friend class DrawServerVisitor;
+	friend class Group;
+
 protected:
 	/**
 	* the color of the shape
@@ -41,6 +44,8 @@ protected:
 	* the number of shape currently create to give the right id to the new shape
 	*/
 	static int nbID;
+
+	void draw();
 
 public:
 	/**
@@ -141,7 +146,7 @@ public:
 	*/
 	virtual string serialize() const;
 
-	void draw();
+	
 
 	/**
 	* allows to make a translation using a translation vector

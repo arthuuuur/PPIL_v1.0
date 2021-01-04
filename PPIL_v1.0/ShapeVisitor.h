@@ -7,7 +7,7 @@ class Group;
 class Circle;
 
 class ShapeVisitor{
-	
+
 	public:
 	
 		virtual void visite(Shape* S) =0;

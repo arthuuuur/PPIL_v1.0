@@ -48,27 +48,16 @@ int main() {
 	client = ServerConnection::getInstance();
 	client->openConnection();
 
-	/*ShapeVisitor * drawWithCppLib;
-	drawWithCppLib = new DrawCppVisitor;
-	World.accepte(drawWithCppLib);*/
-
-
 	ShapeVisitor* drawWithJavaServer;
 	drawWithJavaServer = new DrawServerVisitor;
 	World.accepte(drawWithJavaServer);
-	//World.draw();
-
 	
-
 	Segment aa("red", 4, 5, 8, 6);
-	//aa.accepte(drawWithCppLib);
-	//aa.accepte(drawWithJavaServer);
-	//aa.draw();
+	aa.accepte(drawWithJavaServer);
 
 	Triangle tt("black", listVector);
-	//tt.accepte(drawWithCppLib);
-	//tt.accepte(drawWithJavaServer);
-	//tt.draw();
+	tt.accepte(drawWithJavaServer);
+
 
 	//client->closeConnection(); commenté pour eviter que le serveur java ecoute en boucle le port utilisé 
 

@@ -2,6 +2,7 @@
 #include <sstream>
 #include "DrawServerVisitor.h"
 
+
 void DrawServerVisitor::visite(Shape* S) {
 	S->draw();
 }

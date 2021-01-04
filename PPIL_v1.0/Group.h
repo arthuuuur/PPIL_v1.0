@@ -4,11 +4,17 @@
 #include <vector>
 
 class Group : public Shape {
+
+	friend class DrawServerVisitor;
+
+
 protected:
 	/**
 	 * the list of the shapes of the group
 	 */
 	vector<Shape*> listShapes;
+
+	void draw();
 
 public:
 
@@ -54,7 +60,6 @@ public:
 	 */
 	const double getArea() const;
 
-	void draw();
 
 	/**
 	* allows to make a translation using a translation vector in all the shape of the group
