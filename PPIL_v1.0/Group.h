@@ -60,6 +60,7 @@ public:
 	 */
 	const double getArea() const;
 
+	vector<Shape*> getList();
 
 	/**
 	* allows to make a translation using a translation vector in all the shape of the group
@@ -92,6 +93,4 @@ public:
 	* @return {ostream}      : return the output stream with the print of the group
 	*/
 	ostream& print(ostream& flux) const;
-
-	void accepte(ShapeVisitor* S);
 };

@@ -76,7 +76,7 @@ void Shape::draw() {
 	try {
 		int err;
 		string str = this->serialize();
-		cout << str << endl;
+		//cout << str << endl;
 		char cstr[BUFSIZ];
 		strcpy_s(cstr, sizeof(cstr), str.c_str());
 		strcat_s(cstr, "\r\n");
@@ -92,7 +92,6 @@ void Shape::draw() {
 		}
 		char* p = strchr(reponse, '\n');
 		*p = '\0';
-
 		cout << reponse << endl;
 	}
 	catch (exception const& err) {
@@ -108,10 +107,11 @@ void Shape::homothety(double ax, double bx, double k) {}
 void Shape::rotation(double ax, double ay, double angle) {}
 
 ostream& Shape::print(ostream& flux) const {
-	flux << _shapeColor << " ";
+	flux << _shapeColor << " | id = " << ID << "| ";
 	return flux;
 }
 
 ostream& operator<<(ostream& flux, const Shape& c) {
 	return c.print(flux);
 }
+

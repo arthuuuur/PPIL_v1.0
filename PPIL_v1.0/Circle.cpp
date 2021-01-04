@@ -72,7 +72,3 @@ ostream& Circle::print(ostream& flux) const {
 	Shape::print(flux);
 	return(flux << "< " << *center << ", r = " << _radius << " >");
 }
-
-void Circle::accepte(ShapeVisitor* S) {
-	S->visite(this);
-}

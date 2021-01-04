@@ -152,7 +152,7 @@
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="DrawCppVisitor.h" />
-    <ClInclude Include="ShapeVisitor.h" />
+    <ClInclude Include="ShapeManagerVisitor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />

@@ -1,15 +1,12 @@
 #include <iostream>
 #include <sstream>
 #include "DrawServerVisitor.h"
+#include "ShapesManager.h"
 
 
-void DrawServerVisitor::visite(Shape* S) {
-	S->draw();
+void DrawServerVisitor::visite(ShapesManager Sm) {
+	vector<Shape*> tmp = Sm.getList();
+	for (vector<Shape*>::iterator it = tmp.begin(); it != tmp.end(); it++) {
+		(*it)->draw();
+	}
 }
-
-void DrawServerVisitor::visite(Group* G) {
-	G->draw();
-}
-
-
-

@@ -43,6 +43,4 @@ public:
 	* @return {ostream}      : return the output stream with the print of the convex Polygon
 	*/
 	ostream& print(ostream& flux) const;
-
-	void accepte(ShapeVisitor* S);
 };

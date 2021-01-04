@@ -80,9 +80,5 @@ void Segment::rotation(double ax, double ay, double angle) {
 ostream& Segment::print(ostream& flux) const {
 	flux << "Segment ";
 	Shape::print(flux);
-	return(flux << "[" << *_p1 << ", " << *_p2 << "] ");
-}
-
-void Segment::accepte(ShapeVisitor* S) {
-	S->visite(this);
+	return(flux << "[" << *_p1 << "; " << *_p2 << "] ");
 }

@@ -1,13 +1,11 @@
 #pragma once
-#include "ShapeVisitor.h"
-#include "Group.h"
+#include "ShapeManagerVisitor.h"
 
-// to draw with the java server
-class DrawServerVisitor : public ShapeVisitor {
+
+class DrawServerVisitor : public ShapeManagerVisitor {
 
 public:
 
-	void visite(Shape* S);
-	void visite(Group* G);
+	void visite(ShapesManager Sm);
 	
 };

@@ -4,7 +4,7 @@
 #include <sstream>
 #include "Vector2D.h"
 #include "ServerConnection.h"
-#include "ShapeVisitor.h"
+#include "ShapeManagerVisitor.h"
 
 
 using namespace std;
@@ -145,8 +145,6 @@ public:
 	* @return {string}  : reprensentation of this shape in string
 	*/
 	virtual string serialize() const;
-
-	
 
 	/**
 	* allows to make a translation using a translation vector

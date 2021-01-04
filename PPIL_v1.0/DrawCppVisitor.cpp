@@ -1,12 +1,8 @@
 #include "DrawCppVisitor.h"
 #include <iostream>
 #include <sstream>
+#include "ShapesManager.h"
 
-
-void DrawCppVisitor::visite(Shape* S){
-	std::cout << "Methode de dessin grace au visiteur pour une librairie graphique c++" << std::endl;
-}
-
-void DrawCppVisitor::visite(Group* G) {
+void DrawCppVisitor::visite(ShapesManager Sm) {
 	std::cout << "Methode de dessin grace au visiteur pour une librairie graphique c++" << std::endl;
 }

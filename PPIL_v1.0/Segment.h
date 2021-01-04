@@ -117,6 +117,4 @@ public:
 	* @return {ostream}      : return the output stream with the print of the circle
 	*/
 	ostream& print(ostream& flux) const;
-
-	void accepte(ShapeVisitor* S);
 };

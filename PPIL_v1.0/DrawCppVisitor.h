@@ -1,11 +1,10 @@
 #pragma once
-#include "ShapeVisitor.h"
-#include "Group.h"
+#include "ShapeManagerVisitor.h"
 
-class DrawCppVisitor : public ShapeVisitor {
+
+class DrawCppVisitor : public ShapeManagerVisitor {
 	
 	public:
 	
-		void visite(Shape* S);
-		void visite(Group* G);
+		void visite(ShapesManager Sm);
 };

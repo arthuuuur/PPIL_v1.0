@@ -9,8 +9,9 @@
 #include "Error.h"
 #include "ServerConnection.h"
 #include "DrawCppVisitor.h"
-#include "ShapeVisitor.h"
+#include "ShapeManagerVisitor.h"
 #include "DrawServerVisitor.h"
+#include "ShapesManager.h"
 
 using namespace std;
 
@@ -27,14 +28,12 @@ int main() {
 	listVector.push_back(v3);
 	listVector.push_back(v4);
 	s1 = new ConvexPolygon("orange", listVector);
-	
 	Shape* s2;
 	s2 = new Triangle("pink", 1, 2, 3, 0, 5, 9);
 
-	Group World("WHITE");
-	World.addShape(s1);
-	World.addShape(s2);
+	
 	Group s3("green");
+	
 	Shape* s4, * s5;
 	s4 = new Segment(1, 4, 8, 9);
 	s5 = new Circle("Purple", 4, 9, 8);
@@ -42,21 +41,22 @@ int main() {
 	s3.addShape(s4);
 	s3.addShape(s5);
 
-	World.addGroup(s3);
 
 	ServerConnection* client;
 	client = ServerConnection::getInstance();
 	client->openConnection();
 
-	ShapeVisitor* drawWithJavaServer;
+	ShapeManagerVisitor* drawWithJavaServer;
 	drawWithJavaServer = new DrawServerVisitor;
-	World.accepte(drawWithJavaServer);
-	
-	Segment aa("red", 4, 5, 8, 6);
-	aa.accepte(drawWithJavaServer);
 
-	Triangle tt("black", listVector);
-	tt.accepte(drawWithJavaServer);
+	ShapesManager * sm;
+	sm = new ShapesManager();
+	sm->addGroup(s3);
+	sm->addShape(s1);
+	sm->addShape(s2);
+	cout << endl << *sm << endl << endl;
+
+	sm->accepte(drawWithJavaServer);
 
 
 	//client->closeConnection(); commenté pour eviter que le serveur java ecoute en boucle le port utilisé 

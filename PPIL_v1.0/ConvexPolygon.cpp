@@ -49,13 +49,9 @@ const double ConvexPolygon::getArea() const {
 ostream& ConvexPolygon::print(ostream& flux) const {
 	flux << "ConvexPolygon ";
 	Shape::print(flux);
-	flux << " < ";
+	flux << "<";
 	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
 		flux << " " << *it << " ";
 	}
 	return flux << ">";
-}
-
-void ConvexPolygon::accepte(ShapeVisitor* S) {
-	S->visite(this);
 }
