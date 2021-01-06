@@ -50,7 +50,7 @@ string Circle::serialize() const {
 		color = _shapeColor;
 	}
 	ostringstream os;
-	os << "type;2;ID;" << ID << ";color;" << color << ";center;" << center->getX() << ";" << center->getY() << ";radius;" << _radius;
+	os << "type;2;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << color << ";groupColor;" << _groupColor << ";center;" << center->getX() << ";" << center->getY() << ";radius;" << _radius;
 	return os.str();
 }
 

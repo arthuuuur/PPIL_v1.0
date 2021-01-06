@@ -13,6 +13,10 @@ class Shape {
 
 	friend class DrawServerVisitor;
 	friend class Group;
+	friend class SegmentDetector;
+	friend class CircleDetector;
+	friend class PolygonDetector;
+	friend class ShapesManager;
 
 protected:
 	/**
@@ -40,12 +44,18 @@ protected:
 	*/
 	int ID;
 
+	int groupID;
+
 	/**
 	* the number of shape currently create to give the right id to the new shape
 	*/
 	static int nbID;
 
 	void draw();
+
+	void setGroupID(int GID);
+
+	void setID(int id);
 
 public:
 	/**
@@ -133,6 +143,8 @@ public:
 	* @return {int}  : the id of the shape
 	*/
 	const int getID() const;
+
+	const int getGroupID() const;
 
 	/**
 	* calculates and initializes the center of gravity of the shape

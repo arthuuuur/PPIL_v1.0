@@ -10,6 +10,7 @@ Group::Group(string groupColor, vector<Shape*> F) : Shape(groupColor) {
 			}
 			(*it)->setIsGrouped(true);
 			(*it)->setGroupColor(_groupColor);
+			(*it)->setGroupID(this->getGroupID());
 			listShapes.push_back(*it);
 		}
 	}
@@ -22,6 +23,7 @@ Group::Group(string groupColor, vector<Shape*> F) : Shape(groupColor) {
 Group::Group(string groupColor) {
 	_groupColor = groupColor;
 	_shapeColor = groupColor;
+	groupID = ID;
 }
 
 Group::Group(const Group& G) : listShapes(G.listShapes) {}
@@ -36,6 +38,7 @@ void Group::addShape(Shape* F) {
 		}
 		F->setIsGrouped(true);
 		F->setGroupColor(_groupColor);
+		F->setGroupID(this->getID());
 		listShapes.push_back(F);
 	}
 	catch (exception const& err) {
@@ -48,6 +51,7 @@ void Group::addGroup(Group G)
 {
 	for (vector<Shape*>::iterator it = G.listShapes.begin(); it != G.listShapes.end(); it++) {
 		(*it)->setGroupColor(_groupColor);
+		(*it)->setGroupID(this->getGroupID());
 		listShapes.push_back(*it);
 	}
 }

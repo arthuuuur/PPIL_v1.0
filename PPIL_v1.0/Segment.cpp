@@ -58,7 +58,7 @@ string Segment::serialize() const {
 		color = _shapeColor;
 	}
 	ostringstream os;
-	os << "type;1;ID;" << ID << ";color;" << color << ";" << _p1->getX() << ";" << _p1->getY() << ";" << _p2->getX() << ";" << _p2->getY();
+	os << "type;1;ID;" << ID << ";groupID;" << groupID <<";shapeColor;" << color << ";groupColor;" << _groupColor << ";nbPoint;2;list;" << _p1->getX() << ";" << _p1->getY() << ";" << _p2->getX() << ";" << _p2->getY();
 	return os.str();
 }
 

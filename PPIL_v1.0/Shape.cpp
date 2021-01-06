@@ -5,11 +5,13 @@ int Shape::nbID = 0;
 
 Shape::Shape(string shapeColor, bool state) : _shapeColor(shapeColor), _isGrouped(state), _groupColor(shapeColor) {
 	ID = ++nbID;
+	groupID = -1;
 	gravityCenter = new Vector2D(0, 0);
 }
 
 Shape::Shape(const Shape& F) {
 	ID = ++nbID;
+	groupID = F.groupID;
 	_shapeColor = F._shapeColor;
 	_groupColor = F._groupColor;
 	_isGrouped = F._isGrouped;
@@ -68,6 +70,11 @@ const int Shape::getID() const {
 	return ID;
 }
 
+const int Shape::getGroupID() const
+{
+	return groupID;
+}
+
 string Shape::serialize() const {
 	return nullptr;
 }
@@ -100,6 +107,15 @@ void Shape::draw() {
 	}
 }
 
+void Shape::setGroupID(int GID) {
+	groupID = GID;
+}
+
+void Shape::setID(int id)
+{
+	ID = id;
+}
+
 void Shape::translation(double ax, double ay) {}
 
 void Shape::homothety(double ax, double bx, double k) {}
@@ -107,7 +123,7 @@ void Shape::homothety(double ax, double bx, double k) {}
 void Shape::rotation(double ax, double ay, double angle) {}
 
 ostream& Shape::print(ostream& flux) const {
-	flux << _shapeColor << " | id = " << ID << "| ";
+	flux << _shapeColor << " | id = " << ID << " | groupID = " << groupID << " | ";
 	return flux;
 }
 

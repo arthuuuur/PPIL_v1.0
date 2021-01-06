@@ -140,14 +140,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="CircleDetector.h" />
     <ClInclude Include="ConvexPolygon.h" />
     <ClInclude Include="DrawServerVisitor.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="Polygon.h" />
+    <ClInclude Include="PolygonDetector.h" />
     <ClInclude Include="Segment.h" />
+    <ClInclude Include="SegmentDetector.h" />
     <ClInclude Include="ServerConnection.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Group.h" />
+    <ClInclude Include="ShapeDetector.h" />
+    <ClInclude Include="ShapeDetectorCOR.h" />
     <ClInclude Include="ShapesManager.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector2D.h" />
@@ -156,18 +161,25 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="CircleDetector.cpp" />
     <ClCompile Include="ConvexPolygon.cpp" />
     <ClCompile Include="DrawCppVisitor.cpp" />
     <ClCompile Include="DrawServerVisitor.cpp" />
     <ClCompile Include="Polygon.cpp" />
+    <ClCompile Include="PolygonDetector.cpp" />
     <ClCompile Include="Segment.cpp" />
+    <ClCompile Include="SegmentDetector.cpp" />
     <ClCompile Include="ServerConnection.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Group.cpp" />
+    <ClCompile Include="ShapeDetector.cpp" />
     <ClCompile Include="ShapesManager.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vector2D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="save1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

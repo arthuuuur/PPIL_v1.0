@@ -32,16 +32,14 @@ int main() {
 	s2 = new Triangle("pink", 1, 2, 3, 0, 5, 9);
 
 	
-	Group s3("green");
+	Group *s3 = new Group("green");
 	
 	Shape* s4, * s5;
 	s4 = new Segment(1, 4, 8, 9);
 	s5 = new Circle("Purple", 4, 9, 8);
 
-	s3.addShape(s4);
-	s3.addShape(s5);
-
-
+	s3->addShape(s4);
+	s3->addShape(s5);
 	ServerConnection* client;
 	client = ServerConnection::getInstance();
 	client->openConnection();
@@ -54,7 +52,16 @@ int main() {
 	sm->addGroup(s3);
 	sm->addShape(s1);
 	sm->addShape(s2);
-	cout << endl << *sm << endl << endl;
+	
+	//cout << endl << *sm << endl << endl;
+	
+	sm->save("save1.txt");
+
+	sm->clean();
+
+	sm->load("save1.txt");
+
+	//cout << endl << *sm << endl << endl;
 
 	sm->accepte(drawWithJavaServer);
 
