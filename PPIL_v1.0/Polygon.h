@@ -7,13 +7,15 @@
 using namespace std;
 
 class Polygon : public Shape {
+
 protected:
 	/**
-	* @param  {} : the list of the points of the polygon
+	* @param  {} : The list of polygon's points
 	*/
 	vector<Vector2D> listPoints;
 
 public:
+	
 	/**
 	* Polygon
 	*/
@@ -22,7 +24,7 @@ public:
 	/**
 	* Polygon
 	*
-	* @param  {vector<Vector2D>} S : the list of the points of the polygon
+	* @param  {vector<Vector2D>} S : The list of polygon's points
 	*/
 	Polygon(vector<Vector2D> S);
 
@@ -32,51 +34,53 @@ public:
 	virtual ~Polygon();
 
 	/**
-	* @return {double}  : the area of the polygon
+	* Calculate the area of the polygon
+	* 
+	* @return {double}  : The area of the polygon
 	*/
 	virtual const double getArea() const = 0;
 
 	/**
-	* calculates and initializes the center of gravity of the polygon
+	* Calculate and initialize the gravity center of the polygon
 	*/
 	void gravity();
 
 	/**
-	* conversion from polygon to string
+	* Conversion from polygon to string
 	*
-	* @return {string}  : reprensentation of this polygon in string
+	* @return {string}  : Reprensentation of this polygon in string
 	*/
 	string serialize() const;
 
 	/**
-	* allows to make a translation using a translation vector
+	* Allows to make a translation using a translation vector
 	*
-	* @param  {double} ax : the abscisse of the translation vector
-	* @param  {double} ay : the ordinate of the translation vector
+	* @param  {double} ax : The abscisse of the translation vector
+	* @param  {double} ay : The ordinate of the translation vector
 	*/
 	void translation(double ax, double ay);
 
 	/**
-	* allows to make a translation using an invariant point and a homothety ratio
+	* Allows to make a translation using an invariant point and a homothety ratio
 	*
-	* @param  {double} ax : the abscisse of the translation vector
-	* @param  {double} ay : the ordinate of the translation vector
-	* @param  {double} k  : the homothety ratio
+	* @param  {double} ax : The abscisse of the translation vector
+	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {double} k  : The homothety ratio
 	*/
 	void homothety(double ax, double ay, double k);
 
 	/**
-	* allows to make a rotation using an invariant point and a rotation angle
+	* Allows to make a rotation using an invariant point and a rotation angle
 	*
-	* @param  {double} ax    : the abscisse of the translation vector
-	* @param  {double} ay    : the ordinate of the translation vector
-	* @param  {double} angle : the angle of the rotation in degrees
+	* @param  {double} ax    : The abscisse of the translation vector
+	* @param  {double} ay    : The ordinate of the translation vector
+	* @param  {double} angle : The angle of the rotation in degrees
 	*/
 	void rotation(double ax, double ay, double angle);
 
 	/**
-	* @param  {ostream} flux : the output stream
-	* @return {ostream}      : return the output stream with the print of the polygon
+	* @param  {ostream} flux : The output stream
+	* @return {ostream}      : Return the output stream with the print of the polygon
 	*/
 	virtual ostream& print(ostream& flux) const;
 };

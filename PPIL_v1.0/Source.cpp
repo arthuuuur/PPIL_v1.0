@@ -16,7 +16,6 @@
 using namespace std;
 
 int main() {
-
 	Shape* s1;
 	vector<Vector2D> listVector;
 	Vector2D v1(1, 1);
@@ -31,9 +30,8 @@ int main() {
 	Shape* s2;
 	s2 = new Triangle("pink", 1, 2, 3, 0, 5, 9);
 
-	
-	Group *s3 = new Group("green");
-	
+	Group* s3 = new Group("green");
+
 	Shape* s4, * s5;
 	s4 = new Segment(1, 4, 8, 9);
 	s5 = new Circle("Purple", 4, 9, 8);
@@ -47,14 +45,14 @@ int main() {
 	ShapeManagerVisitor* drawWithJavaServer;
 	drawWithJavaServer = new DrawServerVisitor;
 
-	ShapesManager * sm;
+	ShapesManager* sm;
 	sm = new ShapesManager();
 	sm->addGroup(s3);
 	sm->addShape(s1);
 	sm->addShape(s2);
-	
+
 	//cout << endl << *sm << endl << endl;
-	
+
 	sm->save("save1.txt");
 
 	sm->clean();
@@ -65,7 +63,5 @@ int main() {
 
 	sm->accepte(drawWithJavaServer);
 
-
-	//client->closeConnection(); commenté pour eviter que le serveur java ecoute en boucle le port utilisé 
-
+	//client->closeConnection(); commenté pour eviter que le serveur java ecoute en boucle le port utilisé
 }

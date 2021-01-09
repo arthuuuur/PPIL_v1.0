@@ -2,10 +2,8 @@
 
 class ShapesManager;
 
+class ShapeManagerVisitor {
+public:
 
-class ShapeManagerVisitor{
-
-	public:
-	
-		virtual void visite(ShapesManager Sm) = 0;	
+	virtual void visite(ShapesManager Sm) = 0;
 };

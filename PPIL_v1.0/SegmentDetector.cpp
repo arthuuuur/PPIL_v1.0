@@ -15,12 +15,11 @@ Shape* SegmentDetector::charge1(string D) const
 		y1 = stod(data[indexOf(data, "list") + 2]);
 		x2 = stod(data[indexOf(data, "list") + 3]);
 		y2 = stod(data[indexOf(data, "list") + 4]);
-		shape = new Segment(color, x1,y1,x2,y2);
+		shape = new Segment(color, x1, y1, x2, y2);
 		shape->setID(stoi(data[indexOf(data, "ID") + 1]));
 		shape->setGroupID(stoi(data[indexOf(data, "groupID") + 1]));
 		shape->setGroupColor(data[indexOf(data, "groupColor") + 1]);
 		return shape;
 	}
 	return NULL;
-
 }

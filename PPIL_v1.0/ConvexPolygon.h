@@ -3,11 +3,12 @@
 #include "Polygon.h"
 
 class ConvexPolygon : public Polygon {
+
 protected:
 
 	/**
 	* ConvexPolygon
-	* protected to prevent the user from creating an empty polygon
+	* Protected to prevent the user from creating an empty  convex polygon
 	*/
 	ConvexPolygon();
 
@@ -16,15 +17,15 @@ public:
 	/**
 	* ConvexPolygon
 	*
-	* @param  {vector<Vector2D>} S : the list of the points of the polygon
+	* @param  {vector<Vector2D>} S : The list of the convex polygon's points
 	*/
 	ConvexPolygon(vector<Vector2D> S);
 
 	/**
 	* ConvexPolygon
 	*
-	* @param  {string} shapeColor  : the color of the polygon
-	* @param  {vector<Vector2D>} S : the list of the points of the polygon
+	* @param  {string} shapeColor  : The color of the convex polygon
+	* @param  {vector<Vector2D>} S : The list of the the convex polygon's points
 	*/
 	ConvexPolygon(string shapeColor, vector<Vector2D> S);
 
@@ -34,7 +35,9 @@ public:
 	virtual	~ConvexPolygon();
 
 	/**
-	* @return {double}  : the area of the polygon
+	* Calculate the area of the convex polygon
+	* 
+	* @return {double}  : The area of the convex polygon
 	*/
 	virtual const double getArea() const;
 

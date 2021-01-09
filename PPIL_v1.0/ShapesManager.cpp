@@ -5,9 +5,7 @@
 
 using namespace std;
 
-
 ShapesManager::ShapesManager() {
-
 	ShapeDetector* Segment = new SegmentDetector(NULL);
 	ShapeDetector* Circle = new CircleDetector(Segment);
 	ShapeDetector* Polygon = new PolygonDetector(Circle);
@@ -46,7 +44,7 @@ void ShapesManager::addGroup(Group* G) {
 	}
 }
 
-void ShapesManager::removeShape(Shape *S) {
+void ShapesManager::removeShape(Shape* S) {
 	for (vector<Shape*>::const_iterator it = listShape.begin(); it != listShape.end(); it++) {
 		if ((*it)->getID() == S->getID()) {
 			listShape.erase(it);
@@ -63,7 +61,6 @@ void ShapesManager::removeGroup(Group* G) {
 		}
 	}
 }
-
 
 void ShapesManager::clean() {
 	listShape.clear();
@@ -86,7 +83,6 @@ void ShapesManager::save(string saveName) {
 			save << (*it)->serialize();
 			if (it != listShape.end() - 1)
 				save << "\n";
-			
 		}
 		if (!listShape.empty()) save << "\n";
 		for (vector<Group*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
@@ -102,7 +98,6 @@ void ShapesManager::save(string saveName) {
 		cout << err.what() << endl;
 		exit(-1);
 	}
-
 }
 
 void ShapesManager::load(string file) {
@@ -111,20 +106,20 @@ void ShapesManager::load(string file) {
 		if (!save) throw Error("failed to open file");
 		string line;
 		while (getline(save, line)) {
-			Shape * var = cor->charge(line);
+			Shape* var = cor->charge(line);
 			if (var != NULL) {
-				if (var->getGroupID() > -1 ) { // si une forme appartient à un group					
+				if (var->getGroupID() > -1) { // si une forme appartient à un group
 					bool here = false;
-						for (vector<Group*>::iterator it = listGroup.begin(); it != listGroup.end(); it++) { // on regarde si le group est deja la 
-							if ((*it)->getID() == var->getGroupID()) {
-								here = true;
-								if (here) {
-									(*it)->addShape(var);
-								}
+					for (vector<Group*>::iterator it = listGroup.begin(); it != listGroup.end(); it++) { // on regarde si le group est deja la
+						if ((*it)->getID() == var->getGroupID()) {
+							here = true;
+							if (here) {
+								(*it)->addShape(var);
 							}
 						}
+					}
 					if (!here) {
-						Group * G = new Group(var->getGroupColor());
+						Group* G = new Group(var->getGroupColor());
 						G->setGroupID(var->getGroupID());
 						G->setID(var->getGroupID());
 						G->addShape(var);
@@ -145,11 +140,9 @@ void ShapesManager::load(string file) {
 		cout << err.what() << endl;
 		exit(-1);
 	}
-	
-
 }
 
-void ShapesManager::accepte(ShapeManagerVisitor *S) {
+void ShapesManager::accepte(ShapeManagerVisitor* S) {
 	S->visite(*this);
 }
 

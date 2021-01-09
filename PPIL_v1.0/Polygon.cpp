@@ -54,10 +54,10 @@ string Polygon::serialize() const {
 		color = _shapeColor;
 	}
 	ostringstream os;
-	os << "type;3;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << color << ";groupColor;" << _groupColor << ";nbPoint;" << listPoints.size() <<";list;";
+	os << "type;3;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << color << ";groupColor;" << _groupColor << ";nbPoint;" << listPoints.size() << ";list;";
 	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
 		os << it->getX() << ";" << it->getY();
-		if (it != listPoints.end()-1)
+		if (it != listPoints.end() - 1)
 			os << ";";
 	}
 	return os.str();

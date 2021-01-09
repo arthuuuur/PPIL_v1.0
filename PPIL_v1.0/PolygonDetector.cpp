@@ -12,9 +12,9 @@ Shape* PolygonDetector::charge1(string D) const
 		string color = data[indexOf(data, "shapeColor") + 1];
 		double x, y;
 		vector<Vector2D> listPoints;
-		for (int i = 0; i < nbPoint *2; i+=2) {
+		for (int i = 0; i < nbPoint * 2; i += 2) {
 			x = stod(data[indexOf(data, "list") + 1 + i]);
-			y = stod(data[indexOf(data, "list") + 1 + i+1]);
+			y = stod(data[indexOf(data, "list") + 1 + i + 1]);
 			Vector2D* p = new Vector2D(x, y);
 			listPoints.push_back(*p);
 		}

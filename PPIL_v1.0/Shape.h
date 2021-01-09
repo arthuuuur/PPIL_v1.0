@@ -4,72 +4,68 @@
 #include <sstream>
 #include "Vector2D.h"
 #include "ServerConnection.h"
-#include "ShapeManagerVisitor.h"
-
 
 using namespace std;
 
 class Shape {
-
-	friend class DrawServerVisitor;
-	friend class Group;
-	friend class SegmentDetector;
-	friend class CircleDetector;
-	friend class PolygonDetector;
-	friend class ShapesManager;
-
+	
 protected:
+	
 	/**
-	* the color of the shape
+	* The color of the shape
+	* Red by default
 	*/
 	string _shapeColor;
 
 	/**
-	* the color of the shape when it is in a group
+	* The color of the shape when it is in a group
+	* The _shapeColor by default 
 	*/
 	string _groupColor;
 
 	/**
-	* true if the shape is in a groupe else false
+	* A flag to evaluate if the shape is grouped
+	* False by default 
 	*/
 	bool _isGrouped;
 
 	/**
-	* the point representing the center of gravity of the shape
+	* The point representing the center of gravity of the shape
+	* Initialized at the construction ofthe shape
 	*/
 	Vector2D* gravityCenter;
 
 	/**
-	* the id of the shape
+	* The number of shape currently create to give the right id to the new shape
+	* Incremented automatically at each new shape
+	*/
+	static int nbID;
+	
+	/**
+	* The id of the shape
+	* Automatically associated thanks to nbID
 	*/
 	int ID;
 
+	/*
+	* The id of the group in which the shape is
+	*/
 	int groupID;
 
-	/**
-	* the number of shape currently create to give the right id to the new shape
-	*/
-	static int nbID;
-
-	void draw();
-
-	void setGroupID(int GID);
-
-	void setID(int id);
-
 public:
+	
 	/**
 	* Shape
 	*
-	* @param  {string} shapeColor : the color of the shape
-	* @param  {bool} state        : if it is grouped or not
+	* @param  {string} shapeColor : The color of the shape
+	* @param  {bool} state        : If the shape is grouped or not
 	*/
 	Shape(string shapeColor = "red", bool state = false);
 
 	/**
 	* Shape
 	*
-	* @param  {Shape} F : the shape to be copied
+	* @param  {Shape} F : The shape to be copied
 	*/
 	Shape(const Shape& F);
 
@@ -79,108 +75,139 @@ public:
 	virtual ~Shape();
 
 	/**
-	* @return {string}  : the color of the shape
+	* Getter of shapeColor
+	* 
+	* @return {string}  : The color of the shape
 	*/
 	const string getShapeColor() const;
 
 	/**
-	*
-	* @param  {string} shapeColor : the new color of the shape
+	* Setter of shapeColor
+	* 
+	* @param  {string} shapeColor : The new color of the shape
 	*/
 	void setShapeColor(string shapeColor);
 
 	/**
-	*
-	* @return {string}  : the color of the group
+	* Getter of groupColor
+	* 
+	* @return {string}  : The color of the group
 	*/
 	const string getGroupColor() const;
 
 	/**
-	*
-	* @param  {string} groupColor : the new color of the group
+	* Setter of groupColor
+	* 
+	* @param  {string} groupColor : The new color of the group
 	*/
 	void setGroupColor(string groupColor);
 
 	/**
-	*
-	* @return {Vector2D}  : the center of gravity of the shape
+	* Getter of gravityCenter
+	* 
+	* @return {Vector2D}  : The center of gravity of the shape
 	*/
 	Vector2D getGravity() const;
 
 	/**
-	*
-	* @param  {double} x : abscissa of the center of gravity
-	* @param  {double} y : ordinate of the center of gravity
+	* Setter of gravityCenter
+	* 
+	* @param  {double} x : Abscissa of the center of gravity
+	* @param  {double} y : Ordinate of the center of gravity
 	*/
 	void setGravity(double x, double y);
 
 	/**
-	*
-	* @return {bool}  : true if it is grouped else false
+	* Getter of isGrouped
+	* 
+	* @return {bool}  : True if the shape is grouped, else false
 	*/
 	bool getIsGrouped() const;
 
 	/**
-	*
-	* @param  {bool}  : the new state of the shape ( grouped or not )
+	* Setter of isGrouped
+	* 
+	* @param  {bool}  : The new state of the shape
 	*/
 	void setIsGrouped(bool);
 
 	/**
-	*
-	* @return {double}  : the area of the shape
+	* Calculate the area of the shape
+	* 
+	* @return {double}  : The area of the shape
 	*/
 	virtual const double getArea() const = 0;
 
 	/**
-	*
-	* @return {int}  : the number of shape created
+	* Getter of nbID
+	* 
+	* @return {int}  : The number of shape created
 	*/
 	const int getNbID() const;
 
 	/**
-	*
-	* @return {int}  : the id of the shape
+	* Getter of ID
+	* 
+	* @return {int}  : The id of the shape
 	*/
 	const int getID() const;
 
+	/*
+	* Getter of groupID
+	* 
+	* @return {int}  : The groupID of the shape
+	*/
 	const int getGroupID() const;
 
+	/*
+	* Setter of ID
+	*
+	* @param {int} id  : The new ID of the shape
+	*/
+	void setID(int id);
+
+	/*
+	* Setter of groupID
+	*
+	* @param {int} GID  : The new groupID of the shape
+	*/
+	void setGroupID(int GID);
+
 	/**
-	* calculates and initializes the center of gravity of the shape
+	* Calculate and initialize the gravity center of the shape
 	*/
 	void gravity();
 
 	/**
-	* conversion from shape to string
+	* Conversion from Shape to string
 	*
-	* @return {string}  : reprensentation of this shape in string
+	* @return {string}  : Reprensentation of the shape in string
 	*/
 	virtual string serialize() const;
 
 	/**
-	* allows to make a translation using a translation vector
+	* Allows to make a translation using a translation vector
 	*
-	* @param  {double} ax : the abscisse of the translation vector
-	* @param  {double} ay : the ordinate of the translation vector
+	* @param  {double} ax : The abscisse of the translation vector
+	* @param  {double} ay : The ordinate of the translation vector
 	*/
 	virtual void translation(double ax, double ay);
 
 	/**
-	* allows to make a translation using an invariant point and a homothety ratio
+	* Allows to make a translation using an invariant point and a homothety ratio
 	*
-	* @param  {double} ax : the abscisse of the translation vector
-	* @param  {double} ay : the ordinate of the translation vector
-	* @param  {double} k  : the homothety ratio
+	* @param  {double} ax : The abscisse of the translation vector
+	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {double} k  : The homothety ratio
 	*/
 	virtual void homothety(double ax, double ay, double k);
 
 	/**
-	* allows to make a rotation using an invariant point and a rotation angle
+	* Allows to make a rotation using an invariant point and a rotation angle
 	*
-	* @param  {double} ax    : the abscisse of the translation vector
-	* @param  {double} ay    : the ordinate of the translation vector
-	* @param  {double} angle : the angle of the rotation in degrees
+	* @param  {double} ax    : The abscisse of the translation vector
+	* @param  {double} ay    : The ordinate of the translation vector
+	* @param  {double} angle : The angle of the rotation in degrees
 	*/
 	virtual void rotation(double ax, double ay, double angle);
 
@@ -193,8 +220,8 @@ public:
 	friend ostream& operator<<(ostream& flux, const Shape& c);
 
 	/**
-	* @param  {ostream} flux : the output stream
-	* @return {ostream}      : return the output stream with the print of the shape
+	* @param  {ostream} flux : The output stream
+	* @return {ostream}      : Return the output stream with the print of the shape
 	*/
 	virtual ostream& print(ostream& flux) const;
 };

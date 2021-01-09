@@ -5,38 +5,34 @@
 
 class Group : public Shape {
 
-	friend class DrawServerVisitor;
-
-
 protected:
+	
 	/**
-	 * the list of the shapes of the group
+	 * The list of the group's Shapes
 	 */
 	vector<Shape*> listShapes;
-
-	void draw();
 
 public:
 
 	/**
 	 * Group
 	 *
-	 * @param  {string} groupColor : the color of the group
-	 * @param  {vector<Shape*} >   : the list of the shapes of the group
+	 * @param  {string} groupColor : The color of the group
+	 * @param  {vector<Shape*} >   : The list of the group's Shapes
 	 */
 	Group(string groupColor, vector<Shape*> F);
 
 	/**
 	 * Group
 	 *
-	 * @param  {string} groupColor : the color of the group
+	 * @param  {string} groupColor : The color of the group
 	 */
 	Group(string groupColor);
 
 	/**
 	 * Group
 	 *
-	 * @param  {Group} G : the group to be copied
+	 * @param  {Group} G : The group to be copied
 	 */
 	Group(const Group& G);
 
@@ -46,51 +42,62 @@ public:
 	virtual ~Group();
 
 	/**
-	 * @param  {Shape*} F : the shape to add at the group
+	* Add a new Shape to the list of shapes
+	* 
+	 * @param  {Shape*} F : The shape to add at the group
 	 */
 	void addShape(Shape* F);
 
 	/**
-	 * @param  {Group} G : the group to add the group
+	* Add a new Group to the list of shapes
+	* 
+	 * @param  {Group} G : The group to add at the group
 	 */
 	void addGroup(Group G);
 
 	/**
-	 * @return {double}  : the sum of all the area of the shape in the group
+	* Calculate the area of all the shape is the group
+	* 
+	 * @return {double}  : The sum of all the area of the shape in the group
 	 */
 	const double getArea() const;
 
+	/*
+	* Getter of listShapes
+	* 
+	* @return {<vector>}  : The list of group's Shape
+	*/
 	vector<Shape*> getList();
 
 	/**
-	* allows to make a translation using a translation vector in all the shape of the group
+	* Allows to make a translation using a translation vector in all the shape of the group
 	*
-	* @param  {double} ax : the abscisse of the translation vector
-	* @param  {double} ay : the ordinate of the translation vector
+	* @param  {double} ax : The abscisse of the translation vector
+	* @param  {double} ay : The ordinate of the translation vector
 	*/
 	void translation(double ax, double ay);
 
 	/**
-	* allows to make a translation using an invariant point and a homothety ratio in all the shape of the group
+	* Allows to make a translation using an invariant point and a homothety ratio in all the shape of the group
 	*
-	* @param  {double} ax : the abscisse of the translation vector
-	* @param  {double} ay : the ordinate of the translation vector
-	* @param  {double} k  : the homothety ratio
+	* @param  {double} ax : The abscisse of the translation vector
+	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {double} k  : The homothety ratio
 	*/
 	void homothety(double ax, double ay, double k);
 
 	/**
-	* allows to make a rotation using an invariant point and a rotation angle in all the shape of the group
+	* Allows to make a rotation using an invariant point and a rotation angle in all the shape of the group
 	*
-	* @param  {double} ax    : the abscisse of the translation vector
-	* @param  {double} ay    : the ordinate of the translation vector
-	* @param  {double} angle : the angle of the rotation in degrees
+	* @param  {double} ax    : The abscisse of the translation vector
+	* @param  {double} ay    : The ordinate of the translation vector
+	* @param  {double} angle : The angle of the rotation in degrees
 	*/
 	void rotation(double ax, double ay, double angle);
 
 	/**
-	* @param  {ostream} flux : the output stream
-	* @return {ostream}      : return the output stream with the print of the group
+	* @param  {ostream} flux : The output stream
+	* @return {ostream}      : Return the output stream with the print of the group
 	*/
 	ostream& print(ostream& flux) const;
 };

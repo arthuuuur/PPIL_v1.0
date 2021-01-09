@@ -6,6 +6,42 @@ Vector2D::Vector2D(double x, double y) : x(x), y(y) {}
 
 Vector2D::~Vector2D() {}
 
+const Vector2D Vector2D::operator + (const Vector2D& u) const {
+	return Vector2D(x + u.x, y + u.y);
+}
+
+const Vector2D operator*(const double& a, const Vector2D& u) { // quelle est la difference entre la redefinition de cet operateur la et l'autre operateur* ?
+	return u * a;
+}
+
+const Vector2D Vector2D::operator* (const double& a) const { // quelle est la difference entre la redefinition de cet operateur la et l'autre operateur* ?
+	return Vector2D(x * a, y * a);
+}
+
+const Vector2D Vector2D::operator - () const {
+	return Vector2D(-x, -y);
+}
+
+bool Vector2D::operator==(Vector2D& v2) {
+	return x == v2.getX() && y == v2.getY();
+}
+
+bool Vector2D::operator!=(Vector2D& v2) {
+	return !(x == v2.getX() && y == v2.getY());
+}
+
+const Vector2D operator -(const Vector2D& u, const Vector2D& v) {
+	return Vector2D(u.getX() - v.getX(), u.getY() - v.getY());
+}
+
+const double Vector2D::getX() const {
+	return x;
+}
+
+const double Vector2D::getY() const {
+	return y;
+}
+
 const void Vector2D::setX(double a) {
 	x = a;
 }

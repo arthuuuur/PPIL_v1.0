@@ -44,8 +44,7 @@ ServerConnection::ServerConnection() {
 
 ServerConnection::~ServerConnection() {}
 
-ServerConnection* ServerConnection::getInstance()
-{
+ServerConnection* ServerConnection::getInstance() {
 	lock_guard<mutex> lock(_mutex);
 	if (_client == nullptr)
 	{
@@ -86,7 +85,6 @@ void ServerConnection::closeConnection() {
 	}
 }
 
-SOCKET ServerConnection::getSocket()
-{
+SOCKET ServerConnection::getSocket() {
 	return _sock;
 }

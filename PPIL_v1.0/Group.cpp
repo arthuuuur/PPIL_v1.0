@@ -28,8 +28,7 @@ Group::Group(string groupColor) {
 
 Group::Group(const Group& G) : listShapes(G.listShapes) {}
 
-Group::~Group() {
-}
+Group::~Group() {}
 
 void Group::addShape(Shape* F) {
 	try {
@@ -47,8 +46,7 @@ void Group::addShape(Shape* F) {
 	}
 }
 
-void Group::addGroup(Group G)
-{
+void Group::addGroup(Group G) {
 	for (vector<Shape*>::iterator it = G.listShapes.begin(); it != G.listShapes.end(); it++) {
 		(*it)->setGroupColor(_groupColor);
 		(*it)->setGroupID(this->getGroupID());
@@ -64,15 +62,8 @@ const double Group::getArea() const {
 	return area;
 }
 
-vector<Shape*> Group::getList()
-{
+vector<Shape*> Group::getList() {
 	return listShapes;
-}
-
-void Group::draw() {
-	for (vector<Shape*>::iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		(*it)->draw();
-	}
 }
 
 void Group::translation(double ax, double ay) {

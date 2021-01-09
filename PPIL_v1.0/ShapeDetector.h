@@ -4,7 +4,6 @@
 #include "ShapeDetectorCOR.h"
 
 class ShapeDetector : public ShapeDetectorCOR {
-
 public:
 	ShapeDetector* next;
 	Shape* charge(string data) const;

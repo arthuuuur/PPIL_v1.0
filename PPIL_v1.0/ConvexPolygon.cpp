@@ -3,8 +3,7 @@
 #include "Error.h"
 #include "Segment.h"
 
-ConvexPolygon::ConvexPolygon(vector<Vector2D> S) :Polygon(S) {
-}
+ConvexPolygon::ConvexPolygon(vector<Vector2D> S) :Polygon(S) {}
 
 ConvexPolygon::ConvexPolygon(string shapeColor, vector<Vector2D> S) : Polygon(S) {
 	_shapeColor = shapeColor;

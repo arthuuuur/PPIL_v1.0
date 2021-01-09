@@ -26,13 +26,11 @@ const double Circle::getArea() const {
 	return M_PI * pow(_radius, 2);
 }
 
-Vector2D Circle::getCenter() const
-{
+Vector2D Circle::getCenter() const {
 	return *center;
 }
 
-const double Circle::getRadius() const
-{
+const double Circle::getRadius() const {
 	return _radius;
 }
 

@@ -70,8 +70,7 @@ const int Shape::getID() const {
 	return ID;
 }
 
-const int Shape::getGroupID() const
-{
+const int Shape::getGroupID() const {
 	return groupID;
 }
 
@@ -79,40 +78,11 @@ string Shape::serialize() const {
 	return nullptr;
 }
 
-void Shape::draw() {
-	try {
-		int err;
-		string str = this->serialize();
-		//cout << str << endl;
-		char cstr[BUFSIZ];
-		strcpy_s(cstr, sizeof(cstr), str.c_str());
-		strcat_s(cstr, "\r\n");
-		err = send(ServerConnection::getInstance()->getSocket(), cstr, strlen(cstr), 0);
-		if (err == SOCKET_ERROR) {
-			throw Error("failure to send the requeste");
-		}
-
-		char reponse[BUFSIZ];
-		err = recv(ServerConnection::getInstance()->getSocket(), reponse, strlen(cstr), 0);
-		if (err == SOCKET_ERROR) {
-			throw Error("failure to receive the response");
-		}
-		char* p = strchr(reponse, '\n');
-		*p = '\0';
-		cout << reponse << endl;
-	}
-	catch (exception const& err) {
-		cout << err.what() << endl;
-		exit(-1);
-	}
-}
-
 void Shape::setGroupID(int GID) {
 	groupID = GID;
 }
 
-void Shape::setID(int id)
-{
+void Shape::setID(int id) {
 	ID = id;
 }
 
@@ -130,4 +100,3 @@ ostream& Shape::print(ostream& flux) const {
 ostream& operator<<(ostream& flux, const Shape& c) {
 	return c.print(flux);
 }
-

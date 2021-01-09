@@ -13,82 +13,81 @@ using namespace std;
 * A singleton pattern to initialize only once this class to have only one communication with the server
 */
 class ServerConnection {
-	
-	private:
-		
-		/**
-		* The only instance of this class 
-		*/
-		static ServerConnection* _client;
-		/**
-		* To ensure mutual exclusion if two threads want to instantiate this class at the same time
-		*/
-		static mutex _mutex; 
 
-	public:
+private:
 
-		/**
-		* < the structure that contains information about the Windows Sockets implementation
-		*/
-		WSADATA _wsadata;
+	/**
+	* The only instance of this class
+	*/
+	static ServerConnection* _client;
+	/**
+	* To ensure mutual exclusion if two threads want to instantiate this class at the same time
+	*/
+	static mutex _mutex;
 
-		/**
-		* < the socket for communicate with the server
-		*/
-		SOCKET _sock;
+public:
 
-		/**
-		* < the structure that contains information about the server adress, the port, and the protocole
-		*/
-		SOCKADDR_IN _sockaddr;
+	/**
+	* The structure that contains information about the Windows Sockets implementation
+	*/
+	WSADATA _wsadata;
 
-		/**
-		* ServerConnection
-		*
-		* initialize the WSADATA structure, the SOCKADDRIN structure and the SOCKET
-		*/
-		ServerConnection();
+	/**
+	* The socket for communicate with the server
+	*/
+	SOCKET _sock;
 
-		/**
-		* ~ServerConnection
-		*/
-		~ServerConnection();
+	/**
+	* The structure that contains information about the server adress, the port, and the protocole
+	*/
+	SOCKADDR_IN _sockaddr;
 
-	public:
-		
-		/**
-		* This class should not be cloneable
-		*/
-		ServerConnection(ServerConnection& other) = delete;
-		
-		/**
-		* this class should not be assignable
-		*/
-		void operator=(const ServerConnection&) = delete;
-	
-		/**
-		* This is the method that create the only object of this class on the first run. 
-		* On subsequents runs, it returns the existing object stored in the static field
-		* 
-		* @return {ServerConection}  : The only instance of this class
-		*/
-		static ServerConnection* getInstance();
+	/**
+	* ServerConnection
+	*
+	* Initialize the WSADATA structure, the SOCKADDRIN structure and the SOCKET
+	*/
+	ServerConnection();
 
-		/**
-		* open the connection to the server
-		*/
-		void openConnection();
+	/**
+	* ~ServerConnection
+	*/
+	~ServerConnection();
 
-		/**
-		* close the connection to the server
-		*/
-		void closeConnection();
+public:
 
-		/**
-		* @return {SOCKET}  : the socket structure 
-		*/
-		SOCKET getSocket();
+	/**
+	* This class should not be cloneable
+	*/
+	ServerConnection(ServerConnection& other) = delete;
+
+	/**
+	* This class should not be assignable
+	*/
+	void operator=(const ServerConnection&) = delete;
+
+	/**
+	* This is the method that create the only object of this class on the first run.
+	* On subsequents runs, it returns the existing object stored in the static field
+	*
+	* @return {ServerConection}  : The only instance of this class
+	*/
+	static ServerConnection* getInstance();
+
+	/**
+	* Open the connection to the server
+	*/
+	void openConnection();
+
+	/**
+	* Close the connection to the server
+	*/
+	void closeConnection();
+
+	/**
+	* Getter of _sock
+	* 
+	* @return {SOCKET}  : The socket structure
+	*/
+	SOCKET getSocket();
 };
-
-
-
