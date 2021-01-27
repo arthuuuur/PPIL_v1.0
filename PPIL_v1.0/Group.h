@@ -20,19 +20,19 @@ public:
 	 * @param  {string} groupColor : The color of the group
 	 * @param  {vector<Shape*} >   : The list of the group's Shapes
 	 */
-	Group(string groupColor, vector<Shape*> F);
+	Group(const string groupColor, vector<Shape*> F);
 
 	/**
 	 * Group
 	 *
 	 * @param  {string} groupColor : The color of the group
 	 */
-	Group(string groupColor);
+	Group(const string groupColor);
 
 	/**
 	 * Group
 	 *
-	 * @param  {Group} G : The group to be copied
+	 * @param  {Group&} G : The group to be copied
 	 */
 	Group(const Group& G);
 
@@ -44,19 +44,33 @@ public:
 	/**
 	* Add a new Shape to the list of shapes
 	* 
-	 * @param  {Shape*} F : The shape to add at the group
-	 */
+	* @param  {Shape*} F : The shape to be added to the list
+	*/
 	void addShape(Shape* F);
 
 	/**
-	* Add a new Group to the list of shapes
+	* Add all the shapes of a group to the list of shapes
 	* 
-	 * @param  {Group} G : The group to add at the group
-	 */
-	void addGroup(Group G);
+	* @param  {Group*} G : The group of shape to be added to the list
+	*/
+	void addGroup(Group * G);
 
 	/**
-	* Calculate the area of all the shape is the group
+	* Remove a shape to the list of shapes
+	*
+	 * @param  {Shape*} F : The shape to be removed of the list
+	 */
+	void removeShape(Shape * S);
+	
+	/**
+	* Remove all the shapes of a specific group to the list of shapes
+	*
+	 * @param  {Group*} G : The group of shape to be removed to the list
+	 */
+	void removeGroup(Group * G);
+
+	/**
+	* Calculate the area of all the shapes in the group
 	* 
 	 * @return {double}  : The sum of all the area of the shape in the group
 	 */
@@ -65,7 +79,7 @@ public:
 	/*
 	* Getter of listShapes
 	* 
-	* @return {<vector>}  : The list of group's Shape
+	* @return {<vector>}  : The list of group's shape
 	*/
 	vector<Shape*> getList();
 
@@ -75,7 +89,7 @@ public:
 	* @param  {double} ax : The abscisse of the translation vector
 	* @param  {double} ay : The ordinate of the translation vector
 	*/
-	void translation(double ax, double ay);
+	void translation(const double ax, const double ay);
 
 	/**
 	* Allows to make a translation using an invariant point and a homothety ratio in all the shape of the group
@@ -84,16 +98,16 @@ public:
 	* @param  {double} ay : The ordinate of the translation vector
 	* @param  {double} k  : The homothety ratio
 	*/
-	void homothety(double ax, double ay, double k);
+	void homothety(const double ax, const double ay, const double k);
 
 	/**
 	* Allows to make a rotation using an invariant point and a rotation angle in all the shape of the group
 	*
 	* @param  {double} ax    : The abscisse of the translation vector
 	* @param  {double} ay    : The ordinate of the translation vector
-	* @param  {double} angle : The angle of the rotation in degrees
+	* @param  {double} angle : The angle of the rotation in degree
 	*/
-	void rotation(double ax, double ay, double angle);
+	void rotation(const double ax, const double ay, const double angle);
 
 	/**
 	* @param  {ostream} flux : The output stream

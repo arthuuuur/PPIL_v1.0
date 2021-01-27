@@ -11,9 +11,9 @@ class Circle : public Shape {
 private:
 
 	/**
-	* The point representing the center of the circle
+	* The center of the circle
 	*/
-	Vector2D* center;
+	Vector2D* _center;
 
 	/**
 	* The radius of the circle
@@ -25,11 +25,11 @@ public:
 	/**
 	* Circle
 	*
-	* @param  {double} x      : Abscissa of the center
-	* @param  {double} y      : Ordinate of the center
-	* @param  {double} radius : Radius of the center
+	* @param  {double} x      : The abscissa of the center
+	* @param  {double} y      : The ordinate of the center
+	* @param  {double} radius : The radius of the circle
 	*/
-	Circle(double x, double y, double radius);
+	Circle(const double x, const double y, const double radius);
 
 	/**
 	* Circle
@@ -37,14 +37,14 @@ public:
 	* @param  {string} shapeColor : The color of the circle
 	* @param  {double} x          : The abscissa of the center
 	* @param  {double} y          : The ordinate of the center
-	* @param  {double} radius     : The radius of the center
+	* @param  {double} radius     : The radius of the circle
 	*/
-	Circle(string shapeColor, double x, double y, double radius);
+	Circle(const string shapeColor, const double x, const double y, const double radius);
 
 	/**
 	* Circle
 	*
-	* @param  {Circle} c : The circle to be copied
+	* @param  {Circle&} c : The circle to be copied
 	*/
 	Circle(const Circle& c);
 
@@ -54,6 +54,8 @@ public:
 	~Circle();
 
 	/**
+	* Calculate the area of the circle
+	* 
 	* @return {double}  : The area of the circle
 	*/
 	const double getArea() const;
@@ -61,7 +63,7 @@ public:
 	/**
 	* Getter of center
 	* 
-	* @return {Vector2D}  : The center of the circle
+	* @return {Vector2D*}  : The center of the circle
 	*/
 	Vector2D getCenter() const;
 
@@ -78,7 +80,7 @@ public:
 	void gravity();
 
 	/**
-	* Conversion from Circle to string
+	* Conversion of Circle into string
 	*
 	* @return {string}  : Reprensentation of the circle in string
 	*/
@@ -90,7 +92,7 @@ public:
 	* @param  {double} ax : The abscisse of the translation vector
 	* @param  {double} ay : The ordinate of the translation vector
 	*/
-	void translation(double ax, double ay);
+	void translation(const double ax, const double ay);
 
 	/**
 	* Allows to make a translation using an invariant point and a homothety ratio
@@ -99,16 +101,16 @@ public:
 	* @param  {double} ay : The ordinate of the translation vector
 	* @param  {double} k  : The homothety ratio
 	*/
-	void homothety(double ax, double ay, double k);
+	void homothety(const double ax, double ay, const double k);
 
 	/**
 	* Allows to make a rotation using an invariant point and a rotation angle
 	*
 	* @param  {double} ax    : The abscisse of the translation vector
 	* @param  {double} ay    : The ordinate of the translation vector
-	* @param  {double} angle : The angle of the rotation in degrees
+	* @param  {double} angle : The angle of the rotation in degree
 	*/
-	void rotation(double ax, double ay, double angle);
+	void rotation(const double ax, double ay, const double angle);
 
 	/**
 	* @param  {ostream} flux : The output stream

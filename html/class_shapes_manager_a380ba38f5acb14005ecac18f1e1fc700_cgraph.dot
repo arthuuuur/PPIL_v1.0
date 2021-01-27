@@ -1,0 +1,27 @@
+digraph "ShapesManager::load"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ShapesManager::load",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Group::addShape",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_group.html#a124cab187956ef0636f0206e0b5ceb82",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Shape::getID",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_shape.html#a16b3d7d47a4e6400301134849b16e1fe",tooltip=" "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Shape::getIsGrouped",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_shape.html#a8d6aa3aeb9391fb52ec048f875606b23",tooltip=" "];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Shape::setGroupColor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_shape.html#aa9cb958ff73825d8ade157cf946c8f9f",tooltip=" "];
+  Node2 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Shape::setGroupID",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_shape.html#a37cddc7b1712bd5fb401856b78662776",tooltip=" "];
+  Node2 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Shape::setIsGrouped",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_shape.html#adbbfb02c609d6764909bee9b48ec6b5e",tooltip=" "];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Shape::getGroupColor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_shape.html#a1049f707967456e54384dd47dc31bd49",tooltip=" "];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Shape::getGroupID",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_shape.html#a1fe03d9dccf93da0649794d943ea73b4",tooltip=" "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Shape::setID",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_shape.html#af09a378bef48529dbf371bad0cd77093",tooltip=" "];
+}

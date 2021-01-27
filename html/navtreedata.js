@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "PPIL_V1.0", "index.html", [
+  [ "My Project", "index.html", [
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -41,6 +41,7 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -49,7 +50,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_circle_8cpp.html"
+"_circle_8cpp.html",
+"class_vector2_d.html#ac4eab1a2d5e3daad35f636052106d550"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

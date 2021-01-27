@@ -25,23 +25,23 @@ public:
 	/**
 	* Segment
 	*
-	* @param  {double} p1x : Abscissa of the first point
-	* @param  {double} p1y : Ordinate of the first point
-	* @param  {double} p2x : Abscissa of the second point
-	* @param  {double} p2y : Ordinate of the second point
+	* @param  {double} p1x : The abscissa of the first point
+	* @param  {double} p1y : The ordinate of the first point
+	* @param  {double} p2x : The abscissa of the second point
+	* @param  {double} p2y : The ordinate of the second point
 	*/
-	Segment(double p1x, double p1y, double p2x, double p2y);
+	Segment(const double p1x, const double p1y, const double p2x, const double p2y);
 
 	/**
 	* Segment
 	*
 	* @param  {string} shapeColor : The color of the segment
-	* @param  {double} p1x        : Abscissa of the first point
-	* @param  {double} p1y        : Ordinate of the first point
-	* @param  {double} p2x        : Abscissa of the second point
-	* @param  {double} p2y        : Ordinate of the second point
+	* @param  {double} p1x        : The abscissa of the first point
+	* @param  {double} p1y        : The ordinate of the first point
+	* @param  {double} p2x        : The abscissa of the second point
+	* @param  {double} p2y        : The ordinate of the second point
 	*/
-	Segment(string shapeColor, double p1x, double p1y, double p2x, double p2y);
+	Segment(const string shapeColor, const double p1x, const double p1y, const double p2x, const double p2y);
 
 	/**
 	* Segment
@@ -84,14 +84,14 @@ public:
 	const double lenght() const;
 
 	/**
-	* calculates and initializes the gravity center of the circle
+	* calculates and initializes the gravity center of the segment
 	*/
 	void gravity();
 
 	/**
-	* Conversion from segment to string
+	* Conversion of segment into string
 	*
-	* @return {string}  : Reprensentation of this segment in string
+	* @return {string}  : Reprensentation of the segment in string
 	*/
 	string serialize() const;
 
@@ -101,7 +101,7 @@ public:
 	* @param  {double} ax : The abscisse of the translation vector
 	* @param  {double} ay : The ordinate of the translation vector
 	*/
-	void translation(double ax, double ay);
+	void translation(const double ax, const double ay);
 
 	/**
 	* Allows to make a translation using an invariant point and a homothety ratio
@@ -110,16 +110,16 @@ public:
 	* @param  {double} ay : The ordinate of the translation vector
 	* @param  {double} k  : The homothety ratio
 	*/
-	void homothety(double ax, double ay, double k);
+	void homothety(const double ax, const double ay, const double k);
 
 	/**
 	* Allows to make a rotation using an invariant point and a rotation angle
 	*
 	* @param  {double} ax    : The abscisse of the translation vector
 	* @param  {double} ay    : The ordinate of the translation vector
-	* @param  {double} angle : The angle of the rotation in degrees
+	* @param  {double} angle : The angle of the rotation in degree
 	*/
-	void rotation(double ax, double ay, double angle);
+	void rotation(const double ax, const double ay, const double angle);
 
 	/**
 	* @param  {ostream} flux : The output stream

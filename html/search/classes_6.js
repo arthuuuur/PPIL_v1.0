@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vector2d_99',['Vector2D',['../class_vector2_d.html',1,'']]]
+  ['triangle_168',['Triangle',['../class_triangle.html',1,'']]]
 ];

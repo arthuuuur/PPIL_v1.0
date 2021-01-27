@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['segment_95',['Segment',['../class_segment.html',1,'']]],
-  ['serverconnection_96',['ServerConnection',['../class_server_connection.html',1,'']]],
-  ['shape_97',['Shape',['../class_shape.html',1,'']]]
+  ['polygon_158',['Polygon',['../class_polygon.html',1,'']]],
+  ['polygondetector_159',['PolygonDetector',['../class_polygon_detector.html',1,'']]]
 ];

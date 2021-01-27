@@ -46,15 +46,8 @@ void Polygon::gravity() {
 }
 
 string Polygon::serialize() const {
-	string color;
-	if (_isGrouped) {
-		color = _groupColor;
-	}
-	else {
-		color = _shapeColor;
-	}
 	ostringstream os;
-	os << "type;3;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << color << ";groupColor;" << _groupColor << ";nbPoint;" << listPoints.size() << ";list;";
+	os << "type;3;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _groupColor << ";nbPoint;" << listPoints.size() << ";list;";
 	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
 		os << it->getX() << ";" << it->getY();
 		if (it != listPoints.end() - 1)
@@ -63,19 +56,19 @@ string Polygon::serialize() const {
 	return os.str();
 }
 
-void Polygon::translation(double ax, double ay) {
+void Polygon::translation(const double ax, const double ay) {
 	for (vector<Vector2D>::iterator it = listPoints.begin(); it != listPoints.end(); it++) {
 		it->translation(ax, ay);
 	}
 }
 
-void Polygon::homothety(double ax, double ay, double k) {
+void Polygon::homothety(const double ax, const double ay, const double k) {
 	for (vector<Vector2D>::iterator it = listPoints.begin(); it != listPoints.end(); it++) {
 		it->homothety(ax, ay, k);
 	}
 }
 
-void Polygon::rotation(double ax, double ay, double angle) {
+void Polygon::rotation(const double ax, const double ay, const double angle) {
 	for (vector<Vector2D>::iterator it = listPoints.begin(); it != listPoints.end(); it++) {
 		it->rotation(ax, ay, angle);
 	}

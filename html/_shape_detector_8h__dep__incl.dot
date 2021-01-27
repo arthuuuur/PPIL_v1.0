@@ -1,0 +1,34 @@
+digraph "PPIL_v1.0/ShapeDetector.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="PPIL_v1.0/ShapeDetector.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="PPIL_v1.0/CircleDetector.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_circle_detector_8h.html",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="PPIL_v1.0/CircleDetector.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_circle_detector_8cpp.html",tooltip=" "];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="PPIL_v1.0/ShapesManager.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_shapes_manager_8cpp.html",tooltip=" "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="PPIL_v1.0/PolygonDetector.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_polygon_detector_8h.html",tooltip=" "];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="PPIL_v1.0/PolygonDetector.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_polygon_detector_8cpp.html",tooltip=" "];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="PPIL_v1.0/SegmentDetector.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_segment_detector_8h.html",tooltip=" "];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="PPIL_v1.0/SegmentDetector.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_segment_detector_8cpp.html",tooltip=" "];
+  Node7 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="PPIL_v1.0/ShapeDetector.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_shape_detector_8cpp.html",tooltip=" "];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="PPIL_v1.0/ShapesManager.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_shapes_manager_8h.html",tooltip=" "];
+  Node10 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="PPIL_v1.0/DrawCppVisitor.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_draw_cpp_visitor_8cpp.html",tooltip=" "];
+  Node10 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="PPIL_v1.0/DrawServerVisitor.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_draw_server_visitor_8cpp.html",tooltip=" "];
+  Node10 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="PPIL_v1.0/Source.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_source_8cpp.html",tooltip=" "];
+}

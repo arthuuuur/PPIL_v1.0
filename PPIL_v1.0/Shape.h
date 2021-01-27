@@ -8,9 +8,9 @@
 using namespace std;
 
 class Shape {
-	
+ 
 protected:
-	
+
 	/**
 	* The color of the shape
 	* Red by default
@@ -31,7 +31,7 @@ protected:
 
 	/**
 	* The point representing the center of gravity of the shape
-	* Initialized at the construction ofthe shape
+	* Initialized at the construction of the shape
 	*/
 	Vector2D* gravityCenter;
 
@@ -55,17 +55,47 @@ protected:
 public:
 	
 	/**
+	* Red, one of the possible color for a shape
+	*/
+	static const string RED;
+	
+	/**
+	* Blue, one of the possible color for a shape
+	*/
+	static const string BLUE;
+	
+	/**
+	* Black, one of the possible color for a shape
+	*/
+	static const string BLACK;
+	
+	/**
+	* Green, one of the possible color for a shape
+	*/
+	static const string GREEN;
+	
+	/**
+	* Yellow, one of the possible color for a shape
+	*/
+	static const string YELLOW;
+	
+	/**
+	* Cyan, one of the possible color for a shape
+	*/
+	static const string CYAN;
+
+	/**
 	* Shape
 	*
 	* @param  {string} shapeColor : The color of the shape
 	* @param  {bool} state        : If the shape is grouped or not
 	*/
-	Shape(string shapeColor = "red", bool state = false);
+	Shape(const string shapeColor = Shape::RED, const bool state = false);
 
 	/**
 	* Shape
 	*
-	* @param  {Shape} F : The shape to be copied
+	* @param  {Shape&} F : The shape to be copied
 	*/
 	Shape(const Shape& F);
 
@@ -100,7 +130,7 @@ public:
 	* 
 	* @param  {string} groupColor : The new color of the group
 	*/
-	void setGroupColor(string groupColor);
+	void setGroupColor(const string groupColor);
 
 	/**
 	* Getter of gravityCenter
@@ -115,7 +145,7 @@ public:
 	* @param  {double} x : Abscissa of the center of gravity
 	* @param  {double} y : Ordinate of the center of gravity
 	*/
-	void setGravity(double x, double y);
+	void setGravity(const double x, const double y);
 
 	/**
 	* Getter of isGrouped
@@ -129,7 +159,7 @@ public:
 	* 
 	* @param  {bool}  : The new state of the shape
 	*/
-	void setIsGrouped(bool);
+	void setIsGrouped(const bool);
 
 	/**
 	* Calculate the area of the shape
@@ -164,14 +194,14 @@ public:
 	*
 	* @param {int} id  : The new ID of the shape
 	*/
-	void setID(int id);
+	void setID(const int id);
 
 	/*
 	* Setter of groupID
 	*
 	* @param {int} GID  : The new groupID of the shape
 	*/
-	void setGroupID(int GID);
+	void setGroupID(const int GID);
 
 	/**
 	* Calculate and initialize the gravity center of the shape
@@ -179,7 +209,7 @@ public:
 	void gravity();
 
 	/**
-	* Conversion from Shape to string
+	* Conversion of Shape into string
 	*
 	* @return {string}  : Reprensentation of the shape in string
 	*/
@@ -191,7 +221,7 @@ public:
 	* @param  {double} ax : The abscisse of the translation vector
 	* @param  {double} ay : The ordinate of the translation vector
 	*/
-	virtual void translation(double ax, double ay);
+	virtual void translation(const double ax, const double ay);
 
 	/**
 	* Allows to make a translation using an invariant point and a homothety ratio
@@ -200,16 +230,16 @@ public:
 	* @param  {double} ay : The ordinate of the translation vector
 	* @param  {double} k  : The homothety ratio
 	*/
-	virtual void homothety(double ax, double ay, double k);
+	virtual void homothety(const double ax, const double ay, const double k);
 
 	/**
 	* Allows to make a rotation using an invariant point and a rotation angle
 	*
 	* @param  {double} ax    : The abscisse of the translation vector
 	* @param  {double} ay    : The ordinate of the translation vector
-	* @param  {double} angle : The angle of the rotation in degrees
+	* @param  {double} angle : The angle of the rotation in degree
 	*/
-	virtual void rotation(double ax, double ay, double angle);
+	virtual void rotation(const double ax, const double ay, const double angle);
 
 	/**
 	*

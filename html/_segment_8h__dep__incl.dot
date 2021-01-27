@@ -9,7 +9,9 @@ digraph "PPIL_v1.0/Segment.h"
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node3 [label="PPIL_v1.0/Segment.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_segment_8cpp.html",tooltip=" "];
   Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="PPIL_v1.0/Source.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_source_8cpp.html",tooltip=" "];
+  Node4 [label="PPIL_v1.0/SegmentDetector.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_segment_detector_8cpp.html",tooltip=" "];
   Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="PPIL_v1.0/Triangle.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_triangle_8cpp.html",tooltip=" "];
+  Node5 [label="PPIL_v1.0/Source.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_source_8cpp.html",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="PPIL_v1.0/Triangle.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_triangle_8cpp.html",tooltip=" "];
 }

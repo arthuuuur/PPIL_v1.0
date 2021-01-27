@@ -2,7 +2,7 @@
 #define _USE_MATH_DEFINES // to get the constante M_PI with the <math.h> include
 #include <math.h>
 
-Vector2D::Vector2D(double x, double y) : x(x), y(y) {}
+Vector2D::Vector2D(const double x, const double y) : x(x), y(y) {}
 
 Vector2D::~Vector2D() {}
 
@@ -42,24 +42,24 @@ const double Vector2D::getY() const {
 	return y;
 }
 
-const void Vector2D::setX(double a) {
+const void Vector2D::setX(const double a) {
 	x = a;
 }
-const void Vector2D::setY(double a) {
+const void Vector2D::setY(const double a) {
 	y = a;
 }
 
-void Vector2D::translation(double ax, double ay) {
+void Vector2D::translation(const double ax, const double ay) {
 	x += ax;
 	y += ay;
 }
 
-void Vector2D::homothety(double ax, double ay, double k) {
+void Vector2D::homothety(const double ax, const double ay, const double k) {
 	x = (x - ax) * k + ax;
 	y = (y - ay) * k + ay;
 }
 
-void Vector2D::rotation(double ax, double ay, double angle) {
+void Vector2D::rotation(const double ax, const double ay, double angle) {
 	angle *= M_PI / 180.0;
 	double f = x - ax;
 	double g = y - ay;

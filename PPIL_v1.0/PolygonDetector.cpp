@@ -3,7 +3,7 @@
 
 PolygonDetector::PolygonDetector(ShapeDetector* next) :ShapeDetector(next) {}
 
-Shape* PolygonDetector::charge1(string D) const
+Shape* PolygonDetector::deserialize(const string D) const
 {
 	vector<string> data = split(D, ";");
 	if (data[indexOf(data, "type") + 1] == "3") {

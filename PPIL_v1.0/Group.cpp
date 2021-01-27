@@ -2,7 +2,7 @@
 #include "Error.h"
 #include <iostream>
 
-Group::Group(string groupColor, vector<Shape*> F) : Shape(groupColor) {
+Group::Group(const string groupColor, vector<Shape*> F) : Shape(groupColor) {
 	try {
 		for (vector<Shape*>::const_iterator it = F.begin(); it != F.end(); it++) {
 			if ((*it)->getIsGrouped() == true) {
@@ -20,7 +20,7 @@ Group::Group(string groupColor, vector<Shape*> F) : Shape(groupColor) {
 	}
 }
 
-Group::Group(string groupColor) {
+Group::Group(const string groupColor) {
 	_groupColor = groupColor;
 	_shapeColor = groupColor;
 	groupID = ID;
@@ -46,11 +46,26 @@ void Group::addShape(Shape* F) {
 	}
 }
 
-void Group::addGroup(Group G) {
-	for (vector<Shape*>::iterator it = G.listShapes.begin(); it != G.listShapes.end(); it++) {
+void Group::addGroup(Group *G) {
+	for (vector<Shape*>::iterator it = G->listShapes.begin(); it != G->listShapes.end(); it++) {
 		(*it)->setGroupColor(_groupColor);
 		(*it)->setGroupID(this->getGroupID());
 		listShapes.push_back(*it);
+	}
+}
+
+void Group::removeShape(Shape* S) {
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+		if ((*it)->getID() == S->getID()) {
+			listShapes.erase(it);
+			break;
+		}
+	}
+}
+
+void Group::removeGroup(Group * G) {
+	for (vector<Shape*>::iterator it = G->listShapes.begin(); it != G->listShapes.end(); it++) {
+		removeShape(*it);
 	}
 }
 
@@ -66,19 +81,19 @@ vector<Shape*> Group::getList() {
 	return listShapes;
 }
 
-void Group::translation(double ax, double ay) {
+void Group::translation(const double ax, const double ay) {
 	for (vector<Shape*>::iterator it = listShapes.begin(); it != listShapes.end(); it++) {
 		(*it)->translation(ax, ay);
 	}
 }
 
-void Group::homothety(double ax, double ay, double k) {
+void Group::homothety(const double ax, const double ay, const double k) {
 	for (vector<Shape*>::iterator it = listShapes.begin(); it != listShapes.end(); it++) {
 		(*it)->homothety(ax, ay, k);
 	}
 }
 
-void Group::rotation(double ax, double ay, double angle) {
+void Group::rotation(const double ax, const double ay, const double angle) {
 	for (vector<Shape*>::iterator it = listShapes.begin(); it != listShapes.end(); it++) {
 		(*it)->rotation(ax, ay, angle);
 	}

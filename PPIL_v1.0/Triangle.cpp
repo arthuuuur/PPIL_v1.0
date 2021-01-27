@@ -2,7 +2,7 @@
 #include "Segment.h"
 #include <cmath>
 
-Triangle::Triangle(double ax, double ay, double bx, double by, double cx, double cy) {
+Triangle::Triangle(const double ax, const double ay, const double bx, const double by, const double cx, const double cy) {
 	Vector2D v1(ax, ay);
 	Vector2D v2(bx, by);
 	Vector2D v3(cx, cy);
@@ -12,7 +12,7 @@ Triangle::Triangle(double ax, double ay, double bx, double by, double cx, double
 	gravity();
 }
 
-Triangle::Triangle(string shapeColor, double ax, double ay, double bx, double by, double cx, double cy) {
+Triangle::Triangle(const string shapeColor, const double ax, const double ay, const double bx, const double by, const double cx, const double cy) {
 	_shapeColor = shapeColor;
 	Vector2D v1(ax, ay);
 	Vector2D v2(bx, by);
@@ -25,7 +25,7 @@ Triangle::Triangle(string shapeColor, double ax, double ay, double bx, double by
 
 Triangle::Triangle(vector<Vector2D> S) : ConvexPolygon(S) {}
 
-Triangle::Triangle(string shapeColor, vector<Vector2D> S) : ConvexPolygon(S) {
+Triangle::Triangle(const string shapeColor, vector<Vector2D> S) : ConvexPolygon(S) {
 	_shapeColor = shapeColor;
 }
 

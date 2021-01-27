@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['circle_90',['Circle',['../class_circle.html',1,'']]],
-  ['convexpolygon_91',['ConvexPolygon',['../class_convex_polygon.html',1,'']]]
+  ['circle_151',['Circle',['../class_circle.html',1,'']]],
+  ['circledetector_152',['CircleDetector',['../class_circle_detector.html',1,'']]],
+  ['convexpolygon_153',['ConvexPolygon',['../class_convex_polygon.html',1,'']]]
 ];

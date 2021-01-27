@@ -2,24 +2,24 @@
 
 ShapeDetector::ShapeDetector(ShapeDetector* next) : next(next) {}
 
-Shape* ShapeDetector::charge1(string data) const {
+Shape* ShapeDetector::deserialize(const string data) const {
 	return nullptr;
 }
 
-vector<string> ShapeDetector::split(string str, string delim) const
+vector<string> ShapeDetector::split(const string str, const string separator) const
 {
 	vector<string> tokens;
 	size_t prev = 0, pos = 0;
 	do {
-		pos = str.find(delim, prev);
+		pos = str.find(separator, prev);
 		string token = str.substr(prev, pos - prev);
 		if (!token.empty()) tokens.push_back(token);
-		prev = pos + delim.length();
+		prev = pos + separator.length();
 	} while (pos < str.length() && prev < str.length());
 	return tokens;
 }
 
-int ShapeDetector::indexOf(vector<string> S, string val) const
+int ShapeDetector::indexOf(vector<string> S, const string val) const
 {
 	int i = 0;
 	for (vector<string>::const_iterator it = S.begin(); it != S.end(); it++) {
@@ -31,9 +31,9 @@ int ShapeDetector::indexOf(vector<string> S, string val) const
 	return -1;
 }
 
-Shape* ShapeDetector::charge(string data) const {
+Shape* ShapeDetector::charge(const string data) const {
 	Shape* res;
-	res = this->charge1(data);
+	res = this->deserialize(data);
 	if (res != NULL) {
 		return res;
 	}

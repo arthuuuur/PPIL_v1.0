@@ -75,7 +75,7 @@ vector<Group*> ShapesManager::getGroupShape() {
 	return listGroup;
 }
 
-void ShapesManager::save(string saveName) {
+void ShapesManager::save(const string saveName) {
 	try {
 		ofstream save(saveName.c_str());
 		if (!save) throw Error("failed to create a save file");
@@ -100,7 +100,7 @@ void ShapesManager::save(string saveName) {
 	}
 }
 
-void ShapesManager::load(string file) {
+void ShapesManager::load(const string file) {
 	try {
 		ifstream save(file);
 		if (!save) throw Error("failed to open file");

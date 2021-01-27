@@ -7,5 +7,7 @@ digraph "PPIL_v1.0/Circle.h"
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="PPIL_v1.0/Circle.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_circle_8cpp.html",tooltip=" "];
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="PPIL_v1.0/Source.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_source_8cpp.html",tooltip=" "];
+  Node3 [label="PPIL_v1.0/CircleDetector.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_circle_detector_8cpp.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="PPIL_v1.0/Source.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_source_8cpp.html",tooltip=" "];
 }

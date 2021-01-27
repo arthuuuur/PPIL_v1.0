@@ -26,18 +26,19 @@ int main() {
 	listVector.push_back(v2);
 	listVector.push_back(v3);
 	listVector.push_back(v4);
-	s1 = new ConvexPolygon("orange", listVector);
+	s1 = new ConvexPolygon(Shape::CYAN, listVector);
 	Shape* s2;
-	s2 = new Triangle("pink", 1, 2, 3, 0, 5, 9);
+	s2 = new Triangle(1, 2, 3, 0, 5, 9);
 
-	Group* s3 = new Group("green");
+	Group* s3 = new Group(Shape::GREEN);
 
 	Shape* s4, * s5;
-	s4 = new Segment(1, 4, 8, 9);
-	s5 = new Circle("Purple", 4, 9, 8);
+	s4 = new Segment(Shape::BLUE, 1, 4, 8, 9);
+	s5 = new Circle(Shape::BLACK, 4, 9, 8);
 
 	s3->addShape(s4);
 	s3->addShape(s5);
+
 	ServerConnection* client;
 	client = ServerConnection::getInstance();
 	client->openConnection();
@@ -51,7 +52,7 @@ int main() {
 	sm->addShape(s1);
 	sm->addShape(s2);
 
-	//cout << endl << *sm << endl << endl;
+	cout << endl << *sm << endl << endl;
 
 	sm->save("save1.txt");
 
@@ -63,5 +64,5 @@ int main() {
 
 	sm->accepte(drawWithJavaServer);
 
-	//client->closeConnection(); commenté pour eviter que le serveur java ecoute en boucle le port utilisé
+	//client->closeConnection();
 }

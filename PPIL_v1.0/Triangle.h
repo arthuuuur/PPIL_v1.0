@@ -12,27 +12,27 @@ public:
 	/**
 	* Triangle
 	*
-	* @param  {double} ax : Abscissa of the first point
-	* @param  {double} ay : Ordinate of the first point
-	* @param  {double} bx : Abscissa of the second point
-	* @param  {double} by : Ordinate of the second point
-	* @param  {double} cx : Abscissa of the third point
-	* @param  {double} cy : Ordinate of the third point
+	* @param  {double} ax : The abscissa of the first point
+	* @param  {double} ay : The ordinate of the first point
+	* @param  {double} bx : The abscissa of the second point
+	* @param  {double} by : The ordinate of the second point
+	* @param  {double} cx : The abscissa of the third point
+	* @param  {double} cy : The ordinate of the third point
 	*/
-	Triangle(double ax, double ay, double bx, double by, double cx, double cy);
+	Triangle(const double ax, const double ay, const double bx, const double by, const double cx, const double cy);
 
 	/**
 	* Triangle
 	*
 	* @param  {string} shapeColor : The color of the triangle
-	* @param  {double} ax		  : Abscissa of the first point
-	* @param  {double} ay		  : Ordinate of the first point
-	* @param  {double} bx		  : Abscissa of the second point
-	* @param  {double} by		  : Ordinate of the second point
-	* @param  {double} cx		  : Abscissa of the third point
-	* @param  {double} cy		  : Ordinate of the third point
+	* @param  {double} ax		  : The abscissa of the first point
+	* @param  {double} ay		  : The ordinate of the first point
+	* @param  {double} bx		  : The abscissa of the second point
+	* @param  {double} by		  : The ordinate of the second point
+	* @param  {double} cx		  : The abscissa of the third point
+	* @param  {double} cy		  : The ordinate of the third point
 	*/
-	Triangle(string shapeColor, double ax, double ay, double bx, double by, double cx, double cy);
+	Triangle(const string shapeColor, const double ax, const double ay, const double bx, const double by, const double cx, const double cy);
 
 	/**
 	* Triangle

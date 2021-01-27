@@ -3,7 +3,7 @@
 
 SegmentDetector::SegmentDetector(ShapeDetector* next) : ShapeDetector(next) {}
 
-Shape* SegmentDetector::charge1(string D) const
+Shape* SegmentDetector::deserialize(const string D) const
 {
 	vector<string> data = split(D, ";");
 	if (data[indexOf(data, "type") + 1] == "1") {

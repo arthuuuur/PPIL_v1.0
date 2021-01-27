@@ -10,7 +10,7 @@ class Polygon : public Shape {
 
 protected:
 	/**
-	* @param  {} : The list of polygon's points
+	* The list of polygon's points
 	*/
 	vector<Vector2D> listPoints;
 
@@ -46,7 +46,7 @@ public:
 	void gravity();
 
 	/**
-	* Conversion from polygon to string
+	* Conversion of polygon into string
 	*
 	* @return {string}  : Reprensentation of this polygon in string
 	*/
@@ -58,7 +58,7 @@ public:
 	* @param  {double} ax : The abscisse of the translation vector
 	* @param  {double} ay : The ordinate of the translation vector
 	*/
-	void translation(double ax, double ay);
+	void translation(const double ax, const double ay);
 
 	/**
 	* Allows to make a translation using an invariant point and a homothety ratio
@@ -67,16 +67,16 @@ public:
 	* @param  {double} ay : The ordinate of the translation vector
 	* @param  {double} k  : The homothety ratio
 	*/
-	void homothety(double ax, double ay, double k);
+	void homothety(const double ax, const double ay, const double k);
 
 	/**
 	* Allows to make a rotation using an invariant point and a rotation angle
 	*
 	* @param  {double} ax    : The abscisse of the translation vector
 	* @param  {double} ay    : The ordinate of the translation vector
-	* @param  {double} angle : The angle of the rotation in degrees
+	* @param  {double} angle : The angle of the rotation in degree
 	*/
-	void rotation(double ax, double ay, double angle);
+	void rotation(const double ax, const double ay, const double angle);
 
 	/**
 	* @param  {ostream} flux : The output stream

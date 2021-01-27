@@ -3,7 +3,7 @@
 
 CircleDetector::CircleDetector(ShapeDetector* next) : ShapeDetector(next) {}
 
-Shape* CircleDetector::charge1(string D) const
+Shape* CircleDetector::deserialize(const string D) const
 {
 	vector<string> data = split(D, ";");
 	if (data[indexOf(data, "type") + 1] == "2") {

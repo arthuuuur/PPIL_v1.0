@@ -1,12 +1,12 @@
 #include "Segment.h"
 
-Segment::Segment(double p1x, double p1y, double p2x, double p2y) {
+Segment::Segment(const double p1x, const double p1y, const double p2x, const double p2y) {
 	_p1 = new Vector2D(p1x, p1y);
 	_p2 = new Vector2D(p2x, p2y);
 	gravity();
 }
 
-Segment::Segment(string shapeColor, double p1x, double p1y, double p2x, double p2y) : Shape(shapeColor) {
+Segment::Segment(const string shapeColor, const double p1x, const double p1y, const double p2x, const double p2y) : Shape(shapeColor) {
 	_p1 = new Vector2D(p1x, p1y);
 	_p2 = new Vector2D(p2x, p2y);
 	gravity();
@@ -50,29 +50,22 @@ void Segment::gravity() {
 }
 
 string Segment::serialize() const {
-	string color;
-	if (_isGrouped) {
-		color = _groupColor;
-	}
-	else {
-		color = _shapeColor;
-	}
 	ostringstream os;
-	os << "type;1;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << color << ";groupColor;" << _groupColor << ";nbPoint;2;list;" << _p1->getX() << ";" << _p1->getY() << ";" << _p2->getX() << ";" << _p2->getY();
+	os << "type;1;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _groupColor << ";nbPoint;2;list;" << _p1->getX() << ";" << _p1->getY() << ";" << _p2->getX() << ";" << _p2->getY();
 	return os.str();
 }
 
-void Segment::translation(double ax, double ay) {
+void Segment::translation(const double ax, const double ay) {
 	_p1->translation(ax, ay);
 	_p2->translation(ax, ay);
 }
 
-void Segment::homothety(double ax, double ay, double k) {
+void Segment::homothety(const double ax, const double ay, const double k) {
 	_p1->homothety(ax, ay, k);
 	_p2->homothety(ax, ay, k);
 }
 
-void Segment::rotation(double ax, double ay, double angle) {
+void Segment::rotation(const double ax, const double ay, const double angle) {
 	_p1->rotation(ax, ay, angle);
 	_p2->rotation(ax, ay, angle);
 }

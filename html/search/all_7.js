@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['lenght_38',['lenght',['../class_segment.html#a0ee6aa142a596c79234568a6eede3ba3',1,'Segment']]],
-  ['listpoints_39',['listPoints',['../class_polygon.html#a874f3cc230819a4dfc628ed67c7eba5e',1,'Polygon']]],
-  ['listshapes_40',['listShapes',['../class_group.html#a53173b62b1a297f46042bdbe0d8b40ed',1,'Group']]]
+  ['id_60',['ID',['../class_shape.html#a24a25c3d22ee7e05d0439f765f247125',1,'Shape::ID()'],['../save1_8txt.html#a094c367727273b4da2b960ca3b3edc06',1,'ID():&#160;save1.txt']]],
+  ['indexof_61',['indexOf',['../class_shape_detector.html#ab784b51770af4c6b9d53c57c77252213',1,'ShapeDetector']]]
 ];
