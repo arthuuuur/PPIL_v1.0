@@ -5,9 +5,9 @@
 
 ConvexPolygon::ConvexPolygon(vector<Vector2D> S) :Polygon(S) {}
 
-ConvexPolygon::ConvexPolygon(const string shapeColor, vector<Vector2D> S) : Polygon(S) {
-	_shapeColor = shapeColor;
-	_groupColor = shapeColor;
+ConvexPolygon::ConvexPolygon(const SpecificColor shapeColor, vector<Vector2D> S) : Polygon(S) {
+	_shapeColor = intToColor.at(shapeColor);
+	_groupColor = intToColor.at(shapeColor);
 }
 
 ConvexPolygon::ConvexPolygon() {}

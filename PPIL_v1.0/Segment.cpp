@@ -6,14 +6,17 @@ Segment::Segment(const double p1x, const double p1y, const double p2x, const dou
 	gravity();
 }
 
-Segment::Segment(const string shapeColor, const double p1x, const double p1y, const double p2x, const double p2y) : Shape(shapeColor) {
+Segment::Segment(const SpecificColor shapeColor, const double p1x, const double p1y, const double p2x, const double p2y) {
+	_shapeColor = intToColor.at(shapeColor);
 	_p1 = new Vector2D(p1x, p1y);
 	_p2 = new Vector2D(p2x, p2y);
 	gravity();
 }
 
-Segment::Segment(const Segment& s) : Shape(s._shapeColor, s._isGrouped) {
+Segment::Segment(const Segment& s) {
+	_shapeColor = s._shapeColor;
 	_groupColor = s._groupColor;
+	_isGrouped = s._isGrouped;
 	_p1 = new Vector2D(s.getP1().getX(), s.getP1().getY());
 	_p2 = new Vector2D(s.getP2().getX(), s.getP2().getY());
 	gravity();

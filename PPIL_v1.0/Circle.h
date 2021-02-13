@@ -39,7 +39,7 @@ public:
 	* @param  {double} y          : The ordinate of the center
 	* @param  {double} radius     : The radius of the circle
 	*/
-	Circle(const string shapeColor, const double x, const double y, const double radius);
+	Circle(const SpecificColor shapeColor, const double x, const double y, const double radius);
 
 	/**
 	* Circle

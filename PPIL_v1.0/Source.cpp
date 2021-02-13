@@ -16,6 +16,7 @@
 using namespace std;
 
 int main() {
+
 	Shape* s1;
 	vector<Vector2D> listVector;
 	Vector2D v1(1, 1);
@@ -26,15 +27,16 @@ int main() {
 	listVector.push_back(v2);
 	listVector.push_back(v3);
 	listVector.push_back(v4);
-	s1 = new ConvexPolygon(Shape::CYAN, listVector);
+
+	s1 = new ConvexPolygon(Shape::cyan, listVector);
 	Shape* s2;
 	s2 = new Triangle(1, 2, 3, 0, 5, 9);
 
-	Group* s3 = new Group(Shape::GREEN);
+	Group* s3 = new Group(Shape::green);
 
 	Shape* s4, * s5;
-	s4 = new Segment(Shape::BLUE, 1, 4, 8, 9);
-	s5 = new Circle(Shape::BLACK, 4, 9, 8);
+	s4 = new Segment(Shape::blue, 1, 4, 8, 9);
+	s5 = new Circle(Shape::black, 4, 9, 8);
 
 	s3->addShape(s4);
 	s3->addShape(s5);

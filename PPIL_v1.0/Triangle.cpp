@@ -12,8 +12,8 @@ Triangle::Triangle(const double ax, const double ay, const double bx, const doub
 	gravity();
 }
 
-Triangle::Triangle(const string shapeColor, const double ax, const double ay, const double bx, const double by, const double cx, const double cy) {
-	_shapeColor = shapeColor;
+Triangle::Triangle(const SpecificColor shapeColor, const double ax, const double ay, const double bx, const double by, const double cx, const double cy) {
+	_shapeColor = intToColor.at(shapeColor);
 	Vector2D v1(ax, ay);
 	Vector2D v2(bx, by);
 	Vector2D v3(cx, cy);
@@ -25,8 +25,8 @@ Triangle::Triangle(const string shapeColor, const double ax, const double ay, co
 
 Triangle::Triangle(vector<Vector2D> S) : ConvexPolygon(S) {}
 
-Triangle::Triangle(const string shapeColor, vector<Vector2D> S) : ConvexPolygon(S) {
-	_shapeColor = shapeColor;
+Triangle::Triangle(const SpecificColor shapeColor, vector<Vector2D> S) : ConvexPolygon(S) {
+	_shapeColor = intToColor.at(shapeColor);
 }
 
 Triangle::~Triangle() {}

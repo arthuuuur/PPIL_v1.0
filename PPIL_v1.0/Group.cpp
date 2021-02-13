@@ -2,7 +2,7 @@
 #include "Error.h"
 #include <iostream>
 
-Group::Group(const string groupColor, vector<Shape*> F) : Shape(groupColor) {
+Group::Group(const SpecificColor groupColor, vector<Shape*> F) : Shape(groupColor) {
 	try {
 		for (vector<Shape*>::const_iterator it = F.begin(); it != F.end(); it++) {
 			if ((*it)->getIsGrouped() == true) {
@@ -13,6 +13,7 @@ Group::Group(const string groupColor, vector<Shape*> F) : Shape(groupColor) {
 			(*it)->setGroupID(this->getGroupID());
 			listShapes.push_back(*it);
 		}
+		_shapeColor = intToColor.at(groupColor);
 	}
 	catch (exception const& err) {
 		cerr << err.what() << endl;
@@ -20,9 +21,9 @@ Group::Group(const string groupColor, vector<Shape*> F) : Shape(groupColor) {
 	}
 }
 
-Group::Group(const string groupColor) {
-	_groupColor = groupColor;
-	_shapeColor = groupColor;
+Group::Group(const SpecificColor groupColor) {
+	_groupColor = intToColor.at(groupColor);
+	_shapeColor = intToColor.at(groupColor);
 	groupID = ID;
 }
 

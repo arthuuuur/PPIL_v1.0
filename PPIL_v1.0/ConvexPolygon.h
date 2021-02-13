@@ -27,7 +27,7 @@ public:
 	* @param  {string} shapeColor  : The color of the convex polygon
 	* @param  {vector<Vector2D>} S : The list of the the convex polygon's points
 	*/
-	ConvexPolygon(const string shapeColor, vector<Vector2D> S);
+	ConvexPolygon(const SpecificColor shapeColor, vector<Vector2D> S);
 
 	/**
 	* ~ConvexPolygon

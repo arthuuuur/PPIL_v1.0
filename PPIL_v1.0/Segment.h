@@ -41,7 +41,7 @@ public:
 	* @param  {double} p2x        : The abscissa of the second point
 	* @param  {double} p2y        : The ordinate of the second point
 	*/
-	Segment(const string shapeColor, const double p1x, const double p1y, const double p2x, const double p2y);
+	Segment(const SpecificColor shapeColor, const double p1x, const double p1y, const double p2x, const double p2y);
 
 	/**
 	* Segment

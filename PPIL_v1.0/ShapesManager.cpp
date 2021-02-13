@@ -119,7 +119,7 @@ void ShapesManager::load(const string file) {
 						}
 					}
 					if (!here) {
-						Group* G = new Group(var->getGroupColor());
+						Group* G = new Group((Shape::SpecificColor)Shape::colorToInt.at(var->getGroupColor()));
 						G->setGroupID(var->getGroupID());
 						G->setID(var->getGroupID());
 						G->addShape(var);

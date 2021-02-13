@@ -32,7 +32,7 @@ public:
 	* @param  {double} cx		  : The abscissa of the third point
 	* @param  {double} cy		  : The ordinate of the third point
 	*/
-	Triangle(const string shapeColor, const double ax, const double ay, const double bx, const double by, const double cx, const double cy);
+	Triangle(const SpecificColor shapeColor, const double ax, const double ay, const double bx, const double by, const double cx, const double cy);
 
 	/**
 	* Triangle
@@ -47,7 +47,7 @@ public:
 	* @param  {string} shapeColor  : The color of the triangle
 	* @param  {vector<Vector2D>} S : The list of the triangle's points
 	*/
-	Triangle(string shapeColor, vector<Vector2D> S);
+	Triangle(const SpecificColor, vector<Vector2D> S);
 
 	/**
 	* ~Triangle

@@ -1,16 +1,14 @@
 #include "Shape.h"
 #include "Error.h"
 
-const string Shape::RED = "red";
-const string Shape::BLUE = "blue";
-const string Shape::BLACK = "black";
-const string Shape::GREEN = "green";
-const string Shape::YELLOW = "yellow";
-const string Shape::CYAN = "cyan";
+const unordered_map<int, string> Shape::intToColor = { {0,"red"}, {1,"blue"}, {2,"green"}, {3,"black"}, {4,"yellow"}, {5,"cyan"} };
+const unordered_map<string, int> Shape::colorToInt = { {"red",0}, {"blue",1}, {"green",2}, {"black",3}, {"yellow",4}, {"cyan",5} };
 
 int Shape::nbID = 0;
 
-Shape::Shape(const string shapeColor, const bool state) : _shapeColor(shapeColor), _isGrouped(state), _groupColor(shapeColor) {
+Shape::Shape(const SpecificColor shapeColor, const bool state) : _isGrouped(state) {
+	_shapeColor = intToColor.at(shapeColor);
+	_groupColor = intToColor.at(shapeColor);
 	ID = ++nbID;
 	groupID = -1;
 	gravityCenter = new Vector2D(0, 0);

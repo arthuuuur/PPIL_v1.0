@@ -4,6 +4,7 @@
 #include <sstream>
 #include "Vector2D.h"
 #include "ServerConnection.h"
+#include <unordered_map>
 
 using namespace std;
 
@@ -54,35 +55,10 @@ protected:
 
 public:
 	
-	/**
-	* Red, one of the possible color for a shape
-	*/
-	static const string RED;
-	
-	/**
-	* Blue, one of the possible color for a shape
-	*/
-	static const string BLUE;
-	
-	/**
-	* Black, one of the possible color for a shape
-	*/
-	static const string BLACK;
-	
-	/**
-	* Green, one of the possible color for a shape
-	*/
-	static const string GREEN;
-	
-	/**
-	* Yellow, one of the possible color for a shape
-	*/
-	static const string YELLOW;
-	
-	/**
-	* Cyan, one of the possible color for a shape
-	*/
-	static const string CYAN;
+	const enum SpecificColor { red, blue, green, black, yellow, cyan };
+	static const unordered_map<int, string> intToColor;
+	static const unordered_map<string, int> colorToInt;
+
 
 	/**
 	* Shape
@@ -90,7 +66,7 @@ public:
 	* @param  {string} shapeColor : The color of the shape
 	* @param  {bool} state        : If the shape is grouped or not
 	*/
-	Shape(const string shapeColor = Shape::RED, const bool state = false);
+	Shape(const SpecificColor shapeColor = SpecificColor::red, const bool state = false);
 
 	/**
 	* Shape

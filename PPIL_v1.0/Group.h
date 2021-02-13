@@ -20,14 +20,14 @@ public:
 	 * @param  {string} groupColor : The color of the group
 	 * @param  {vector<Shape*} >   : The list of the group's Shapes
 	 */
-	Group(const string groupColor, vector<Shape*> F);
+	Group(const SpecificColor groupColor, vector<Shape*> F);
 
 	/**
 	 * Group
 	 *
 	 * @param  {string} groupColor : The color of the group
 	 */
-	Group(const string groupColor);
+	Group(const SpecificColor groupColor);
 
 	/**
 	 * Group

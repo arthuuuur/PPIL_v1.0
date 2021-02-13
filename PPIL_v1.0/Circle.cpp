@@ -6,13 +6,15 @@ Circle::Circle(const double x, const double y, const double radius) {
 	gravity();
 }
 
-Circle::Circle(const string shapeColor, const double x, const double y, const double radius) : Shape(shapeColor) {
+Circle::Circle(const SpecificColor shapeColor, const double x, const double y, const double radius) {
+	_shapeColor = intToColor.at(shapeColor);
 	_radius = radius;
 	_center = new Vector2D(x, y);
 	gravity();
 }
 
-Circle::Circle(const Circle& c) : Shape(c._shapeColor) {
+Circle::Circle(const Circle& c) {
+	_shapeColor = c._shapeColor;
 	_radius = c._radius;
 	_center = new Vector2D(c.getCenter().getX(), c.getCenter().getY());
 	gravity();
