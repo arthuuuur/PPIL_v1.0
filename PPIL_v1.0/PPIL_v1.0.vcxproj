@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleDetector.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="ConvexPolygon.h" />
     <ClInclude Include="DrawServerVisitor.h" />
     <ClInclude Include="Error.h" />
@@ -162,6 +163,7 @@
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleDetector.cpp" />
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="ConvexPolygon.cpp" />
     <ClCompile Include="DrawCppVisitor.cpp" />
     <ClCompile Include="DrawServerVisitor.cpp" />

@@ -1,80 +1,56 @@
 #include "Segment.h"
 
-Segment::Segment(const double p1x, const double p1y, const double p2x, const double p2y) {
-	_p1 = new Vector2D(p1x, p1y);
-	_p2 = new Vector2D(p2x, p2y);
+Segment::Segment(const Vector2D& p1, const Vector2D& p2) {
+	_p1 = p1;
+	_p2 = p2;
 	gravity();
 }
 
-Segment::Segment(const SpecificColor shapeColor, const double p1x, const double p1y, const double p2x, const double p2y) {
-	_shapeColor = intToColor.at(shapeColor);
-	_p1 = new Vector2D(p1x, p1y);
-	_p2 = new Vector2D(p2x, p2y);
-	gravity();
+Segment::Segment(const string shapeColor, const Vector2D& p1, const Vector2D& p2) : Segment(p1,p2){
+	if (Color::isAllowed(shapeColor)) {
+		_shapeColor = shapeColor;
+	}
 }
 
-Segment::Segment(const Segment& s) {
-	_shapeColor = s._shapeColor;
-	_groupColor = s._groupColor;
-	_isGrouped = s._isGrouped;
-	_p1 = new Vector2D(s.getP1().getX(), s.getP1().getY());
-	_p2 = new Vector2D(s.getP2().getX(), s.getP2().getY());
-	gravity();
-}
-
-Segment::~Segment() {
-	delete _p1, _p2;
+Segment::~Segment() { 
 }
 
 Vector2D Segment::getP1() const {
-	return *_p1;
+	return _p1;
 }
 
 Vector2D Segment::getP2() const {
-	return *_p2;
+	return _p2;
 }
 
 const double Segment::getArea() const {
 	return 0.0;
 }
 
-const double Segment::lenght() const {
-	return sqrt(pow(_p2->getX() - _p1->getX(), 2) + pow(_p2->getY() - _p1->getY(), 2));
-}
-
 void Segment::gravity() {
-	double ax, ay, bx, by;
-	ax = this->getP1().getX();
-	ay = this->getP1().getY();
-	bx = this->getP2().getX();
-	by = this->getP2().getY();
-	gravityCenter->setX((ax + bx) / 2);
-	gravityCenter->setY((ay + by) / 2);
+	gravityCenter = 0.5 * (_p1 + _p2);
 }
 
 string Segment::serialize() const {
 	ostringstream os;
-	os << "type;1;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _groupColor << ";nbPoint;2;list;" << _p1->getX() << ";" << _p1->getY() << ";" << _p2->getX() << ";" << _p2->getY();
+	os << "type;1;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _groupColor << ";nbPoint;2;list;" << _p1.getX() << ";" << _p1.getY() << ";" << _p2.getX() << ";" << _p2.getY();
 	return os.str();
 }
 
-void Segment::translation(const double ax, const double ay) {
-	_p1->translation(ax, ay);
-	_p2->translation(ax, ay);
+Shape* Segment::translation(const Vector2D& v) const {
+	return new Segment(_p1.translation(v), _p2.translation(v));
 }
 
-void Segment::homothety(const double ax, const double ay, const double k) {
-	_p1->homothety(ax, ay, k);
-	_p2->homothety(ax, ay, k);
+Shape* Segment::homothety(const Vector2D& centre, const double k) const {
+	return new Segment(_p1.homothety(centre, k), _p2.homothety(centre, k));
 }
 
-void Segment::rotation(const double ax, const double ay, const double angle) {
-	_p1->rotation(ax, ay, angle);
-	_p2->rotation(ax, ay, angle);
+Shape* Segment::rotation(const Vector2D& v, const double angle) const {
+	return new Segment(_p1.rotation(v, angle), _p2.rotation(v, angle));
 }
 
 ostream& Segment::print(ostream& flux) const {
 	flux << "Segment ";
 	Shape::print(flux);
-	return(flux << "[" << *_p1 << "; " << *_p2 << "] ");
+	return(flux << "[" << _p1 << "; " << _p2 << "] ");
 }

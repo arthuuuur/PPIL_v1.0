@@ -20,14 +20,14 @@ public:
 	 * @param  {string} groupColor : The color of the group
 	 * @param  {vector<Shape*} >   : The list of the group's Shapes
 	 */
-	Group(const SpecificColor groupColor, vector<Shape*> F);
+	Group(const string groupColor, vector<Shape*> F);
 
 	/**
 	 * Group
 	 *
 	 * @param  {string} groupColor : The color of the group
 	 */
-	Group(const SpecificColor groupColor);
+	Group(const string groupColor);
 
 	/**
 	 * Group
@@ -89,7 +89,7 @@ public:
 	* @param  {double} ax : The abscisse of the translation vector
 	* @param  {double} ay : The ordinate of the translation vector
 	*/
-	void translation(const double ax, const double ay);
+	Shape* translation(const Vector2D& v) const;
 
 	/**
 	* Allows to make a translation using an invariant point and a homothety ratio in all the shape of the group
@@ -98,7 +98,7 @@ public:
 	* @param  {double} ay : The ordinate of the translation vector
 	* @param  {double} k  : The homothety ratio
 	*/
-	void homothety(const double ax, const double ay, const double k);
+	Shape* homothety(const Vector2D& v, const double k) const;
 
 	/**
 	* Allows to make a rotation using an invariant point and a rotation angle in all the shape of the group
@@ -107,11 +107,13 @@ public:
 	* @param  {double} ay    : The ordinate of the translation vector
 	* @param  {double} angle : The angle of the rotation in degree
 	*/
-	void rotation(const double ax, const double ay, const double angle);
+	Shape* rotation(const Vector2D& v, const double angle) const;
 
 	/**
 	* @param  {ostream} flux : The output stream
 	* @return {ostream}      : Return the output stream with the print of the group
 	*/
 	ostream& print(ostream& flux) const;
+
+	string serialize() const;
 };

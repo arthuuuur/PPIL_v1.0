@@ -4,7 +4,7 @@
 #include <sstream>
 #include "Vector2D.h"
 #include "ServerConnection.h"
-#include <unordered_map>
+#include "Color.h"
 
 using namespace std;
 
@@ -28,13 +28,13 @@ protected:
 	* A flag to evaluate if the shape is grouped
 	* False by default 
 	*/
-	bool _isGrouped;
+	bool _isGrouped; // ou un pointeur sur le groupe 
 
 	/**
 	* The point representing the center of gravity of the shape
 	* Initialized at the construction of the shape
 	*/
-	Vector2D* gravityCenter;
+	Vector2D gravityCenter; 
 
 	/**
 	* The number of shape currently create to give the right id to the new shape
@@ -55,9 +55,7 @@ protected:
 
 public:
 	
-	const enum SpecificColor { red, blue, green, black, yellow, cyan };
-	static const unordered_map<int, string> intToColor;
-	static const unordered_map<string, int> colorToInt;
+	
 
 
 	/**
@@ -66,14 +64,14 @@ public:
 	* @param  {string} shapeColor : The color of the shape
 	* @param  {bool} state        : If the shape is grouped or not
 	*/
-	Shape(const SpecificColor shapeColor = SpecificColor::red, const bool state = false);
+	Shape(const string shapeColor = Color::RED, const bool state = false);
 
 	/**
 	* Shape
 	*
 	* @param  {Shape&} F : The shape to be copied
 	*/
-	Shape(const Shape& F);
+	Shape(const Shape& F); // Peut on ecrire le corps de cette méthode ?
 
 	/**
 	* ~Shape
@@ -114,14 +112,6 @@ public:
 	* @return {Vector2D}  : The center of gravity of the shape
 	*/
 	Vector2D getGravity() const;
-
-	/**
-	* Setter of gravityCenter
-	* 
-	* @param  {double} x : Abscissa of the center of gravity
-	* @param  {double} y : Ordinate of the center of gravity
-	*/
-	void setGravity(const double x, const double y);
 
 	/**
 	* Getter of isGrouped
@@ -197,7 +187,7 @@ public:
 	* @param  {double} ax : The abscisse of the translation vector
 	* @param  {double} ay : The ordinate of the translation vector
 	*/
-	virtual void translation(const double ax, const double ay);
+	virtual Shape* translation(const Vector2D& v) const = 0;
 
 	/**
 	* Allows to make a translation using an invariant point and a homothety ratio
@@ -206,7 +196,8 @@ public:
 	* @param  {double} ay : The ordinate of the translation vector
 	* @param  {double} k  : The homothety ratio
 	*/
-	virtual void homothety(const double ax, const double ay, const double k);
+
+	virtual Shape* homothety(const Vector2D& centre, const double k) const = 0; 
 
 	/**
 	* Allows to make a rotation using an invariant point and a rotation angle
@@ -215,7 +206,7 @@ public:
 	* @param  {double} ay    : The ordinate of the translation vector
 	* @param  {double} angle : The angle of the rotation in degree
 	*/
-	virtual void rotation(const double ax, const double ay, const double angle);
+	virtual Shape* rotation(const Vector2D& v, const double angle) const = 0; 
 
 	/**
 	*

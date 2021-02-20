@@ -2,34 +2,26 @@
 #include "Segment.h"
 #include <cmath>
 
-Triangle::Triangle(const double ax, const double ay, const double bx, const double by, const double cx, const double cy) {
-	Vector2D v1(ax, ay);
-	Vector2D v2(bx, by);
-	Vector2D v3(cx, cy);
+Triangle::Triangle(const Vector2D& v1, const Vector2D& v2, const Vector2D& v3) {
 	listPoints.push_back(v1);
 	listPoints.push_back(v2);
 	listPoints.push_back(v3);
 	gravity();
 }
 
-Triangle::Triangle(const SpecificColor shapeColor, const double ax, const double ay, const double bx, const double by, const double cx, const double cy) {
-	_shapeColor = intToColor.at(shapeColor);
-	Vector2D v1(ax, ay);
-	Vector2D v2(bx, by);
-	Vector2D v3(cx, cy);
-	listPoints.push_back(v1);
-	listPoints.push_back(v2);
-	listPoints.push_back(v3);
-	gravity();
+Triangle::Triangle(const string shapeColor, const Vector2D& v1, const Vector2D& v2, const Vector2D& v3) : Triangle(v1,v2,v3) {
+	if (Color::isAllowed(shapeColor)) {
+		_shapeColor = shapeColor;
+	}
 }
 
 Triangle::Triangle(vector<Vector2D> S) : ConvexPolygon(S) {}
 
-Triangle::Triangle(const SpecificColor shapeColor, vector<Vector2D> S) : ConvexPolygon(S) {
-	_shapeColor = intToColor.at(shapeColor);
+Triangle::Triangle(const string shapeColor, vector<Vector2D> S) : ConvexPolygon(S) {
+	if (Color::isAllowed(shapeColor)) {
+		_shapeColor = shapeColor;
+	}
 }
-
-Triangle::~Triangle() {}
 
 const double Triangle::getArea() const {
 	double ax, ay, bx, by, cx, cy;

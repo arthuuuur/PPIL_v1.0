@@ -13,7 +13,8 @@ Shape* CircleDetector::deserialize(const string D) const
 		centerx = stod(data[indexOf(data, "center") + 1]);
 		centery = stod(data[indexOf(data, "center") + 2]);
 		radius = stod(data[indexOf(data, "radius") + 1]);
-		shape = new Circle((Shape::SpecificColor)Shape::colorToInt.at(color), centerx, centery, radius);
+		Vector2D v(centerx, centery);
+		shape = new Circle(color, v, radius);
 		shape->setID(stoi(data[indexOf(data, "ID") + 1]));
 		shape->setGroupID(stoi(data[indexOf(data, "groupID") + 1]));
 		shape->setGroupColor(data[indexOf(data, "groupColor") + 1]);

@@ -19,7 +19,7 @@ public:
 	* @param  {double} cx : The abscissa of the third point
 	* @param  {double} cy : The ordinate of the third point
 	*/
-	Triangle(const double ax, const double ay, const double bx, const double by, const double cx, const double cy);
+	Triangle(const Vector2D& v1, const Vector2D& v2, const Vector2D& v3);
 
 	/**
 	* Triangle
@@ -32,7 +32,7 @@ public:
 	* @param  {double} cx		  : The abscissa of the third point
 	* @param  {double} cy		  : The ordinate of the third point
 	*/
-	Triangle(const SpecificColor shapeColor, const double ax, const double ay, const double bx, const double by, const double cx, const double cy);
+	Triangle(const string shapeColor, const Vector2D& v1, const Vector2D& v2, const Vector2D& v3);
 
 	/**
 	* Triangle
@@ -47,12 +47,7 @@ public:
 	* @param  {string} shapeColor  : The color of the triangle
 	* @param  {vector<Vector2D>} S : The list of the triangle's points
 	*/
-	Triangle(const SpecificColor, vector<Vector2D> S);
-
-	/**
-	* ~Triangle
-	*/
-	virtual ~Triangle();
+	Triangle(const string shapeColor, vector<Vector2D> S);
 
 	/**
 	* Calculate the area of the triangle

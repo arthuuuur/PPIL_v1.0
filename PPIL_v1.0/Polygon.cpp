@@ -1,8 +1,7 @@
 #include "Polygon.h"
 #include "Error.h"
 
-Polygon::Polygon() {
-}
+Polygon::Polygon() {}
 
 Polygon::Polygon(vector<Vector2D> S) {
 	for (vector<Vector2D>::iterator it = S.begin(); it != S.end(); it++) {
@@ -16,13 +15,8 @@ Polygon::~Polygon() {
 }
 
 void Polygon::gravity() {
-	double gx = 0.0;
-	double gy = 0.0;
-	double x1, y1, x2, y2;
-	double area = 0.0;
-	double a;
-	unsigned int i = 0;
-	int j;
+	double gx = 0.0, gy = 0.0, area = 0.0, a, x1, y1, x2, y2;
+	int i = 0, j;
 	for (i = 0; i < listPoints.size(); i++) {
 		if (i + 1 == listPoints.size()) {
 			j = 0;
@@ -41,8 +35,8 @@ void Polygon::gravity() {
 	}
 	gx /= 3 * area;
 	gy /= 3 * area;
-	gravityCenter->setX(gx);
-	gravityCenter->setY(gy);
+	gravityCenter.setX(gx);
+	gravityCenter.setY(gy);
 }
 
 string Polygon::serialize() const {
@@ -54,24 +48,6 @@ string Polygon::serialize() const {
 			os << ";";
 	}
 	return os.str();
-}
-
-void Polygon::translation(const double ax, const double ay) {
-	for (vector<Vector2D>::iterator it = listPoints.begin(); it != listPoints.end(); it++) {
-		it->translation(ax, ay);
-	}
-}
-
-void Polygon::homothety(const double ax, const double ay, const double k) {
-	for (vector<Vector2D>::iterator it = listPoints.begin(); it != listPoints.end(); it++) {
-		it->homothety(ax, ay, k);
-	}
-}
-
-void Polygon::rotation(const double ax, const double ay, const double angle) {
-	for (vector<Vector2D>::iterator it = listPoints.begin(); it != listPoints.end(); it++) {
-		it->rotation(ax, ay, angle);
-	}
 }
 
 ostream& Polygon::print(ostream& flux) const {

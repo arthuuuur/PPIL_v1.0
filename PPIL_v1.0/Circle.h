@@ -13,7 +13,7 @@ private:
 	/**
 	* The center of the circle
 	*/
-	Vector2D* _center;
+	Vector2D _center;
 
 	/**
 	* The radius of the circle
@@ -29,7 +29,7 @@ public:
 	* @param  {double} y      : The ordinate of the center
 	* @param  {double} radius : The radius of the circle
 	*/
-	Circle(const double x, const double y, const double radius);
+	Circle(const Vector2D& v, const double radius);
 
 	/**
 	* Circle
@@ -39,19 +39,7 @@ public:
 	* @param  {double} y          : The ordinate of the center
 	* @param  {double} radius     : The radius of the circle
 	*/
-	Circle(const SpecificColor shapeColor, const double x, const double y, const double radius);
-
-	/**
-	* Circle
-	*
-	* @param  {Circle&} c : The circle to be copied
-	*/
-	Circle(const Circle& c);
-
-	/**
-	* ~Circle
-	*/
-	~Circle();
+	Circle(const string shapeColor, const Vector2D& v, const double radius);
 
 	/**
 	* Calculate the area of the circle
@@ -92,7 +80,7 @@ public:
 	* @param  {double} ax : The abscisse of the translation vector
 	* @param  {double} ay : The ordinate of the translation vector
 	*/
-	void translation(const double ax, const double ay);
+	Shape* translation(const Vector2D& v) const;
 
 	/**
 	* Allows to make a translation using an invariant point and a homothety ratio
@@ -101,7 +89,7 @@ public:
 	* @param  {double} ay : The ordinate of the translation vector
 	* @param  {double} k  : The homothety ratio
 	*/
-	void homothety(const double ax, double ay, const double k);
+	Shape* homothety(const Vector2D& v, const double k) const;
 
 	/**
 	* Allows to make a rotation using an invariant point and a rotation angle
@@ -110,7 +98,7 @@ public:
 	* @param  {double} ay    : The ordinate of the translation vector
 	* @param  {double} angle : The angle of the rotation in degree
 	*/
-	void rotation(const double ax, double ay, const double angle);
+    Shape* rotation(const Vector2D& v, const double angle) const;
 
 	/**
 	* @param  {ostream} flux : The output stream

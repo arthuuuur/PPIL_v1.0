@@ -58,7 +58,7 @@ public:
 	* @param  {double} ax : The abscisse of the translation vector
 	* @param  {double} ay : The ordinate of the translation vector
 	*/
-	void translation(const double ax, const double ay);
+	Shape* translation(const Vector2D& v) const = 0;
 
 	/**
 	* Allows to make a translation using an invariant point and a homothety ratio
@@ -67,7 +67,7 @@ public:
 	* @param  {double} ay : The ordinate of the translation vector
 	* @param  {double} k  : The homothety ratio
 	*/
-	void homothety(const double ax, const double ay, const double k);
+	Shape* homothety(const Vector2D& centre, const double k) const = 0;
 
 	/**
 	* Allows to make a rotation using an invariant point and a rotation angle
@@ -76,7 +76,7 @@ public:
 	* @param  {double} ay    : The ordinate of the translation vector
 	* @param  {double} angle : The angle of the rotation in degree
 	*/
-	void rotation(const double ax, const double ay, const double angle);
+	Shape* rotation(const Vector2D& v, const double angle) const = 0;
 
 	/**
 	* @param  {ostream} flux : The output stream

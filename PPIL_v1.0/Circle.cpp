@@ -1,27 +1,15 @@
 #include "Circle.h"
 
-Circle::Circle(const double x, const double y, const double radius) {
+Circle::Circle(const Vector2D& v, const double radius) {
 	_radius = radius;
-	_center = new Vector2D(x, y);
+	_center = v;
 	gravity();
 }
 
-Circle::Circle(const SpecificColor shapeColor, const double x, const double y, const double radius) {
-	_shapeColor = intToColor.at(shapeColor);
-	_radius = radius;
-	_center = new Vector2D(x, y);
-	gravity();
-}
-
-Circle::Circle(const Circle& c) {
-	_shapeColor = c._shapeColor;
-	_radius = c._radius;
-	_center = new Vector2D(c.getCenter().getX(), c.getCenter().getY());
-	gravity();
-}
-
-Circle::~Circle() {
-	delete _center;
+Circle::Circle(const string shapeColor, const Vector2D& v, const double radius) : Circle(v,radius) {
+	if (Color::isAllowed(shapeColor)) {
+		_shapeColor = shapeColor;
+	}
 }
 
 const double Circle::getArea() const {
@@ -29,7 +17,7 @@ const double Circle::getArea() const {
 }
 
 Vector2D Circle::getCenter() const {
-	return *_center;
+	return _center;
 }
 
 const double Circle::getRadius() const {
@@ -37,31 +25,29 @@ const double Circle::getRadius() const {
 }
 
 void Circle::gravity() {
-	gravityCenter->setX(_center->getX());
-	gravityCenter->setY(_center->getY());
+	gravityCenter = _center;
 }
 
 string Circle::serialize() const {
 	ostringstream os;
-	os << "type;2;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _groupColor << ";center;" << _center->getX() << ";" << _center->getY() << ";radius;" << _radius;
+	os << "type;2;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _groupColor << ";center;" << _center.getX() << ";" << _center.getY() << ";radius;" << _radius;
 	return os.str();
 }
 
-void Circle::translation(const double ax, const double ay) {
-	_center->translation(ax, ay);
+Shape* Circle::translation(const Vector2D& v) const {
+	return new Circle(_center.translation(v), _radius);
 }
 
-void Circle::homothety(const double ax, const double ay, const double k) {
-	_center->homothety(ax, ay, k);
-	_radius = abs(k) * k;
+Shape* Circle::homothety(const Vector2D& centre, const double k) const {
+	return new Circle(_center.homothety(centre, k), abs(k) * _radius);
 }
 
-void Circle::rotation(const double ax, const double ay, const double angle) {
-	_center->rotation(ax, ay, angle);
+Shape* Circle::rotation(const Vector2D& v, const double angle) const {
+	return new Circle(_center.rotation(v, angle), _radius);
 }
 
 ostream& Circle::print(ostream& flux) const {
 	flux << "Circle ";
 	Shape::print(flux);
-	return(flux << "< " << *_center << ", r = " << _radius << " >");
+	return(flux << "< " << _center << ", r = " << _radius << " >");
 }

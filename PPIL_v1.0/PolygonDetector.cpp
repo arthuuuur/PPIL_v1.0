@@ -18,7 +18,7 @@ Shape* PolygonDetector::deserialize(const string D) const
 			Vector2D* p = new Vector2D(x, y);
 			listPoints.push_back(*p);
 		}
-		shape = new ConvexPolygon((Shape::SpecificColor)Shape::colorToInt.at(color), listPoints);
+		shape = new ConvexPolygon(color, listPoints);
 		shape->setID(stoi(data[indexOf(data, "ID") + 1]));
 		shape->setGroupID(stoi(data[indexOf(data, "groupID") + 1]));
 		shape->setGroupColor(data[indexOf(data, "groupColor") + 1]);

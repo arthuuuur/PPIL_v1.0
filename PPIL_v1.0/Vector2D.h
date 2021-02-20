@@ -28,7 +28,7 @@ public:
 	* @param  {double} x : The abscissa of the center
 	* @param  {double} y : The ordinate of the center
 	*/
-	Vector2D(const double x, const double y);
+	Vector2D(const double x = 0, const double y = 0);
 
 	/**
 	* ~Vector2D
@@ -102,7 +102,7 @@ public:
 	* @param  {double} ax : The abscisse of the translation vector
 	* @param  {double} ay : The ordinate of the translation vector
 	*/
-	void translation(const double ax, const double ay);
+	Vector2D translation(const Vector2D& v) const;
 
 	/**
 	* Allows to make a translation using an invariant point and a homothety ratio
@@ -111,7 +111,7 @@ public:
 	* @param  {double} ay : The ordinate of the translation vector
 	* @param  {double} k  : The homothety ratio
 	*/
-	void homothety(const double ax, const double ay, const double k);
+	Vector2D homothety(const Vector2D& v, const double k) const;
 
 	/**
 	* Allows to make a rotation using an invariant point and a rotation angle
@@ -120,7 +120,13 @@ public:
 	* @param  {double} ay    : The ordinate of the translation vector
 	* @param  {double} angle : The angle of the rotation in degree
 	*/
-	void rotation(const double ax, const double ay, double angle);
+	Vector2D rotation(const Vector2D& v, const double angle) const; // travailler avec radiant et pas degree
+
+	operator string() {
+		ostringstream flux;
+		flux << "(" << x << "," << y << ")";
+		return flux.str();
+	}
 
 	/**
 	* @param  {ostream}    :
@@ -135,4 +141,9 @@ public:
 	*/
 	ostream& print(ostream& flux) const;
 };
+
+inline Vector2D operator*(const double a, const Vector2D& v) // v5 = 2.5 * v1
+{
+	return v * a;
+}
 

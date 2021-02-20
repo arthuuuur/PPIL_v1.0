@@ -51,7 +51,7 @@ public:
 	* 
 	* @param {Shape*} : The group to be added to the list of groups
 	*/
-	void addGroup(Group* G);
+	void addGroup(Group *G);
 
 	/**
 	* Remove a Shape to the list of shapes

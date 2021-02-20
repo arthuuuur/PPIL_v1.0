@@ -2,7 +2,7 @@
 #include "Error.h"
 #include <iostream>
 
-Group::Group(const SpecificColor groupColor, vector<Shape*> F) : Shape(groupColor) {
+Group::Group(const string groupColor, vector<Shape*> F) : Shape(groupColor) {
 	try {
 		for (vector<Shape*>::const_iterator it = F.begin(); it != F.end(); it++) {
 			if ((*it)->getIsGrouped() == true) {
@@ -13,7 +13,9 @@ Group::Group(const SpecificColor groupColor, vector<Shape*> F) : Shape(groupColo
 			(*it)->setGroupID(this->getGroupID());
 			listShapes.push_back(*it);
 		}
-		_shapeColor = intToColor.at(groupColor);
+		if (Color::isAllowed(groupColor)) {
+			_shapeColor = groupColor;
+		}
 	}
 	catch (exception const& err) {
 		cerr << err.what() << endl;
@@ -21,9 +23,11 @@ Group::Group(const SpecificColor groupColor, vector<Shape*> F) : Shape(groupColo
 	}
 }
 
-Group::Group(const SpecificColor groupColor) {
-	_groupColor = intToColor.at(groupColor);
-	_shapeColor = intToColor.at(groupColor);
+Group::Group(const string groupColor) {
+	if (Color::isAllowed(groupColor)) {
+		_shapeColor = groupColor;
+		_groupColor = groupColor;
+	}
 	groupID = ID;
 }
 
@@ -82,22 +86,28 @@ vector<Shape*> Group::getList() {
 	return listShapes;
 }
 
-void Group::translation(const double ax, const double ay) {
-	for (vector<Shape*>::iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		(*it)->translation(ax, ay);
+Shape* Group::translation(const Vector2D& v) const{
+	vector<Shape*> cloneShape;
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+		cloneShape.push_back((*it)->translation(v));
 	}
+	return new Group(this->getGroupColor(),cloneShape);
 }
 
-void Group::homothety(const double ax, const double ay, const double k) {
-	for (vector<Shape*>::iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		(*it)->homothety(ax, ay, k);
+Shape* Group::homothety(const Vector2D& v, const double k) const {
+	vector<Shape*> cloneShape;
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+		cloneShape.push_back((*it)->homothety(v,k));
 	}
+	return new Group(this->getGroupColor(), cloneShape);
 }
 
-void Group::rotation(const double ax, const double ay, const double angle) {
-	for (vector<Shape*>::iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		(*it)->rotation(ax, ay, angle);
+Shape* Group::rotation(const Vector2D& v, const double angle) const{
+	vector<Shape*> cloneShape;
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+		cloneShape.push_back((*it)->rotation(v, angle));
 	}
+	return new Group(this->getGroupColor(), cloneShape);
 }
 
 ostream& Group::print(ostream& flux) const {
@@ -110,4 +120,9 @@ ostream& Group::print(ostream& flux) const {
 		flux << endl;
 	}
 	return flux << ">";
+}
+
+string Group::serialize() const
+{
+	return nullptr;
 }
