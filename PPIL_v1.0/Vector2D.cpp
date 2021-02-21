@@ -4,8 +4,6 @@
 
 Vector2D::Vector2D(const double x, const double y) : x(x), y(y) {}
 
-Vector2D::~Vector2D() {}
-
 const Vector2D Vector2D::operator + (const Vector2D& u) const {
 	return Vector2D(x + u.x, y + u.y);
 }

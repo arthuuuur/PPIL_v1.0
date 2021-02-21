@@ -14,15 +14,6 @@ Shape::Shape(const string shapeColor, const bool state) : _isGrouped(state) {
 		groupID = -1;
 }
 
-Shape::Shape(const Shape& F) {
-	ID = ++nbID;
-	groupID = F.groupID;
-	_shapeColor = F._shapeColor;
-	_groupColor = F._groupColor;
-	_isGrouped = F._isGrouped;
-	gravityCenter = F.getGravity();
-}
-
 Shape::~Shape() {
 	nbID--;
 }

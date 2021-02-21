@@ -45,7 +45,7 @@ int main() {
 	
 	ServerConnection* client;
 	client = ServerConnection::getInstance();
-	client->openConnection();
+	//client->openConnection();
 
 	ShapeManagerVisitor* drawWithJavaServer;
 	drawWithJavaServer = new DrawServerVisitor;
@@ -66,7 +66,7 @@ int main() {
 
 	//cout << endl << *sm << endl << endl;
 
-	sm.accepte(drawWithJavaServer);
+	//sm.accepte(drawWithJavaServer);
 
 	//client->closeConnection();
 	

@@ -44,11 +44,6 @@ public:
 	Segment(const string shapeColor, const Vector2D& p1, const Vector2D& p2);
 
 	/**
-	* ~Segment
-	*/
-	~Segment();
-
-	/**
 	* Getter of _p1
 	* 
 	* @return {Vector2D}  : The first extremity of the segment

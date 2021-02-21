@@ -31,11 +31,6 @@ public:
 	Vector2D(const double x = 0, const double y = 0);
 
 	/**
-	* ~Vector2D
-	*/
-	~Vector2D();
-
-	/**
 	* @param  {Vector2D} u : The vector to add
 	* 
 	* @return {Vector2D}   : The vector resulting from the addition

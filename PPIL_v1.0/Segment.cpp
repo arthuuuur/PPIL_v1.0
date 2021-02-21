@@ -12,9 +12,6 @@ Segment::Segment(const string shapeColor, const Vector2D& p1, const Vector2D& p2
 	}
 }
 
-Segment::~Segment() { 
-}
-
 Vector2D Segment::getP1() const {
 	return _p1;
 }

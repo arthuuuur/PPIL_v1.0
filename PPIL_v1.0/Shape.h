@@ -54,9 +54,6 @@ protected:
 	int groupID;
 
 public:
-	
-	
-
 
 	/**
 	* Shape
@@ -65,13 +62,6 @@ public:
 	* @param  {bool} state        : If the shape is grouped or not
 	*/
 	Shape(const string shapeColor = Color::RED, const bool state = false);
-
-	/**
-	* Shape
-	*
-	* @param  {Shape&} F : The shape to be copied
-	*/
-	Shape(const Shape& F); // Peut on ecrire le corps de cette méthode ?
 
 	/**
 	* ~Shape
