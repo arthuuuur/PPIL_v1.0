@@ -8,24 +8,29 @@ class Group : public Shape {
 protected:
 	
 	/**
-	 * The list of the group's Shapes
+	 * The list of the group's shapes
 	 */
 	vector<Shape*> listShapes;
+	
+	/**
+	* Impossible to serialize a group 
+	*/
+	string serialize() const;
 
 public:
 
 	/**
 	 * Group
 	 *
-	 * @param  {string} groupColor : The color of the group
-	 * @param  {vector<Shape*} >   : The list of the group's Shapes
+	 * @param  {string} groupColor : The group's color
+	 * @param  {vector<Shape*} >   : The list of the group's shapes
 	 */
 	Group(const string groupColor, vector<Shape*> F);
 
 	/**
 	 * Group
 	 *
-	 * @param  {string} groupColor : The color of the group
+	 * @param  {string} groupColor : The group's color
 	 */
 	Group(const string groupColor);
 
@@ -84,36 +89,36 @@ public:
 	vector<Shape*> getList();
 
 	/**
-	* Allows to make a translation using a translation vector in all the shape of the group
+	* Applies a translation to all the shape in the groupe using a translation vector
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The translation vector
+	*
+	* @return {Shape*}  : A new group with applied translation
 	*/
 	Shape* translation(const Vector2D& v) const;
 
 	/**
-	* Allows to make a translation using an invariant point and a homothety ratio in all the shape of the group
+	* Applies a homothety to all the shape in the group using an invariant point and a homothety ratio
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The homothety's center
 	* @param  {double} k  : The homothety ratio
-	*/
-	Shape* homothety(const Vector2D& v, const double k) const;
-
-	/**
-	* Allows to make a rotation using an invariant point and a rotation angle in all the shape of the group
 	*
-	* @param  {double} ax    : The abscisse of the translation vector
-	* @param  {double} ay    : The ordinate of the translation vector
-	* @param  {double} angle : The angle of the rotation in degree
+	* @return {Shape*}  : A new group with applied homothety
 	*/
-	Shape* rotation(const Vector2D& v, const double angle) const;
+	Shape* homothety(const Vector2D& center, const double k) const;
 
 	/**
-	* @param  {ostream} flux : The output stream
-	* @return {ostream}      : Return the output stream with the print of the group
+	* Applies a rotation to all the shape in the group using an invariant point and a rotation angle in radiant
+	*
+	* @param  {Vector2D} v  : The rotation's center
+	* @param  {double} angle : The rotation's angle
+	*
+	* @return {Shape*}  : A new group with applied rotation
+	*/
+	Shape* rotation(const Vector2D& center, const double angle) const;
+
+	/**
+	*
 	*/
 	ostream& print(ostream& flux) const;
-
-	string serialize() const;
 };

@@ -34,53 +34,55 @@ public:
 	virtual ~Polygon();
 
 	/**
-	* Calculate the area of the polygon
+	* Calculate the polygon's area
 	* 
-	* @return {double}  : The area of the polygon
+	* @return {double}  : The polygon's area
 	*/
 	virtual const double getArea() const = 0;
 
 	/**
-	* Calculate and initialize the gravity center of the polygon
+	* Calculate and initialize the polygon's gravity center
 	*/
 	void gravity();
 
 	/**
-	* Conversion of polygon into string
+	* Transforme the polygon into a formatted string
 	*
-	* @return {string}  : Reprensentation of this polygon in string
+	* @return {string}  : Formatted string
 	*/
 	string serialize() const;
 
 	/**
-	* Allows to make a translation using a translation vector
+	* Applies a translation using a translation vector
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The translation vector
+	*
+	* @return {Shape*}  : A new shape with applied translation
 	*/
 	Shape* translation(const Vector2D& v) const = 0;
 
 	/**
-	* Allows to make a translation using an invariant point and a homothety ratio
+	* Applies a homothety using an invariant point and a homothety ratio
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The homothety's center
 	* @param  {double} k  : The homothety ratio
+	*
+	* @return {Shape*}  : A new shape with applied homothety
 	*/
 	Shape* homothety(const Vector2D& centre, const double k) const = 0;
 
 	/**
-	* Allows to make a rotation using an invariant point and a rotation angle
+	* Applies a rotation using an invariant point and a rotation angle in radiant
 	*
-	* @param  {double} ax    : The abscisse of the translation vector
-	* @param  {double} ay    : The ordinate of the translation vector
-	* @param  {double} angle : The angle of the rotation in degree
+	* @param  {Vector2D} v  : The rotation's center
+	* @param  {double} angle : The rotation's angle
+	*
+	* @return {Shape*}  : A new shape with applied rotation
 	*/
-	Shape* rotation(const Vector2D& v, const double angle) const = 0;
+	Shape* rotation(const Vector2D& center, const double angle) const = 0;
 
 	/**
-	* @param  {ostream} flux : The output stream
-	* @return {ostream}      : Return the output stream with the print of the polygon
+	*
 	*/
 	virtual ostream& print(ostream& flux) const;
 };

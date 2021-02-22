@@ -42,8 +42,8 @@ Shape* Segment::homothety(const Vector2D& centre, const double k) const {
 	return new Segment(_p1.homothety(centre, k), _p2.homothety(centre, k));
 }
 
-Shape* Segment::rotation(const Vector2D& v, const double angle) const {
-	return new Segment(_p1.rotation(v, angle), _p2.rotation(v, angle));
+Shape* Segment::rotation(const Vector2D& center, const double angle) const {
+	return new Segment(_p1.rotation(center, angle), _p2.rotation(center, angle));
 }
 
 ostream& Segment::print(ostream& flux) const {

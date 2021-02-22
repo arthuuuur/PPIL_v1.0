@@ -67,11 +67,11 @@ Shape* ConvexPolygon::homothety(const Vector2D& centre, const double k) const
 	return new ConvexPolygon(clonePoints);
 }
 
-Shape* ConvexPolygon::rotation(const Vector2D& v, const double angle) const
+Shape* ConvexPolygon::rotation(const Vector2D& center, const double angle) const
 {
 	vector<Vector2D> clonePoints;
 	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
-		clonePoints.push_back(it->rotation(v, angle));
+		clonePoints.push_back(it->rotation(center, angle));
 	}
 	return new ConvexPolygon(clonePoints);
 }

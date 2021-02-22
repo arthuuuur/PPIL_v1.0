@@ -13,43 +13,37 @@ class Shape {
 protected:
 
 	/**
-	* The color of the shape
-	* Red by default
+	* Shape's color, red by default
 	*/
 	string _shapeColor;
 
 	/**
-	* The color of the shape when it is in a group
-	* The _shapeColor by default 
+	* Grouped shape color, _shapeColor by default
 	*/
 	string _groupColor;
 
 	/**
-	* A flag to evaluate if the shape is grouped
-	* False by default 
+	* If the shape is grouped or not, false by default
 	*/
 	bool _isGrouped; // ou un pointeur sur le groupe 
 
 	/**
-	* The point representing the center of gravity of the shape
-	* Initialized at the construction of the shape
+	* The point of the shape's gravity center, initialized at the shape's construction
 	*/
 	Vector2D gravityCenter; 
 
 	/**
-	* The number of shape currently create to give the right id to the new shape
-	* Incremented automatically at each new shape
+	* The number of shape currently create to give a valide id to a new shape
 	*/
-	static int nbID;
+	static int nbShape;
 	
 	/**
-	* The id of the shape
-	* Automatically associated thanks to nbID
+	* Unique incremental id to identify the shape
 	*/
 	int ID;
 
 	/*
-	* The id of the group in which the shape is
+	* The id of the group in which the shape is, else -1 
 	*/
 	int groupID;
 
@@ -58,8 +52,8 @@ public:
 	/**
 	* Shape
 	*
-	* @param  {string} shapeColor : The color of the shape
-	* @param  {bool} state        : If the shape is grouped or not
+	* @param  {string} shapeColor : Shape's color, red by default
+	* @param  {bool} state        : Grouped or not, false by default
 	*/
 	Shape(const string shapeColor = Color::RED, const bool state = false);
 
@@ -71,144 +65,142 @@ public:
 	/**
 	* Getter of shapeColor
 	* 
-	* @return {string}  : The color of the shape
+	* @return {string}  : Shape's color
 	*/
 	const string getShapeColor() const;
 
 	/**
 	* Setter of shapeColor
 	* 
-	* @param  {string} shapeColor : The new color of the shape
+	* @param  {string} shapeColor : The new shape's color
 	*/
-	void setShapeColor(string shapeColor);
+	void setShapeColor(const string shapeColor);
 
 	/**
 	* Getter of groupColor
 	* 
-	* @return {string}  : The color of the group
+	* @return {string}  : Group's color
 	*/
 	const string getGroupColor() const;
 
 	/**
 	* Setter of groupColor
 	* 
-	* @param  {string} groupColor : The new color of the group
+	* @param  {string} groupColor : The new group's color
 	*/
 	void setGroupColor(const string groupColor);
 
 	/**
 	* Getter of gravityCenter
 	* 
-	* @return {Vector2D}  : The center of gravity of the shape
+	* @return {Vector2D}  : Shape's gravity center
 	*/
 	Vector2D getGravity() const;
 
 	/**
 	* Getter of isGrouped
 	* 
-	* @return {bool}  : True if the shape is grouped, else false
+	* @return {bool}  : True if grouped, else false
 	*/
 	bool getIsGrouped() const;
 
 	/**
 	* Setter of isGrouped
 	* 
-	* @param  {bool}  : The new state of the shape
+	* @param  {bool}  : The new shape's state
 	*/
 	void setIsGrouped(const bool);
 
 	/**
 	* Calculate the area of the shape
 	* 
-	* @return {double}  : The area of the shape
+	* @return {double}  : The shape'area
 	*/
 	virtual const double getArea() const = 0;
 
 	/**
-	* Getter of nbID
+	* Getter of nbShape
 	* 
 	* @return {int}  : The number of shape created
 	*/
-	const int getNbID() const;
+	const int getNbShape() const;
 
 	/**
 	* Getter of ID
 	* 
-	* @return {int}  : The id of the shape
+	* @return {int}  : Shape's id
 	*/
 	const int getID() const;
 
 	/*
 	* Getter of groupID
 	* 
-	* @return {int}  : The groupID of the shape
+	* @return {int}  : The group's id in which the shape is 
 	*/
 	const int getGroupID() const;
 
 	/*
 	* Setter of ID
 	*
-	* @param {int} id  : The new ID of the shape
+	* @param {int} id  : The new shape's id
 	*/
 	void setID(const int id);
 
 	/*
 	* Setter of groupID
 	*
-	* @param {int} GID  : The new groupID of the shape
+	* @param {int} GID  : The new group's id
 	*/
 	void setGroupID(const int GID);
 
 	/**
-	* Calculate and initialize the gravity center of the shape
+	* Calculate and initialize the shape's gravity center
 	*/
 	void gravity();
 
 	/**
-	* Conversion of Shape into string
+	* Transforme the shape into a formatted string 
 	*
-	* @return {string}  : Reprensentation of the shape in string
+	* @return {string}  : Formatted string 
 	*/
 	virtual string serialize() const;
 
 	/**
-	* Allows to make a translation using a translation vector
+	* Applies a translation using a translation vector
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The translation vector
+	* 
+	* @return {Shape*}  : A new shape with applied translation
 	*/
 	virtual Shape* translation(const Vector2D& v) const = 0;
 
 	/**
-	* Allows to make a translation using an invariant point and a homothety ratio
+	* Applies a homothety using an invariant point and a homothety ratio
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The homothety's center
 	* @param  {double} k  : The homothety ratio
+	* 
+	* @return {Shape*}  : A new shape with applied homothety
 	*/
-
 	virtual Shape* homothety(const Vector2D& centre, const double k) const = 0; 
 
 	/**
-	* Allows to make a rotation using an invariant point and a rotation angle
+	* Applies a rotation using an invariant point and a rotation angle in radiant
 	*
-	* @param  {double} ax    : The abscisse of the translation vector
-	* @param  {double} ay    : The ordinate of the translation vector
-	* @param  {double} angle : The angle of the rotation in degree
+	* @param  {Vector2D} v  : The rotation's center
+	* @param  {double} angle : The rotation's angle
+	* 
+	* @return {Shape*}  : A new shape with applied rotation
 	*/
-	virtual Shape* rotation(const Vector2D& v, const double angle) const = 0; 
+	virtual Shape* rotation(const Vector2D& center, const double angle) const = 0;
 
 	/**
 	*
-	* @param  {ostream} flux :
-	* @param  {Shape} c      :
-	* @return {ostream}      :
 	*/
 	friend ostream& operator<<(ostream& flux, const Shape& c);
 
 	/**
-	* @param  {ostream} flux : The output stream
-	* @return {ostream}      : Return the output stream with the print of the shape
+	* 
 	*/
 	virtual ostream& print(ostream& flux) const;
 };

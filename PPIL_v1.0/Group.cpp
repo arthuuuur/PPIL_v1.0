@@ -94,18 +94,18 @@ Shape* Group::translation(const Vector2D& v) const{
 	return new Group(this->getGroupColor(),cloneShape);
 }
 
-Shape* Group::homothety(const Vector2D& v, const double k) const {
+Shape* Group::homothety(const Vector2D& center, const double k) const {
 	vector<Shape*> cloneShape;
 	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		cloneShape.push_back((*it)->homothety(v,k));
+		cloneShape.push_back((*it)->homothety(center,k));
 	}
 	return new Group(this->getGroupColor(), cloneShape);
 }
 
-Shape* Group::rotation(const Vector2D& v, const double angle) const{
+Shape* Group::rotation(const Vector2D& center, const double angle) const{
 	vector<Shape*> cloneShape;
 	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		cloneShape.push_back((*it)->rotation(v, angle));
+		cloneShape.push_back((*it)->rotation(center, angle));
 	}
 	return new Group(this->getGroupColor(), cloneShape);
 }

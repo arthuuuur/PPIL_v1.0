@@ -11,12 +11,12 @@ class Vector2D {
 private:
 
 	/**
-	* The abscissa of the point
+	* The point's abscissa
 	*/
 	double x;
 
 	/**
-	* The ordinate of the point
+	* The point's ordinate
 	*/
 	double y;
 
@@ -25,8 +25,8 @@ public:
 	/**
 	* Vector2D
 	*
-	* @param  {double} x : The abscissa of the center
-	* @param  {double} y : The ordinate of the center
+	* @param  {double} x : The point's abscissa
+	* @param  {double} y : The point's ordinate
 	*/
 	Vector2D(const double x = 0, const double y = 0);
 
@@ -52,7 +52,7 @@ public:
 	/**
 	* @param  {Vector2D} v2 : The vector with which the equality is tested
 	* 
-	* @return {bool}        : Return true if they are egal else return false
+	* @return {bool}        : Return true if they are egal else false
 	*/
 	bool operator==(Vector2D& v2);
 
@@ -66,14 +66,14 @@ public:
 	/**
 	* Getter of x
 	* 
-	* @return {double}  : The abscissa of the point
+	* @return {double}  : The point's abscissa
 	*/
 	const double getX() const;
 
 	/**
 	* Getter of y
 	* 
-	* @return {double}  : The ordinate of the point
+	* @return {double}  : The point's ordinate
 	*/
 	const double getY() const;
 
@@ -92,47 +92,41 @@ public:
 	const void setY(const double a);
 
 	/**
-	* Allows to make a translation using a translation vector
+	* Applies a translation using a translation vector
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The translation vector
+	*
+	* @return {Shape*}  : A new vector2D with applied translation
 	*/
 	Vector2D translation(const Vector2D& v) const;
 
 	/**
-	* Allows to make a translation using an invariant point and a homothety ratio
+	* Applies a homothety using an invariant point and a homothety ratio
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The homothety's center
 	* @param  {double} k  : The homothety ratio
-	*/
-	Vector2D homothety(const Vector2D& v, const double k) const;
-
-	/**
-	* Allows to make a rotation using an invariant point and a rotation angle
 	*
-	* @param  {double} ax    : The abscisse of the translation vector
-	* @param  {double} ay    : The ordinate of the translation vector
-	* @param  {double} angle : The angle of the rotation in degree
+	* @return {Shape*}  : A new Vector2D with applied homothety
 	*/
-	Vector2D rotation(const Vector2D& v, const double angle) const; // travailler avec radiant et pas degree
-
-	operator string() {
-		ostringstream flux;
-		flux << "(" << x << "," << y << ")";
-		return flux.str();
-	}
+	Vector2D homothety(const Vector2D& center, const double k) const;
 
 	/**
-	* @param  {ostream}    :
-	* @param  {Vector2D} c :
-	* @return {ostream}    :
+	* Applies a rotation using an invariant point and a rotation angle in radiant
+	*
+	* @param  {Vector2D} v  : The rotation's center
+	* @param  {double} angle : The rotation's angle
+	*
+	* @return {Shape*}  : A new Vector2D with applied rotation
+	*/
+	Vector2D rotation(const Vector2D& center, const double angle) const;
+
+	/**
+	*
 	*/
 	friend ostream& operator<<(ostream&, const Vector2D& c);
 
 	/**
-	* @param  {ostream} flux : The output stream
-	* @return {ostream}      : Return the output stream with the print of the point
+	*
 	*/
 	ostream& print(ostream& flux) const;
 };

@@ -48,12 +48,12 @@ Vector2D Vector2D::translation(const Vector2D& v) const {
 	return r;
 }
 
-Vector2D Vector2D::homothety(const Vector2D& v, const double k) const {
+Vector2D Vector2D::homothety(const Vector2D& center, const double k) const {
 	Vector2D r;
-	return r = k * (*this - v) + v;
+	return r = k * (*this - center) + center;
 }
 
-Vector2D Vector2D::rotation(const Vector2D& v,const double angle) const { // faire avec la classe matrice comme vu avec le prof
+Vector2D Vector2D::rotation(const Vector2D& center,const double angle) const { // faire avec la classe matrice comme vu avec le prof
 	/*double f = x - ax;
 	double g = y - ay;
 	double xf, yf;
