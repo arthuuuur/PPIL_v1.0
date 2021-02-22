@@ -13,6 +13,8 @@
 #include "DrawServerVisitor.h"
 #include "ShapesManager.h"
 
+#include <Windows.h>
+
 using namespace std;
 
 int main() {
@@ -45,16 +47,15 @@ int main() {
 	
 	ServerConnection* client;
 	client = ServerConnection::getInstance();
-	//client->openConnection();
+	client->openConnection();
 
 	ShapeManagerVisitor* drawWithJavaServer;
 	drawWithJavaServer = new DrawServerVisitor;
 
 	ShapesManager sm =  ShapesManager();
-	sm.addGroup(s3);
-	sm.addShape(s1);
-	sm.addShape(s2);
-	
+	sm.add(s3);
+	sm.add(s1);
+	sm.add(s2);
 
 	cout << endl << sm << endl << endl;
 
@@ -64,9 +65,21 @@ int main() {
 
 	sm.load("save1.txt");
 
-	//cout << endl << *sm << endl << endl;
+	//cout << endl << sm << endl << endl;
 
 	//sm.accepte(drawWithJavaServer);
+	
+	Vector2D t(4, 4);
+	Shape * G = s3->translation(t);
+	cout << *G << endl;
+	sm.add(G);
+
+	cout << sm << endl;
+
+
+	sm.accepte(drawWithJavaServer);
+
+
 
 	//client->closeConnection();
 	

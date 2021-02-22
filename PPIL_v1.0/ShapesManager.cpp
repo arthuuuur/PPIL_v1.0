@@ -14,6 +14,13 @@ ShapesManager::ShapesManager() {
 
 ShapesManager::~ShapesManager() {}
 
+void ShapesManager::add(Shape* S) {
+	if (S->getGroupID() == 0) // it's a group
+		addGroup(S);
+	else // it's a shape
+		addShape(S);
+}
+
 void ShapesManager::addShape(Shape* S) {
 	try {
 		for (vector<Shape*>::const_iterator it = listShape.begin(); it != listShape.end(); it++) {
@@ -29,9 +36,9 @@ void ShapesManager::addShape(Shape* S) {
 	}
 }
 
-void ShapesManager::addGroup(Group* G) {
+void ShapesManager::addGroup(Shape* G) {
 	try {
-		for (vector<Group*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
+		for (vector<Shape*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
 			if ((*it)->getID() == G->getID()) {
 				throw Error("The group is already in the ObjectManager");
 			}
@@ -44,6 +51,13 @@ void ShapesManager::addGroup(Group* G) {
 	}
 }
 
+void ShapesManager::remove(Shape* S) {
+	if (S->getGroupID() == 0)   // it's a group
+		removeGroup(S);
+	else						// it's a shape
+		removeShape(S);
+}
+
 void ShapesManager::removeShape(Shape* S) {
 	for (vector<Shape*>::const_iterator it = listShape.begin(); it != listShape.end(); it++) {
 		if ((*it)->getID() == S->getID()) {
@@ -53,8 +67,8 @@ void ShapesManager::removeShape(Shape* S) {
 	}
 }
 
-void ShapesManager::removeGroup(Group* G) {
-	for (vector<Group*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
+void ShapesManager::removeGroup(Shape* G) {
+	for (vector<Shape*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
 		if ((*it)->getID() == G->getID()) {
 			listGroup.erase(it);
 			break;
@@ -71,7 +85,7 @@ vector<Shape*> ShapesManager::getListShape() {
 	return listShape;
 }
 
-vector<Group*> ShapesManager::getGroupShape() {
+vector<Shape*> ShapesManager::getGroupShape() {
 	return listGroup;
 }
 
@@ -85,8 +99,8 @@ void ShapesManager::save(const string saveName) {
 				save << "\n";
 		}
 		if (!listShape.empty()) save << "\n";
-		for (vector<Group*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
-			vector<Shape*> tmp = (*it)->getList();
+		for (vector<Shape*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
+			vector<Shape*> tmp = dynamic_cast<Group*>(*it)->getList();
 			for (vector<Shape*>::const_iterator itbis = tmp.begin(); itbis != tmp.end(); itbis++) {
 				save << (*itbis)->serialize();
 				if (itbis != tmp.end() - 1)
@@ -110,11 +124,11 @@ void ShapesManager::load(const string file) {
 			if (var != NULL) {
 				if (var->getGroupID() > -1) { // si une forme appartient à un group
 					bool here = false;
-					for (vector<Group*>::iterator it = listGroup.begin(); it != listGroup.end(); it++) { // on regarde si le group est deja la
+					for (vector<Shape*>::iterator it = listGroup.begin(); it != listGroup.end(); it++) { // on regarde si le group est deja la
 						if ((*it)->getID() == var->getGroupID()) {
 							here = true;
 							if (here) {
-								(*it)->addShape(var);
+								dynamic_cast<Group*>(*it)->addShape(var);
 							}
 						}
 					}
@@ -155,7 +169,7 @@ ostream& ShapesManager::print(ostream& flux) const {
 		flux << endl;
 	}
 	flux << endl;
-	for (vector<Group*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
+	for (vector<Shape*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
 		(*it)->print(flux);
 		flux << endl;
 	}

@@ -25,86 +25,84 @@ public:
 	/**
 	* Segment
 	*
-	* @param  {double} p1x : The abscissa of the first point
-	* @param  {double} p1y : The ordinate of the first point
-	* @param  {double} p2x : The abscissa of the second point
-	* @param  {double} p2y : The ordinate of the second point
+	* @param  {Vector2D} p1 : First extremity
+	* @param  {Vector2D} p2 : Seconde extremity
 	*/
 	Segment(const Vector2D& p1, const Vector2D& p2);
 
 	/**
 	* Segment
 	*
-	* @param  {string} shapeColor : The color of the segment
-	* @param  {double} p1x        : The abscissa of the first point
-	* @param  {double} p1y        : The ordinate of the first point
-	* @param  {double} p2x        : The abscissa of the second point
-	* @param  {double} p2y        : The ordinate of the second point
+	* @param  {string} shapeColor : The segment's color
+	* @param  {Vector2D} p1 : First extremity
+	* @param  {Vector2D} p2 : Seconde extremity
 	*/
 	Segment(const string shapeColor, const Vector2D& p1, const Vector2D& p2);
 
 	/**
 	* Getter of _p1
 	* 
-	* @return {Vector2D}  : The first extremity of the segment
+	* @return {Vector2D}  : The first extremity
 	*/
 	Vector2D getP1() const;
 
 	/**
 	* Getter of _p2
 	* 
-	* @return {Vector2D}  : the second extremity of the segment
+	* @return {Vector2D}  : the second extremity
 	*/
 	Vector2D getP2() const;
 
 	/**
-	* Calculate the are of the segment
+	* Calculate the segment's area
 	* 
-	* @return {double}  : the area of the segment
+	* @return {double}  : the segment's area
 	*/
 	const double getArea() const;
 
 	/**
-	* calculates and initializes the gravity center of the segment
+	* calculates and initializes the segment's gravity center
 	*/
 	void gravity();
 
 	/**
-	* Conversion of segment into string
+	* Transforme the segment into a formatted string
 	*
-	* @return {string}  : Reprensentation of the segment in string
+	* @return {string}  : Formatted string
 	*/
 	string serialize() const;
 
 	/**
-	* Allows to make a translation using a translation vector
+	* Applies a translation using a translation vector
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The translation vector
+	*
+	* @return {Shape*}  : A new segment with applied translation
 	*/
 	Shape* translation(const Vector2D& v) const;
 
 	/**
-	* Allows to make a translation using an invariant point and a homothety ratio
+	* Applies a homothety using an invariant point and a homothety ratio
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The homothety's center
 	* @param  {double} k  : The homothety ratio
+	*
+	* @return {Shape*}  : A new segment with applied homothety
 	*/
 	Shape* homothety(const Vector2D& centre, const double k) const;
 
 	/**
-	* Allows to make a rotation using an invariant point and a rotation angle
+	* Applies a rotation using an invariant point and a rotation angle in radiant
 	*
-	* @param  {double} ax    : The abscisse of the translation vector
-	* @param  {double} ay    : The ordinate of the translation vector
-	* @param  {double} angle : The angle of the rotation in degree
+	* @param  {Vector2D} v  : The rotation's center
+	* @param  {double} angle : The rotation's angle
+	*
+	* @return {Shape*}  : A new segment with applied rotation
 	*/
-	Shape* rotation(const Vector2D& v, const double angle) const;
+	Shape* rotation(const Vector2D& center, const double angle) const;
 
 	/**
-	* @param  {ostream} flux : The output stream
-	* @return {ostream}      : Return the output stream with the print of the circle
+	*
 	*/
 	ostream& print(ostream& flux) const;
 };

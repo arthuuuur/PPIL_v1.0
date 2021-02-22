@@ -28,9 +28,9 @@ void DrawServerVisitor::visite(ShapesManager Sm) {
 			*p = '\0';
 			cout << reponse << endl;
 		}
-		vector<Group*> tmp2 = Sm.getGroupShape();
-		for (vector<Group*>::iterator it = tmp2.begin(); it != tmp2.end(); it++) {
-			vector<Shape*> tmp3 = (*it)->getList();
+		vector<Shape*> tmp2 = Sm.getGroupShape();
+		for (vector<Shape*>::iterator it = tmp2.begin(); it != tmp2.end(); it++) {
+			vector<Shape*> tmp3 = dynamic_cast<Group*>(*it)->getList();
 			for (vector<Shape*>::iterator itbis = tmp3.begin(); itbis != tmp3.end(); itbis++) {
 				//(*it)->draw();
 				int err;

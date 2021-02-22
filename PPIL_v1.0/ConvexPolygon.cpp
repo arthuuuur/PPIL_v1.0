@@ -55,7 +55,7 @@ Shape* ConvexPolygon::translation(const Vector2D& v) const
 	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
 		clonePoints.push_back(it->translation(v));
 	}
-	return new ConvexPolygon(clonePoints);
+	return new ConvexPolygon(this->getShapeColor(), clonePoints);
 }
 
 Shape* ConvexPolygon::homothety(const Vector2D& centre, const double k) const
@@ -64,16 +64,16 @@ Shape* ConvexPolygon::homothety(const Vector2D& centre, const double k) const
 	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
 		clonePoints.push_back(it->homothety(centre, k));
 	}
-	return new ConvexPolygon(clonePoints);
+	return new ConvexPolygon(this->getShapeColor(), clonePoints);
 }
 
-Shape* ConvexPolygon::rotation(const Vector2D& v, const double angle) const
+Shape* ConvexPolygon::rotation(const Vector2D& center, const double angle) const
 {
 	vector<Vector2D> clonePoints;
 	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
-		clonePoints.push_back(it->rotation(v, angle));
+		clonePoints.push_back(it->rotation(center, angle));
 	}
-	return new ConvexPolygon(clonePoints);
+	return new ConvexPolygon(this->getShapeColor(), clonePoints);
 }
 
 ostream& ConvexPolygon::print(ostream& flux) const {

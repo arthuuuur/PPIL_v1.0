@@ -10,6 +10,9 @@ using namespace std;
 class Color {
 	
 	private:
+		/**
+		* List of allowed color for a shape
+		*/
 		static const vector<string> AllowedColor;
 		
 	public:
@@ -20,5 +23,11 @@ class Color {
 		static const string YELLOW;
 		static const string BLACK;
 
-		static bool isAllowed(const string);
+		/**
+		* Check if a color is in the AllowedColor list
+		* @param  {string} color  : the color to check
+		* 
+		* @return {bool}  : True if allowed, else false
+		*/
+		static bool isAllowed(const string color);
 };

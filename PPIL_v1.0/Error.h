@@ -9,7 +9,7 @@ class Error : public exception {
 private:
 
 	/**
-	* the message of the error
+	* the error's message
 	*/
 	string _error;
 
@@ -18,13 +18,13 @@ public:
 	/**
 	* Error
 	*
-	* @param {string} error : the message off the error
+	* @param {string} error : the error's message
 	*/
 	Error(string const& error = "") throw() : _error(error) {}
 
 	/**
 	*
-	* @return {char*}  : the message of the error
+	* @return {char*}  : the error's message
 	*/
 	virtual const char* what() const throw() {
 		return _error.c_str();

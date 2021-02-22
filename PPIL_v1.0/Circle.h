@@ -11,12 +11,12 @@ class Circle : public Shape {
 private:
 
 	/**
-	* The center of the circle
+	* The circle's center
 	*/
 	Vector2D _center;
 
 	/**
-	* The radius of the circle
+	* The circle's radius
 	*/
 	double _radius;
 
@@ -25,84 +25,84 @@ public:
 	/**
 	* Circle
 	*
-	* @param  {double} x      : The abscissa of the center
-	* @param  {double} y      : The ordinate of the center
-	* @param  {double} radius : The radius of the circle
+	* @param  {Vector2D} x : The circle's center
+	* @param  {double} radius : The circle's radius
 	*/
 	Circle(const Vector2D& v, const double radius);
 
 	/**
 	* Circle
 	*
-	* @param  {string} shapeColor : The color of the circle
-	* @param  {double} x          : The abscissa of the center
-	* @param  {double} y          : The ordinate of the center
-	* @param  {double} radius     : The radius of the circle
+	* @param  {string} shapeColor : The circle's color
+	* @param  {Vector2D} x : The circle's center
+	* @param  {double} radius : The circle's radius
 	*/
 	Circle(const string shapeColor, const Vector2D& v, const double radius);
 
 	/**
-	* Calculate the area of the circle
+	* Calculate the circle's area
 	* 
-	* @return {double}  : The area of the circle
+	* @return {double}  : The circle's ares
 	*/
 	const double getArea() const;
 
 	/**
 	* Getter of center
 	* 
-	* @return {Vector2D*}  : The center of the circle
+	* @return {Vector2D*}  : The circle's center
 	*/
 	Vector2D getCenter() const;
 
 	/**
 	* Getter of radius
 	* 
-	* @return {double}  : The radius of the circle
+	* @return {double}  : The circle's radius 
 	*/
 	const double getRadius() const;
 
 	/**
-	* Calculate and initialize the gravity center of the circle
+	* Calculate and initialize the circle's gravity center
 	*/
 	void gravity();
 
 	/**
-	* Conversion of Circle into string
+	* Transforme the circle into a formatted string
 	*
-	* @return {string}  : Reprensentation of the circle in string
+	* @return {string}  : Formatted string
 	*/
 	string serialize() const;
 
 	/**
-	* Allows to make a translation using a translation vector
+	* Applies a translation using a translation vector
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The translation vector
+	*
+	* @return {Shape*}  : A new Circle with applied translation
 	*/
 	Shape* translation(const Vector2D& v) const;
 
 	/**
-	* Allows to make a translation using an invariant point and a homothety ratio
+	* Applies a homothety using an invariant point and a homothety ratio
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The homothety's center
 	* @param  {double} k  : The homothety ratio
-	*/
-	Shape* homothety(const Vector2D& v, const double k) const;
-
-	/**
-	* Allows to make a rotation using an invariant point and a rotation angle
 	*
-	* @param  {double} ax    : The abscisse of the translation vector
-	* @param  {double} ay    : The ordinate of the translation vector
-	* @param  {double} angle : The angle of the rotation in degree
+	* @return {Shape*}  : A new Circle with applied homothety
 	*/
-    Shape* rotation(const Vector2D& v, const double angle) const;
+	Shape* homothety(const Vector2D& center, const double k) const;
 
 	/**
-	* @param  {ostream} flux : The output stream
-	* @return {ostream}      : Return the output stream with the print of the circle
+	* Applies a rotation using an invariant point and a rotation angle in radiant
+	*
+	* @param  {Vector2D} v  : The rotation's center
+	* @param  {double} angle : The rotation's angle
+	*
+	* @return {Shape*}  : A new Circle with applied rotation
+	*/
+    Shape* rotation(const Vector2D& center, const double angle) const;
+
+	/**
+	*
 	*/
 	ostream& print(ostream& flux) const;
 };

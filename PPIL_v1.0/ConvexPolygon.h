@@ -24,48 +24,50 @@ public:
 	/**
 	* ConvexPolygon
 	*
-	* @param  {string} shapeColor  : The color of the convex polygon
+	* @param  {string} shapeColor  : The convex polygon's color
 	* @param  {vector<Vector2D>} S : The list of the the convex polygon's points
 	*/
 	ConvexPolygon(const string shapeColor, vector<Vector2D> S);
 
 
 	/**
-	* Calculate the area of the convex polygon
+	* Calculate the convex polygon's area
 	* 
-	* @return {double}  : The area of the convex polygon
+	* @return {double}  : The convex polygon's area
 	*/
 	virtual const double getArea() const;
 
 	/**
-	* Allows to make a translation using a translation vector
+	* Applies a translation using a translation vector
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The translation vector
+	*
+	* @return {Shape*}  : A new ConvexPolygon with applied translation
 	*/
 	Shape* translation(const Vector2D& v) const;
 
 	/**
-	* Allows to make a translation using an invariant point and a homothety ratio
+	* Applies a homothety using an invariant point and a homothety ratio
 	*
-	* @param  {double} ax : The abscisse of the translation vector
-	* @param  {double} ay : The ordinate of the translation vector
+	* @param  {Vector2D} v : The homothety's center
 	* @param  {double} k  : The homothety ratio
+	*
+	* @return {Shape*}  : A new ConvexPolygon with applied homothety
 	*/
 	Shape* homothety(const Vector2D& centre, const double k) const;
 
 	/**
-	* Allows to make a rotation using an invariant point and a rotation angle
+	* Applies a rotation using an invariant point and a rotation angle in radiant
 	*
-	* @param  {double} ax    : The abscisse of the translation vector
-	* @param  {double} ay    : The ordinate of the translation vector
-	* @param  {double} angle : The angle of the rotation in degree
+	* @param  {Vector2D} v  : The rotation's center
+	* @param  {double} angle : The rotation's angle
+	*
+	* @return {Shape*}  : A new ConvexPolygon with applied rotation
 	*/
-	Shape* rotation(const Vector2D& v, const double angle) const;
+	Shape* rotation(const Vector2D& center, const double angle) const;
 
 	/**
-	* @param  {ostream} flux : the output stream
-	* @return {ostream}      : return the output stream with the print of the convex Polygon
+	*
 	*/
 	ostream& print(ostream& flux) const;
 };

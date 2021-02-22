@@ -145,6 +145,7 @@
     <ClInclude Include="ConvexPolygon.h" />
     <ClInclude Include="DrawServerVisitor.h" />
     <ClInclude Include="Error.h" />
+    <ClInclude Include="Matrice.h" />
     <ClInclude Include="Polygon.h" />
     <ClInclude Include="PolygonDetector.h" />
     <ClInclude Include="Segment.h" />
@@ -177,6 +178,7 @@
     <ClCompile Include="ShapeDetector.cpp" />
     <ClCompile Include="ShapesManager.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="TGroup.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>

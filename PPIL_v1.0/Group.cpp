@@ -10,12 +10,13 @@ Group::Group(const string groupColor, vector<Shape*> F) : Shape(groupColor) {
 			}
 			(*it)->setIsGrouped(true);
 			(*it)->setGroupColor(_groupColor);
-			(*it)->setGroupID(this->getGroupID());
+			(*it)->setGroupID(ID);
 			listShapes.push_back(*it);
 		}
 		if (Color::isAllowed(groupColor)) {
 			_shapeColor = groupColor;
 		}
+		groupID = 0;
 	}
 	catch (exception const& err) {
 		cerr << err.what() << endl;
@@ -28,22 +29,26 @@ Group::Group(const string groupColor) {
 		_shapeColor = groupColor;
 		_groupColor = groupColor;
 	}
-	groupID = ID;
+	groupID = 0;
 }
 
 Group::Group(const Group& G) : listShapes(G.listShapes) {}
 
 Group::~Group() {}
 
+
 void Group::addShape(Shape* F) {
+	
 	try {
 		if (F->getIsGrouped() == true) {
 			throw Error("This Shape is already in a Group");
 		}
 		F->setIsGrouped(true);
 		F->setGroupColor(_groupColor);
+		F->setPreviousGroupID(F->getGroupID());
 		F->setGroupID(this->getID());
 		listShapes.push_back(F);
+	
 	}
 	catch (exception const& err) {
 		cerr << err.what() << *F << endl;
@@ -51,25 +56,30 @@ void Group::addShape(Shape* F) {
 	}
 }
 
-void Group::addGroup(Group *G) {
-	for (vector<Shape*>::iterator it = G->listShapes.begin(); it != G->listShapes.end(); it++) {
+void Group::addGroup(Shape *G) {
+	for (vector<Shape*>::iterator it = dynamic_cast<Group*>(G)->listShapes.begin(); it != dynamic_cast<Group*>(G)->listShapes.end(); it++) {
 		(*it)->setGroupColor(_groupColor);
-		(*it)->setGroupID(this->getGroupID());
+		(*it)->setPreviousGroupID((*it)->getGroupID());
+		(*it)->setGroupID(this->getID());
 		listShapes.push_back(*it);
+		
 	}
 }
 
 void Group::removeShape(Shape* S) {
 	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
 		if ((*it)->getID() == S->getID()) {
+			
+			(*it)->setGroupID((*it)->getPreviousGroupID());
 			listShapes.erase(it);
+		
 			break;
 		}
 	}
 }
 
-void Group::removeGroup(Group * G) {
-	for (vector<Shape*>::iterator it = G->listShapes.begin(); it != G->listShapes.end(); it++) {
+void Group::removeGroup(Shape * G) {
+	for (vector<Shape*>::iterator it = dynamic_cast<Group*>(G)->listShapes.begin(); it != dynamic_cast<Group*>(G)->listShapes.end(); it++) {
 		removeShape(*it);
 	}
 }
@@ -94,18 +104,18 @@ Shape* Group::translation(const Vector2D& v) const{
 	return new Group(this->getGroupColor(),cloneShape);
 }
 
-Shape* Group::homothety(const Vector2D& v, const double k) const {
+Shape* Group::homothety(const Vector2D& center, const double k) const {
 	vector<Shape*> cloneShape;
 	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		cloneShape.push_back((*it)->homothety(v,k));
+		cloneShape.push_back((*it)->homothety(center,k));
 	}
 	return new Group(this->getGroupColor(), cloneShape);
 }
 
-Shape* Group::rotation(const Vector2D& v, const double angle) const{
+Shape* Group::rotation(const Vector2D& center, const double angle) const{
 	vector<Shape*> cloneShape;
 	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		cloneShape.push_back((*it)->rotation(v, angle));
+		cloneShape.push_back((*it)->rotation(center, angle));
 	}
 	return new Group(this->getGroupColor(), cloneShape);
 }

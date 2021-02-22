@@ -12,25 +12,19 @@ public:
 	/**
 	* Triangle
 	*
-	* @param  {double} ax : The abscissa of the first point
-	* @param  {double} ay : The ordinate of the first point
-	* @param  {double} bx : The abscissa of the second point
-	* @param  {double} by : The ordinate of the second point
-	* @param  {double} cx : The abscissa of the third point
-	* @param  {double} cy : The ordinate of the third point
+	* @param  {Vector2D} v1 : First point
+	* @param  {Vector2D} v2 : Seconde point
+	* @param  {Vector2D} v3 : Third point
 	*/
 	Triangle(const Vector2D& v1, const Vector2D& v2, const Vector2D& v3);
 
 	/**
 	* Triangle
 	*
-	* @param  {string} shapeColor : The color of the triangle
-	* @param  {double} ax		  : The abscissa of the first point
-	* @param  {double} ay		  : The ordinate of the first point
-	* @param  {double} bx		  : The abscissa of the second point
-	* @param  {double} by		  : The ordinate of the second point
-	* @param  {double} cx		  : The abscissa of the third point
-	* @param  {double} cy		  : The ordinate of the third point
+	* @param  {string} shapeColor : triangle's color
+	* @param  {Vector2D} v1 : First point
+	* @param  {Vector2D} v2 : Seconde point
+	* @param  {Vector2D} v3 : Third point
 	*/
 	Triangle(const string shapeColor, const Vector2D& v1, const Vector2D& v2, const Vector2D& v3);
 
@@ -44,21 +38,20 @@ public:
 	/**
 	* Triangle
 	*
-	* @param  {string} shapeColor  : The color of the triangle
+	* @param  {string} shapeColor  : Triangle's color
 	* @param  {vector<Vector2D>} S : The list of the triangle's points
 	*/
 	Triangle(const string shapeColor, vector<Vector2D> S);
 
 	/**
-	* Calculate the area of the triangle
+	* Calculate the triangle's area
 	* 
-	* @return {double}  : The area of the triangle
+	* @return {double}  : The triangle's area
 	*/
 	const double getArea() const;
 
 	/**
-	* @param  {ostream} flux : The output stream
-	* @return {ostream}      : Return the output stream with the print of the triangle
+	*
 	*/
 	ostream& print(ostream& flux) const;
 };

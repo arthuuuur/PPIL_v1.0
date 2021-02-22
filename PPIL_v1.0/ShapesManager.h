@@ -25,7 +25,35 @@ private:
 	/**
 	* List of ShapesManager's Group
 	*/
-	vector<Group*> listGroup;
+	vector<Shape*> listGroup;
+
+	/**
+	* Add a new Shape to the list of shapes
+	*
+	* @param {Shape*} : The shape to be added to the list of shapes
+	*/
+	void addShape(Shape*);
+
+	/**
+	* Add a new Group to the list of groups
+	*
+	* @param {Shape*} : The group to be added to the list of groups
+	*/
+	void addGroup(Shape* G);
+
+	/**
+	* Remove a Shape to the list of shapes
+	*
+	* @param {Shape*} : The shape to be removed to the list of shapes
+	*/
+	void removeShape(Shape* S);
+
+	/**
+	* Remove a Group to the list of groupes
+	*
+	* @param {Shape*} : The group to be removed to the list of groups
+	*/
+	void removeGroup(Shape* G);
 
 public:
 
@@ -39,33 +67,11 @@ public:
 	*/
 	~ShapesManager();
 
-	/**
-	* Add a new Shape to the list of shapes 
-	* 
-	* @param {Shape*} : The shape to be added to the list of shapes
-	*/
-	void addShape(Shape*);
+	void add(Shape* S);
 
-	/**
-	* Add a new Group to the list of groups
-	* 
-	* @param {Shape*} : The group to be added to the list of groups
-	*/
-	void addGroup(Group *G);
+	void remove(Shape* S);
 
-	/**
-	* Remove a Shape to the list of shapes
-	* 
-	* @param {Shape*} : The shape to be removed to the list of shapes
-	*/
-	void removeShape(Shape* S);
-
-	/**
-	* Remove a Group to the list of groupes
-	* 
-	* @param {Shape*} : The group to be removed to the list of groups
-	*/
-	void removeGroup(Group* G);
+	
 
 	/**
 	* Clean the both ShapesManager's lists
@@ -84,7 +90,7 @@ public:
 	* 
 	* @return {vector<Group*>} : the list of Groups
 	*/
-	vector<Group*> getGroupShape();
+	vector<Shape*> getGroupShape();
 
 	/**
 	* Save in a file all the shapes and groups of the ShapeManager's lists

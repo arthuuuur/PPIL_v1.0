@@ -3,19 +3,20 @@
 
 
 
-int Shape::nbID = 0;
+int Shape::nbShape = 0;
 
 Shape::Shape(const string shapeColor, const bool state) : _isGrouped(state) {
 		if (Color::isAllowed(shapeColor)){
 			_shapeColor = shapeColor;
 			_groupColor = shapeColor;
 		}
-		ID = ++nbID;
+		ID = ++nbShape;
 		groupID = -1;
+		previousGroupID = -1;
 }
 
 Shape::~Shape() {
-	nbID--;
+	nbShape--;
 }
 
 const string Shape::getShapeColor() const {
@@ -58,8 +59,8 @@ string Shape::serialize() const
 	return nullptr;
 }
 
-const int Shape::getNbID() const {
-	return nbID;
+const int Shape::getNbShape() const {
+	return nbShape;
 }
 
 const int Shape::getID() const {
@@ -76,6 +77,16 @@ void Shape::setGroupID(const int GID) {
 
 void Shape::setID(const int id) {
 	ID = id;
+}
+
+const int Shape::getPreviousGroupID() const
+{
+	return previousGroupID;
+}
+
+void Shape::setPreviousGroupID(const int pid)
+{
+	previousGroupID = pid;
 }
 
 ostream& Shape::print(ostream& flux) const {
