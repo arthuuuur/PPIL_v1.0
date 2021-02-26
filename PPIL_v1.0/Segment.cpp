@@ -43,7 +43,7 @@ Shape* Segment::homothety(const Vector2D& centre, const double k) const {
 }
 
 Shape* Segment::rotation(const Vector2D& v, const double angle) const {
-	return new Segment(_p1.rotation(v, angle), _p2.rotation(v, angle));
+	return new Segment(this->getShapeColor(), _p1.rotation(v, angle), _p2.rotation(v, angle));
 }
 
 ostream& Segment::print(ostream& flux) const {

@@ -53,15 +53,14 @@ Vector2D Vector2D::homothety(const Vector2D& center, const double k) const {
 	return r = k * (*this - center) + center;
 }
 
-Vector2D Vector2D::rotation(const Vector2D& center,const double angle) const { // faire avec la classe matrice comme vu avec le prof
-	/*double f = x - ax;
-	double g = y - ay;
+Vector2D Vector2D::rotation(const Vector2D& center,const double angle) const {
+	double f = x - center.getX();
+	double g = y - center.getY();
 	double xf, yf;
-	xf = f * cos(angle) + g * sin(angle) + ax;
-	yf = -f * sin(angle) + g * cos(angle) + ay;
-	x = round(xf);
-	y = round(yf); // pourquoi on arrondit ? */
-	return NULL;
+	xf = f * cos(angle) + g * sin(angle) + center.getX();
+	yf = -f * sin(angle) + g * cos(angle) + center.getY();
+	Vector2D r(xf, yf);
+	return r;
 }
 
 ostream& operator<<(ostream& flux, const Vector2D& c) {

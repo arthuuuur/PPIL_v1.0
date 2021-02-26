@@ -57,7 +57,11 @@ int main() {
 	sm.add(s1);
 	sm.add(s2);
 
-	cout << endl << sm << endl << endl;
+	cout << *s4 << endl;
+	Shape* test = s4->rotation(v2, 3.14);
+	cout << *test << endl;
+	sm.add(test);
+	//cout << endl << sm << endl << endl;
 
 	sm.save("save1.txt");
 
@@ -69,14 +73,6 @@ int main() {
 
 	//sm.accepte(drawWithJavaServer);
 	
-	Vector2D t(4, 4);
-	Shape * G = s3->translation(t);
-	cout << *G << endl;
-	sm.add(G);
-
-	cout << sm << endl;
-
-
 	sm.accepte(drawWithJavaServer);
 
 

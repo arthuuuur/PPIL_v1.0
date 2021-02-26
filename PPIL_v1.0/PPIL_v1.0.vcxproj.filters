@@ -134,9 +134,6 @@
     <ClCompile Include="Color.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="TGroup.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Source.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
