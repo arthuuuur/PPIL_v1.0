@@ -14,12 +14,7 @@ ShapesManager::ShapesManager() {
 
 ShapesManager::~ShapesManager() {}
 
-void ShapesManager::add(Shape* S) {
-	if (S->getGroupID() == 0) // it's a group
-		addGroup(S);
-	else // it's a shape
-		addShape(S);
-}
+
 
 void ShapesManager::addShape(Shape* S) {
 	try {
@@ -51,12 +46,6 @@ void ShapesManager::addGroup(Shape* G) {
 	}
 }
 
-void ShapesManager::remove(Shape* S) {
-	if (S->getGroupID() == 0)   // it's a group
-		removeGroup(S);
-	else						// it's a shape
-		removeShape(S);
-}
 
 void ShapesManager::removeShape(Shape* S) {
 	for (vector<Shape*>::const_iterator it = listShape.begin(); it != listShape.end(); it++) {

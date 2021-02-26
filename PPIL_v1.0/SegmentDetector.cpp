@@ -20,7 +20,7 @@ Shape* SegmentDetector::deserialize(const string D) const
 		shape = new Segment(color, v1, v2);
 		shape->setID(stoi(data[indexOf(data, "ID") + 1]));
 		shape->setGroupID(stoi(data[indexOf(data, "groupID") + 1]));
-		shape->setGroupColor(data[indexOf(data, "groupColor") + 1]);
+		shape->setColorIfGrouped(data[indexOf(data, "groupColor") + 1]);
 		return shape;
 	}
 	return NULL;

@@ -8,7 +8,7 @@ ConvexPolygon::ConvexPolygon(vector<Vector2D> S) :Polygon(S) {}
 ConvexPolygon::ConvexPolygon(const string shapeColor, vector<Vector2D> S) : Polygon(S) {
 	if (Color::isAllowed(shapeColor)) {
 		_shapeColor = shapeColor;
-		_groupColor = shapeColor;
+		_colorIfGrouped = shapeColor;
 	}
 }
 

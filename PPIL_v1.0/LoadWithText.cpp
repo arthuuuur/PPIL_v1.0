@@ -21,16 +21,16 @@ void LoadWithText::visite(ShapesManager& Sm)
 						}
 					}
 					if (!here) {
-						Group* G = new Group(var->getGroupColor());
+						Group* G = new Group(var->getColorIfGrouped());
 						G->setGroupID(0);
 						G->setID(var->getGroupID());
 						G->addShape(var);
-						Sm.add(G);
+						Sm.addGroup(G);
 						here = false;
 					}
 				}
 				else {
-					Sm.add(var);
+					Sm.addShape(var);
 				}
 			}
 			else {

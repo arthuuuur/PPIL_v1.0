@@ -27,6 +27,20 @@ private:
 	*/
 	vector<Shape*> listGroup;
 
+	
+
+public:
+
+	/**
+	* ShapesManager
+	*/
+	ShapesManager();
+
+	/**
+	* ~ShapesManager
+	*/
+	~ShapesManager();
+
 	/**
 	* Add a new Shape to the list of shapes
 	*
@@ -54,22 +68,6 @@ private:
 	* @param {Shape*} : The group to be removed to the list of groups
 	*/
 	void removeGroup(Shape* G);
-
-public:
-
-	/**
-	* ShapesManager
-	*/
-	ShapesManager();
-
-	/**
-	* ~ShapesManager
-	*/
-	~ShapesManager();
-
-	void add(Shape* S);
-
-	void remove(Shape* S);
 
 	
 

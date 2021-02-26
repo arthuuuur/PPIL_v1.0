@@ -5,18 +5,67 @@
 
 int Shape::nbShape = 0;
 
-Shape::Shape(const string shapeColor, const bool state) : _isGrouped(state) {
+Shape::Shape(const string shapeColor) {
 		if (Color::isAllowed(shapeColor)){
 			_shapeColor = shapeColor;
-			_groupColor = shapeColor;
+			_colorIfGrouped = shapeColor;
 		}
 		ID = ++nbShape;
-		groupID = -1;
-		previousGroupID = -1;
+		father = NULL;
+		groupID = ID;
+		
+}
+
+Shape::Shape(const Shape& S) {
+	_shapeColor = S.getShapeColor();
+	_colorIfGrouped = S.getColorIfGrouped();
+	father = S.getFather();
+	ID = ++nbShape;
+	groupID = ID;
 }
 
 Shape::~Shape() {
 	nbShape--;
+	free(father);
+}
+
+
+Shape* Shape::getFather() const
+{
+	return father;
+}
+
+void Shape::setFather(Shape* s)
+{
+	father = s;
+}
+
+const int Shape::getFatherID()
+{
+	Shape* iterator;
+	iterator = this;
+	while (iterator->getFather() != NULL)// si elle est groupé on remonte le pere jusqu'a trouver la racine pour determiner le groupID
+	{
+		iterator = iterator->getFather();
+	}
+	if (iterator != NULL)
+		return iterator->getID(); // si la forme a un pere on retourne l'id de la racine 
+	else
+		return ID; // sinon on retourne l'id de la forme
+}
+
+const string Shape::getFatherColor()
+{
+	Shape* iterator;
+	iterator = this;
+	while (iterator->getFather() != NULL)// si elle est groupé on remonte le pere jusqu'a trouver la racine 
+	{
+		iterator = iterator->getFather();
+	}
+	if (iterator != NULL)
+		return iterator->getShapeColor(); // si la forme a un pere on retourne la couleur du pere
+	else
+		return _shapeColor; // sinon on retourne la couleur de la forme
 }
 
 const string Shape::getShapeColor() const {
@@ -29,14 +78,14 @@ void Shape::setShapeColor(const string shapeColor) {
 	}
 }
 
-const string Shape::getGroupColor() const {
-	return _groupColor;
+const string Shape::getColorIfGrouped() const {
+	return _colorIfGrouped;
 }
 
-void Shape::setGroupColor(const string groupColor) {
+void Shape::setColorIfGrouped(const string groupColor) {
 
 	if (Color::isAllowed(groupColor)) {
-		_groupColor = groupColor;
+		_colorIfGrouped = groupColor;
 	}		
 }
 
@@ -44,13 +93,6 @@ Vector2D Shape::getGravity() const {
 	return gravityCenter;
 }
 
-bool Shape::getIsGrouped() const {
-	return _isGrouped;
-}
-
-void Shape::setIsGrouped(const bool state) {
-	_isGrouped = state;
-}
 
 void Shape::gravity() {}
 
@@ -79,16 +121,6 @@ void Shape::setID(const int id) {
 	ID = id;
 }
 
-const int Shape::getPreviousGroupID() const
-{
-	return previousGroupID;
-}
-
-void Shape::setPreviousGroupID(const int pid)
-{
-	previousGroupID = pid;
-}
-
 ostream& Shape::print(ostream& flux) const {
 	flux << _shapeColor << " | id = " << ID << " | groupID = " << groupID << " | ";
 	return flux;
@@ -97,3 +129,4 @@ ostream& Shape::print(ostream& flux) const {
 ostream& operator<<(ostream& flux, const Shape& c) {
 	return c.print(flux);
 }
+

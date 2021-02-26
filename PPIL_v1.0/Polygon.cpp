@@ -41,7 +41,7 @@ void Polygon::gravity() {
 
 string Polygon::serialize() const {
 	ostringstream os;
-	os << "type;3;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _groupColor << ";nbPoint;" << listPoints.size() << ";list;";
+	os << "type;3;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _colorIfGrouped << ";nbPoint;" << listPoints.size() << ";list;";
 	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
 		os << it->getX() << ";" << it->getY();
 		if (it != listPoints.end() - 1)

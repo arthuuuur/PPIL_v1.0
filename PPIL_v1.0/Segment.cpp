@@ -30,7 +30,7 @@ void Segment::gravity() {
 
 string Segment::serialize() const {
 	ostringstream os;
-	os << "type;1;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _groupColor << ";nbPoint;2;list;" << _p1.getX() << ";" << _p1.getY() << ";" << _p2.getX() << ";" << _p2.getY();
+	os << "type;1;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _colorIfGrouped << ";nbPoint;2;list;" << _p1.getX() << ";" << _p1.getY() << ";" << _p2.getX() << ";" << _p2.getY();
 	return os.str();
 }
 

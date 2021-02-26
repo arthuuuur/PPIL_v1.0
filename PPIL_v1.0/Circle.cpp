@@ -30,7 +30,7 @@ void Circle::gravity() {
 
 string Circle::serialize() const {
 	ostringstream os;
-	os << "type;2;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _groupColor << ";center;" << _center.getX() << ";" << _center.getY() << ";radius;" << _radius;
+	os << "type;2;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _colorIfGrouped << ";center;" << _center.getX() << ";" << _center.getY() << ";radius;" << _radius;
 	return os.str();
 }
 

@@ -52,9 +52,9 @@ int main() {
 	drawWithJavaServer = new DrawServerVisitor;
 
 	ShapesManager sm =  ShapesManager();
-	sm.add(s3);
-	sm.add(s1);
-	sm.add(s2);
+	sm.addGroup(s3);
+	sm.addShape(s1);
+	sm.addShape(s2);
 
 	cout << endl << sm << endl << endl;
 

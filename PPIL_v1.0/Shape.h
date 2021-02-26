@@ -12,43 +12,13 @@ class Shape {
  
 protected:
 
-	/**
-	* Shape's color, red by default
-	*/
 	string _shapeColor;
-
-	/**
-	* Grouped shape color, _shapeColor by default
-	*/
-	string _groupColor;
-
-	/**
-	* If the shape is grouped or not, false by default
-	*/
-	bool _isGrouped; // ou un pointeur sur le groupe 
-
-	/**
-	* The point of the shape's gravity center, initialized at the shape's construction
-	*/
+	string _colorIfGrouped;
+	Shape* father;
 	Vector2D gravityCenter; 
-
-	/**
-	* The number of shape currently create to give a valide id to a new shape
-	*/
 	static int nbShape;
-	
-	/**
-	* Unique incremental id to identify the shape
-	*/
 	int ID;
-
-	/*
-	* The id of the group in which the shape is, else -1 
-	*/
 	int groupID;
-	
-	//si la forme est dans un group 
-	int previousGroupID;
 
 public:
 
@@ -58,12 +28,22 @@ public:
 	* @param  {string} shapeColor : Shape's color, red by default
 	* @param  {bool} state        : Grouped or not, false by default
 	*/
-	Shape(const string shapeColor = Color::RED, const bool state = false);
+	Shape(const string shapeColor = Color::RED);
+
+	Shape(const Shape& S);
 
 	/**
 	* ~Shape
 	*/
 	virtual ~Shape();
+
+	Shape* getFather() const;
+
+	void setFather(Shape* s);
+
+	const int getFatherID();
+
+	const string getFatherColor();
 
 	/**
 	* Getter of shapeColor
@@ -77,21 +57,21 @@ public:
 	* 
 	* @param  {string} shapeColor : The new shape's color
 	*/
-	void setShapeColor(const string shapeColor);
+	virtual void setShapeColor(const string shapeColor);
 
 	/**
 	* Getter of groupColor
 	* 
 	* @return {string}  : Group's color
 	*/
-	const string getGroupColor() const;
+	const string getColorIfGrouped() const;
 
 	/**
 	* Setter of groupColor
 	* 
 	* @param  {string} groupColor : The new group's color
 	*/
-	void setGroupColor(const string groupColor);
+	virtual void setColorIfGrouped(const string groupColor);
 
 	/**
 	* Getter of gravityCenter
@@ -99,20 +79,6 @@ public:
 	* @return {Vector2D}  : Shape's gravity center
 	*/
 	Vector2D getGravity() const;
-
-	/**
-	* Getter of isGrouped
-	* 
-	* @return {bool}  : True if grouped, else false
-	*/
-	bool getIsGrouped() const;
-
-	/**
-	* Setter of isGrouped
-	* 
-	* @param  {bool}  : The new shape's state
-	*/
-	void setIsGrouped(const bool);
 
 	/**
 	* Calculate the area of the shape
@@ -149,16 +115,12 @@ public:
 	*/
 	void setID(const int id);
 
-	const int getPreviousGroupID() const;
-
-	void setPreviousGroupID(const int pid);
-
 	/*
 	* Setter of groupID
 	*
 	* @param {int} GID  : The new group's id
 	*/
-	void setGroupID(const int GID);
+	virtual void setGroupID(const int GID);
 
 	/**
 	* Calculate and initialize the shape's gravity center
@@ -210,4 +172,5 @@ public:
 	* 
 	*/
 	virtual ostream& print(ostream& flux) const;
+
 };

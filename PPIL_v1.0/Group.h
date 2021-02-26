@@ -11,7 +11,7 @@ protected:
 	 * The list of the group's shapes
 	 */
 	vector<Shape*> listShapes;
-	
+
 	/**
 	* Impossible to serialize a group 
 	*/
@@ -89,6 +89,12 @@ public:
 	* @return {<vector>}  : The list of group's shape
 	*/
 	vector<Shape*> getList();
+
+	void setColorIfGrouped(const string groupColor);
+
+	void setGroupID(const int GID);
+
+	void setShapeColor(const string shapeColor);
 
 	/**
 	* Applies a translation to all the shape in the groupe using a translation vector
