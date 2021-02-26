@@ -45,6 +45,8 @@ Shape* Circle::homothety(const Vector2D& centre, const double k) const {
 
 Shape* Circle::rotation(const Vector2D& center, const double angle) const {
 	return new Circle(this->getShapeColor(), _center.rotation(center, angle), _radius);
+Shape* Circle::rotation(const Vector2D& center, const double angle) const {
+	return new Circle(_center.rotation(center, angle), _radius);
 }
 
 ostream& Circle::print(ostream& flux) const {
