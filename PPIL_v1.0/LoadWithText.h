@@ -1,7 +1,8 @@
 #pragma once
+
 #include "ShapeManagerVisitor.h"
 
-class DrawServerVisitor : public ShapeManagerVisitor {
+class LoadWithText : public ShapeManagerVisitor {
 
 public:
 

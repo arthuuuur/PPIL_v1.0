@@ -3,7 +3,7 @@
 #include "DrawServerVisitor.h"
 #include "ShapesManager.h"
 
-void DrawServerVisitor::visite(ShapesManager Sm) {
+void DrawServerVisitor::visite(ShapesManager& Sm) {
 	try {
 		vector<Shape*> tmp = Sm.getListShape();
 		for (vector<Shape*>::iterator it = tmp.begin(); it != tmp.end(); it++) {

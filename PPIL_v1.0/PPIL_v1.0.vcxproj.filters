@@ -54,9 +54,6 @@
     <ClInclude Include="DrawServerVisitor.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="DrawCppVisitor.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="ShapeManagerVisitor.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
@@ -79,6 +76,12 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Matrice.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveInText.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadWithText.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
@@ -113,9 +116,6 @@
     <ClCompile Include="ShapesManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="DrawCppVisitor.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="DrawServerVisitor.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -137,11 +137,14 @@
     <ClCompile Include="Source.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="SaveInText.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadWithText.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="save1.txt">
-      <Filter>Fichiers de ressources</Filter>
-    </Text>
-    <Text Include="test.txt" />
+    <Text Include="save.txt" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,0 @@
-type;1;ID;2;groupID;1;shapeColor;red;groupColor;red;nbPoint;2;list;1;1;2;2
-type;3;ID;4;groupID;1;shapeColor;red;groupColor;red;nbPoint;3;list;1;1;2;2;3;3
-type;1;ID;6;groupID;5;shapeColor;red;groupColor;red;nbPoint;2;list;-1;-1;-2;-2
-type;2;ID;7;groupID;5;shapeColor;red;groupColor;red;center;-3;-3;radius;-5
-type;3;ID;9;groupID;5;shapeColor;red;groupColor;red;nbPoint;3;list;-1;-1;-2;-2;-3;-3
-type;1;ID;8;groupID;5;shapeColor;red;groupColor;green;nbPoint;2;list;-2;-2;-2;-2

@@ -9,5 +9,5 @@ public:
 	/**
 	* TO DO
 	*/
-	virtual void visite(ShapesManager Sm) = 0;
+	virtual void visite(ShapesManager& Sm) = 0;
 };

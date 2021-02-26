@@ -81,79 +81,17 @@ void ShapesManager::clean() {
 	listGroup.clear();
 }
 
-vector<Shape*> ShapesManager::getListShape() {
+const vector<Shape*>& ShapesManager::getListShape() const {
 	return listShape;
 }
 
-vector<Shape*> ShapesManager::getGroupShape() {
+const vector<Shape*>& ShapesManager::getGroupShape() const{
 	return listGroup;
 }
 
-void ShapesManager::save(const string saveName) {
-	try {
-		ofstream save(saveName.c_str());
-		if (!save) throw Error("failed to create a save file");
-		for (vector<Shape*>::const_iterator it = listShape.begin(); it != listShape.end(); it++) {
-			save << (*it)->serialize();
-			if (it != listShape.end() - 1)
-				save << "\n";
-		}
-		if (!listShape.empty()) save << "\n";
-		for (vector<Shape*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
-			vector<Shape*> tmp = dynamic_cast<Group*>(*it)->getList();
-			for (vector<Shape*>::const_iterator itbis = tmp.begin(); itbis != tmp.end(); itbis++) {
-				save << (*itbis)->serialize();
-				if (itbis != tmp.end() - 1)
-					save << "\n";
-			}
-		}
-	}
-	catch (exception const& err) {
-		cout << err.what() << endl;
-		exit(-1);
-	}
-}
-
-void ShapesManager::load(const string file) {
-	try {
-		ifstream save(file);
-		if (!save) throw Error("failed to open file");
-		string line;
-		while (getline(save, line)) {
-			Shape* var = cor->charge(line);
-			if (var != NULL) {
-				if (var->getGroupID() > -1) { // si une forme appartient à un group
-					bool here = false;
-					for (vector<Shape*>::iterator it = listGroup.begin(); it != listGroup.end(); it++) { // on regarde si le group est deja la
-						if ((*it)->getID() == var->getGroupID()) {
-							here = true;
-							if (here) {
-								dynamic_cast<Group*>(*it)->addShape(var);
-							}
-						}
-					}
-					if (!here) {
-						Group* G = new Group(var->getGroupColor());
-						G->setGroupID(0);
-						G->setID(var->getGroupID());
-						G->addShape(var);
-						listGroup.push_back(G);
-						here = false;
-					}
-				}
-				else {
-					this->addShape(var);
-				}
-			}
-			else {
-				throw Error("the file contains an unknown shape");
-			}
-		}
-	}
-	catch (exception const& err) {
-		cout << err.what() << endl;
-		exit(-1);
-	}
+ShapeDetectorCOR* ShapesManager::getCOR() const
+{
+	return cor;
 }
 
 void ShapesManager::accepte(ShapeManagerVisitor* S) {

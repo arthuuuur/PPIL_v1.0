@@ -8,12 +8,11 @@
 #include "ConvexPolygon.h"
 #include "Error.h"
 #include "ServerConnection.h"
-#include "DrawCppVisitor.h"
 #include "ShapeManagerVisitor.h"
 #include "DrawServerVisitor.h"
 #include "ShapesManager.h"
-
-#include <Windows.h>
+#include "SaveInText.h"
+#include "LoadWithText.h"
 
 using namespace std;
 
@@ -47,7 +46,7 @@ int main() {
 	
 	ServerConnection* client;
 	client = ServerConnection::getInstance();
-	client->openConnection();
+	//client->openConnection();
 
 	ShapeManagerVisitor* drawWithJavaServer;
 	drawWithJavaServer = new DrawServerVisitor;
@@ -57,23 +56,25 @@ int main() {
 	sm.add(s1);
 	sm.add(s2);
 
-	cout << *s4 << endl;
-	Shape* test = s4->rotation(v2, 3.14);
-	cout << *test << endl;
-	sm.add(test);
-	//cout << endl << sm << endl << endl;
+	cout << endl << sm << endl << endl;
 
-	sm.save("save1.txt");
+	ShapeManagerVisitor* saveTxt;
+	saveTxt = new SaveInText;
+	ShapeManagerVisitor* loadTxt;
+	loadTxt = new LoadWithText;
+
+
+	sm.accepte(saveTxt);
 
 	sm.clean();
 
-	sm.load("save1.txt");
+	sm.accepte(loadTxt);
 
-	//cout << endl << sm << endl << endl;
+	cout << endl << sm << endl << endl;
 
 	//sm.accepte(drawWithJavaServer);
 	
-	sm.accepte(drawWithJavaServer);
+	//sm.accepte(drawWithJavaServer);
 
 
 

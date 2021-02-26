@@ -83,24 +83,16 @@ public:
 	* 
 	* @return {vector<Shape*>} : the list of Shapes
 	*/
-	vector<Shape*> getListShape();
+	const vector<Shape*>& getListShape()const;
 	
 	/**
 	* Getter of listGroup
 	* 
 	* @return {vector<Group*>} : the list of Groups
 	*/
-	vector<Shape*> getGroupShape();
+	const vector<Shape*>& getGroupShape() const;
 
-	/**
-	* Save in a file all the shapes and groups of the ShapeManager's lists
-	*/
-	void save(const string saveName);
-
-	/**
-	* Load the shapes and groups of ShapesManager's lists thanks to a save file
-	*/
-	void load(const string file);
+	ShapeDetectorCOR* getCOR() const;
 
 	/**
 	* TO DO
