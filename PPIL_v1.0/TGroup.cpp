@@ -44,27 +44,28 @@ int main() {
 	G2->addShape(s5);
 	G2->addShape(s6);
 
+	Group* G3 = new Group(Color::CYAN);
+	Vector2D v7(-10, -10), v8(-20, -20);
+	Shape* s8 = new Segment(v7, v8);
+	Shape* s9 = new Circle(v7, 15);
+	G3->addShape(s8);
+	G3->addShape(s9);
+
+	G2->addGroup(G3);
 	G1->addGroup(G2);
-	cout << *G1 << endl << endl << endl;
+
+	cout << *G3 << endl << endl << endl;
+
 	cout << *G2 << endl << endl << endl;
 
-	G2->addShape(s7);
 	cout << *G1 << endl << endl << endl;
-	cout << *G2 << endl << endl << endl;
 
-	
-	G1->removeGroup(G2);
-	cout << *G1 << endl << endl << endl;
-	cout << *G2 << endl << endl << endl;
 
 	ShapesManager sm = ShapesManager();
 	sm.add(s1);
 	sm.add(G2);
 	sm.add(s3);
-	sm.save("test.txt");
-	sm.clean();
-	sm.load("test.txt");
-
+	
 	cout << sm << endl;
 
 }

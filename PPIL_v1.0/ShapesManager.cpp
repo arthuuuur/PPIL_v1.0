@@ -134,7 +134,7 @@ void ShapesManager::load(const string file) {
 					}
 					if (!here) {
 						Group* G = new Group(var->getGroupColor());
-						G->setGroupID(var->getGroupID());
+						G->setGroupID(0);
 						G->setID(var->getGroupID());
 						G->addShape(var);
 						listGroup.push_back(G);
