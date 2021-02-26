@@ -11,6 +11,8 @@
 #include "ShapeManagerVisitor.h"
 #include "DrawServerVisitor.h"
 #include "ShapesManager.h"
+#include "SaveInText.h"
+#include "LoadWithText.h"
 
 using namespace std;
 
@@ -83,10 +85,22 @@ int main() {
 	
 	ShapesManager sm = ShapesManager();
 	sm.addGroup(G3);
-	sm.addShape(s1);
-	sm.addShape(s4);
+	sm.addGroup(G1);
+	sm.addGroup(G2);
+
+	ShapeManagerVisitor* saveTxt;
+	saveTxt = new SaveInText;
+	ShapeManagerVisitor* loadTxt;
+	loadTxt = new LoadWithText;
 
 
+	sm.accepte(saveTxt);
+
+	sm.clean();
+
+	sm.accepte(loadTxt);
+
+	cout << endl << sm << endl << endl;
 
 	ServerConnection* client;
 	client = ServerConnection::getInstance();
