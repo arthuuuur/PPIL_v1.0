@@ -27,8 +27,6 @@ private:
 	*/
 	vector<Shape*> listGroup;
 
-	
-
 public:
 
 	/**
@@ -44,32 +42,30 @@ public:
 	/**
 	* Add a new Shape to the list of shapes
 	*
-	* @param {Shape*} : The shape to be added to the list of shapes
+	* @param {Shape*} S : The shape to be added to the list of shapes
 	*/
-	void addShape(Shape*);
+	void addShape(Shape* S);
 
 	/**
 	* Add a new Group to the list of groups
 	*
-	* @param {Shape*} : The group to be added to the list of groups
+	* @param {Shape*} G : The group to be added to the list of groups
 	*/
 	void addGroup(Shape* G);
 
 	/**
 	* Remove a Shape to the list of shapes
 	*
-	* @param {Shape*} : The shape to be removed to the list of shapes
+	* @param {Shape*} S : The shape to be removed to the list of shapes
 	*/
 	void removeShape(Shape* S);
 
 	/**
 	* Remove a Group to the list of groupes
 	*
-	* @param {Shape*} : The group to be removed to the list of groups
+	* @param {Shape*} G : The group to be removed to the list of groups
 	*/
 	void removeGroup(Shape* G);
-
-	
 
 	/**
 	* Clean the both ShapesManager's lists
@@ -81,16 +77,21 @@ public:
 	* 
 	* @return {vector<Shape*>} : the list of Shapes
 	*/
-	const vector<Shape*>& getListShape()const;
+	const vector<Shape*>& getListShape() const;
 	
 	/**
 	* Getter of listGroup
 	* 
-	* @return {vector<Group*>} : the list of Groups
+	* @return {vector<Shape*>} : the list of Groups
 	*/
 	const vector<Shape*>& getGroupShape() const;
 
-	ShapeDetectorCOR* getCOR() const;
+	/**
+	* Getter of cor
+	* 
+	* @return {ShapeDetectorCOR*} : The chain of responsability to deserialize a shape
+	*/
+	const ShapeDetectorCOR* getCOR() const;
 
 	/**
 	* TO DO
@@ -100,7 +101,7 @@ public:
 	/**
 	*
 	* @param  {ostream} flux :
-	* @param  {ShapesManager} c      :
+	* @param  {ShapesManager} c  :
 	* @return {ostream}      :
 	*/
 	friend ostream& operator<<(ostream& flux, const ShapesManager& c);

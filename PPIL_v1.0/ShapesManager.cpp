@@ -5,7 +5,8 @@
 
 using namespace std;
 
-ShapesManager::ShapesManager() {
+ShapesManager::ShapesManager() 
+{
 	ShapeDetector* Segment = new SegmentDetector(NULL);
 	ShapeDetector* Circle = new CircleDetector(Segment);
 	ShapeDetector* Polygon = new PolygonDetector(Circle);
@@ -16,7 +17,8 @@ ShapesManager::~ShapesManager() {}
 
 
 
-void ShapesManager::addShape(Shape* S) {
+void ShapesManager::addShape(Shape* S)
+{
 	try {
 		for (vector<Shape*>::const_iterator it = listShape.begin(); it != listShape.end(); it++) {
 			if ((*it)->getID() == S->getID()) {
@@ -31,7 +33,8 @@ void ShapesManager::addShape(Shape* S) {
 	}
 }
 
-void ShapesManager::addGroup(Shape* G) {
+void ShapesManager::addGroup(Shape* G) 
+{
 	try {
 		for (vector<Shape*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
 			if ((*it)->getID() == G->getID()) {
@@ -47,7 +50,8 @@ void ShapesManager::addGroup(Shape* G) {
 }
 
 
-void ShapesManager::removeShape(Shape* S) {
+void ShapesManager::removeShape(Shape* S) 
+{
 	for (vector<Shape*>::const_iterator it = listShape.begin(); it != listShape.end(); it++) {
 		if ((*it)->getID() == S->getID()) {
 			listShape.erase(it);
@@ -56,7 +60,8 @@ void ShapesManager::removeShape(Shape* S) {
 	}
 }
 
-void ShapesManager::removeGroup(Shape* G) {
+void ShapesManager::removeGroup(Shape* G) 
+{
 	for (vector<Shape*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
 		if ((*it)->getID() == G->getID()) {
 			listGroup.erase(it);
@@ -65,29 +70,34 @@ void ShapesManager::removeGroup(Shape* G) {
 	}
 }
 
-void ShapesManager::clean() {
+void ShapesManager::clean() 
+{
 	listShape.clear();
 	listGroup.clear();
 }
 
-const vector<Shape*>& ShapesManager::getListShape() const {
+const vector<Shape*>& ShapesManager::getListShape() const 
+{
 	return listShape;
 }
 
-const vector<Shape*>& ShapesManager::getGroupShape() const{
+const vector<Shape*>& ShapesManager::getGroupShape() const
+{
 	return listGroup;
 }
 
-ShapeDetectorCOR* ShapesManager::getCOR() const
+const ShapeDetectorCOR* ShapesManager::getCOR() const
 {
 	return cor;
 }
 
-void ShapesManager::accepte(ShapeManagerVisitor* S) {
+void ShapesManager::accepte(ShapeManagerVisitor* S) 
+{
 	S->visite(*this);
 }
 
-ostream& ShapesManager::print(ostream& flux) const {
+ostream& ShapesManager::print(ostream& flux) const 
+{
 	flux << "ShapesManager ";
 	flux << "{ ";
 	flux << endl << endl;
@@ -103,6 +113,7 @@ ostream& ShapesManager::print(ostream& flux) const {
 	return flux << endl << "}";
 }
 
-ostream& operator<<(ostream& flux, const ShapesManager& c) {
+ostream& operator<<(ostream& flux, const ShapesManager& c) 
+{
 	return c.print(flux);
 }

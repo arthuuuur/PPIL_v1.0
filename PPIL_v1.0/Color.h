@@ -25,7 +25,8 @@ class Color {
 
 		/**
 		* Check if a color is in the AllowedColor list
-		* @param  {string} color  : the color to check
+		* 
+		@param  {string} color  : the color to check
 		* 
 		* @return {bool}  : True if allowed, else false
 		*/

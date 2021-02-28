@@ -2,7 +2,8 @@
 
 ShapeDetector::ShapeDetector(ShapeDetector* next) : next(next) {}
 
-Shape* ShapeDetector::deserialize(const string data) const {
+Shape* ShapeDetector::deserialize(const string data) const 
+{
 	return nullptr;
 }
 
@@ -31,7 +32,8 @@ int ShapeDetector::indexOf(vector<string> S, const string val) const
 	return -1;
 }
 
-Shape* ShapeDetector::charge(const string data) const {
+Shape* ShapeDetector::charge(const string data) const 
+{
 	Shape* res;
 	res = this->deserialize(data);
 	if (res != NULL) {

@@ -49,7 +49,7 @@ public:
 	/**
 	* Applies a homothety using an invariant point and a homothety ratio
 	*
-	* @param  {Vector2D} v : The homothety's center
+	* @param  {Vector2D} center : The homothety's center
 	* @param  {double} k  : The homothety ratio
 	*
 	* @return {Shape*}  : A new ConvexPolygon with applied homothety
@@ -59,7 +59,7 @@ public:
 	/**
 	* Applies a rotation using an invariant point and a rotation angle in radiant
 	*
-	* @param  {Vector2D} v  : The rotation's center
+	* @param  {Vector2D} center  : The rotation's center
 	* @param  {double} angle : The rotation's angle
 	*
 	* @return {Shape*}  : A new ConvexPolygon with applied rotation

@@ -5,7 +5,8 @@
 
 ConvexPolygon::ConvexPolygon(vector<Vector2D> S) :Polygon(S) {}
 
-ConvexPolygon::ConvexPolygon(const string shapeColor, vector<Vector2D> S) : Polygon(S) {
+ConvexPolygon::ConvexPolygon(const string shapeColor, vector<Vector2D> S) : Polygon(S) 
+{
 	if (Color::isAllowed(shapeColor)) {
 		_shapeColor = shapeColor;
 		_colorIfGrouped = shapeColor;
@@ -14,7 +15,8 @@ ConvexPolygon::ConvexPolygon(const string shapeColor, vector<Vector2D> S) : Poly
 
 ConvexPolygon::ConvexPolygon() {}
 
-const double ConvexPolygon::getArea() const {
+const double ConvexPolygon::getArea() const 
+{
 	unsigned int i;
 	int j;
 	vector<Segment> listeSegments;
@@ -49,6 +51,7 @@ const double ConvexPolygon::getArea() const {
 	}
 	return area;
 }
+
 Shape* ConvexPolygon::translation(const Vector2D& v) const
 {
 	vector<Vector2D> clonePoints;
@@ -76,7 +79,8 @@ Shape* ConvexPolygon::rotation(const Vector2D& center, const double angle) const
 	return new ConvexPolygon(this->getShapeColor(), clonePoints);
 }
 
-ostream& ConvexPolygon::print(ostream& flux) const {
+ostream& ConvexPolygon::print(ostream& flux) const 
+{
 	flux << "ConvexPolygon ";
 	Shape::print(flux);
 	flux << "<";

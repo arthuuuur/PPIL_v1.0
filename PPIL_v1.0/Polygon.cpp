@@ -3,18 +3,21 @@
 
 Polygon::Polygon() {}
 
-Polygon::Polygon(vector<Vector2D> S) {
+Polygon::Polygon(vector<Vector2D> S) 
+{
 	for (vector<Vector2D>::iterator it = S.begin(); it != S.end(); it++) {
 		listPoints.push_back(*it);
 	}
 	gravity();
 }
 
-Polygon::~Polygon() {
+Polygon::~Polygon() 
+{
 	listPoints.clear();
 }
 
-void Polygon::gravity() {
+void Polygon::gravity() 
+{
 	double gx = 0.0, gy = 0.0, area = 0.0, a, x1, y1, x2, y2;
 	int i = 0, j;
 	for (i = 0; i < listPoints.size(); i++) {
@@ -39,7 +42,8 @@ void Polygon::gravity() {
 	gravityCenter.setY(gy);
 }
 
-string Polygon::serialize() const {
+const string Polygon::serialize() const 
+{
 	ostringstream os;
 	os << "type;3;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _colorIfGrouped << ";nbPoint;" << listPoints.size() << ";list;";
 	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
@@ -50,7 +54,8 @@ string Polygon::serialize() const {
 	return os.str();
 }
 
-ostream& Polygon::print(ostream& flux) const {
+ostream& Polygon::print(ostream& flux) const 
+{
 	flux << "Polygon ";
 	Shape::print(flux);
 	flux << " < ";

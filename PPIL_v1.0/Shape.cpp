@@ -5,7 +5,8 @@
 
 int Shape::nbShape = 0;
 
-Shape::Shape(const string shapeColor) {
+Shape::Shape(const string shapeColor) 
+{
 		if (Color::isAllowed(shapeColor)){
 			_shapeColor = shapeColor;
 			_colorIfGrouped = shapeColor;
@@ -16,7 +17,8 @@ Shape::Shape(const string shapeColor) {
 		
 }
 
-Shape::Shape(const Shape& S) {
+Shape::Shape(const Shape& S) 
+{
 	_shapeColor = S.getShapeColor();
 	_colorIfGrouped = S.getColorIfGrouped();
 	father = S.getFather();
@@ -24,7 +26,8 @@ Shape::Shape(const Shape& S) {
 	groupID = ID;
 }
 
-Shape::~Shape() {
+Shape::~Shape() 
+{
 	nbShape--;
 	free(father);
 }
@@ -35,9 +38,9 @@ Shape* Shape::getFather() const
 	return father;
 }
 
-void Shape::setFather(Shape* s)
+void Shape::setFather(Shape* S)
 {
-	father = s;
+	father = S;
 }
 
 const int Shape::getFatherID()
@@ -68,65 +71,77 @@ const string Shape::getFatherColor()
 		return _shapeColor; // sinon on retourne la couleur de la forme
 }
 
-const string Shape::getShapeColor() const {
+const string Shape::getShapeColor() const 
+{
 	return _shapeColor;
 }
 
-void Shape::setShapeColor(const string shapeColor) {
+void Shape::setShapeColor(const string shapeColor) 
+{
 	if (Color::isAllowed(shapeColor)) {
 		_shapeColor = shapeColor;
 	}
 }
 
-const string Shape::getColorIfGrouped() const {
+const string Shape::getColorIfGrouped() const 
+{
 	return _colorIfGrouped;
 }
 
-void Shape::setColorIfGrouped(const string groupColor) {
+void Shape::setColorIfGrouped(const string groupColor) 
+{
 
 	if (Color::isAllowed(groupColor)) {
 		_colorIfGrouped = groupColor;
 	}		
 }
 
-Vector2D Shape::getGravity() const {
+Vector2D Shape::getGravity() const 
+{
 	return gravityCenter;
 }
 
 
 void Shape::gravity() {}
 
-string Shape::serialize() const
+const string Shape::serialize() const
 {
 	return nullptr;
 }
 
-const int Shape::getNbShape() const {
+const int Shape::getNbShape() const 
+{
 	return nbShape;
 }
 
-const int Shape::getID() const {
+const int Shape::getID() const
+{
 	return ID;
 }
 
-const int Shape::getGroupID() const {
+const int Shape::getGroupID() const
+{
 	return groupID;
 }
 
-void Shape::setGroupID(const int GID) {
+void Shape::setGroupID(const int GID) 
+{
 	groupID = GID;
 }
 
-void Shape::setID(const int id) {
+void Shape::setID(const int id) 
+{
 	ID = id;
 }
 
-ostream& Shape::print(ostream& flux) const {
+ostream& Shape::print(ostream& flux) const 
+{
 	flux << _shapeColor << " | id = " << ID << " | groupID = " << groupID << " | ";
 	return flux;
 }
 
-ostream& operator<<(ostream& flux, const Shape& c) {
+ostream& operator<<(ostream& flux, const Shape& c)
+{
 	return c.print(flux);
 }
 

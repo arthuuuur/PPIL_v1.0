@@ -15,6 +15,7 @@ private:
 	* The first extremity of the point
 	*/
 	Vector2D _p1; 
+	
 	/**
 	* The second extremity of the point
 	*/
@@ -70,7 +71,7 @@ public:
 	*
 	* @return {string}  : Formatted string
 	*/
-	string serialize() const;
+	const string serialize() const;
 
 	/**
 	* Applies a translation using a translation vector
@@ -84,7 +85,7 @@ public:
 	/**
 	* Applies a homothety using an invariant point and a homothety ratio
 	*
-	* @param  {Vector2D} v : The homothety's center
+	* @param  {Vector2D} center : The homothety's center
 	* @param  {double} k  : The homothety ratio
 	*
 	* @return {Shape*}  : A new segment with applied homothety
@@ -94,7 +95,7 @@ public:
 	/**
 	* Applies a rotation using an invariant point and a rotation angle in radiant
 	*
-	* @param  {Vector2D} v  : The rotation's center
+	* @param  {Vector2D} center  : The rotation's center
 	* @param  {double} angle : The rotation's angle
 	*
 	* @return {Shape*}  : A new segment with applied rotation

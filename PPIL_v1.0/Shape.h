@@ -26,10 +26,14 @@ public:
 	* Shape
 	*
 	* @param  {string} shapeColor : Shape's color, red by default
-	* @param  {bool} state        : Grouped or not, false by default
 	*/
 	Shape(const string shapeColor = Color::RED);
 
+	/**
+	* Shape
+	* 
+	* @param  {Shape} S : The shape to be copied
+	*/
 	Shape(const Shape& S);
 
 	/**
@@ -37,12 +41,32 @@ public:
 	*/
 	virtual ~Shape();
 
+	/**
+	* Getter of father
+	* 
+	* @return {Shape*} : A pointer to the group in wich the shape is
+	*/
 	Shape* getFather() const;
 
-	void setFather(Shape* s);
+	/**
+	* Setter of father
+	*
+	* @param {Shape*} S : A pointer to the group in wich the shape is
+	*/
+	void setFather(Shape* S);
 
+	/**
+	* Get the id of the group in wich the shape is
+	* 
+	* @return {int} : the id of the group in wich the shape is
+	*/ 
 	const int getFatherID();
 
+	/**
+	* Get the color of the group in wich the shape is
+	*
+	* @return {string} : the color of the group in wich the shape is
+	*/
 	const string getFatherColor();
 
 	/**
@@ -132,7 +156,7 @@ public:
 	*
 	* @return {string}  : Formatted string 
 	*/
-	virtual string serialize() const;
+	virtual const string serialize() const;
 
 	/**
 	* Applies a translation using a translation vector
@@ -146,7 +170,7 @@ public:
 	/**
 	* Applies a homothety using an invariant point and a homothety ratio
 	*
-	* @param  {Vector2D} v : The homothety's center
+	* @param  {Vector2D} center : The homothety's center
 	* @param  {double} k  : The homothety ratio
 	* 
 	* @return {Shape*}  : A new shape with applied homothety
@@ -156,7 +180,7 @@ public:
 	/**
 	* Applies a rotation using an invariant point and a rotation angle in radiant
 	*
-	* @param  {Vector2D} v  : The rotation's center
+	* @param  {Vector2D} center  : The rotation's center
 	* @param  {double} angle : The rotation's angle
 	* 
 	* @return {Shape*}  : A new shape with applied rotation

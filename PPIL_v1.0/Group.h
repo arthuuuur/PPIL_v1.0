@@ -15,7 +15,7 @@ protected:
 	/**
 	* Impossible to serialize a group 
 	*/
-	string serialize() const;
+	const string serialize() const;
 
 public:
 
@@ -23,9 +23,9 @@ public:
 	 * Group
 	 *
 	 * @param  {string} groupColor : The group's color
-	 * @param  {vector<Shape*} >   : The list of the group's shapes
+	 * @param  {vector<Shape*>} L : The list of the group's shapes
 	 */
-	Group(const string groupColor, vector<Shape*> F);
+	Group(const string groupColor, vector<Shape*> L);
 
 	/**
 	 * Group
@@ -46,14 +46,12 @@ public:
 	 */
 	virtual ~Group();
 
-	
-
 	/**
 	* Add a new Shape to the list of shapes
 	* 
-	* @param  {Shape*} F : The shape to be added to the list
+	* @param  {Shape*} S : The shape to be added to the list
 	*/
-	void addShape(Shape* F);
+	void addShape(Shape* S);
 
 	/**
 	* Add all the shapes of a group to the list of shapes
@@ -65,35 +63,50 @@ public:
 	/**
 	* Remove a shape to the list of shapes
 	*
-	 * @param  {Shape*} F : The shape to be removed of the list
-	 */
+	* @param  {Shape*} S : The shape to be removed of the list
+	*/
 	void removeShape(Shape * S);
 	
 	/**
 	* Remove all the shapes of a specific group to the list of shapes
 	*
-	 * @param  {Group*} G : The group of shape to be removed to the list
-	 */
+	* @param  {Group*} G : The group of shape to be removed to the list
+	*/
 	void removeGroup(Shape * G);
 
 	/**
 	* Calculate the area of all the shapes in the group
 	* 
-	 * @return {double}  : The sum of all the area of the shape in the group
-	 */
+	* @return {double}  : The sum of all the area of the shape in the group
+	*/
 	const double getArea() const;
 
-	/*
+	/**
 	* Getter of listShapes
 	* 
-	* @return {<vector>}  : The list of group's shape
+	* @return {vector<Shape*>}  : The list of group's shape
 	*/
 	vector<Shape*> getList();
 
-	void setColorIfGrouped(const string groupColor);
+	/**
+	* Setter of ColorIfGrouped for a group, change also the ColorIfGrouped of each shapes in the group
+	* 
+	* @param {string} ColorIfGrouped : the new ColorIfGrouped
+	*/
+	void setColorIfGrouped(const string ColorIfGrouped);
 
+	/**
+	* Setter of GroupID for a group, change also the groupID of each shapes in the group
+	*
+	* @param {int} GID : the new groupID
+	*/
 	void setGroupID(const int GID);
 
+	/**
+	* Setter of ShapeColor for a group, change also the ColorIfGrouped of each shapes in the group if this group isn't grouped 
+	* 
+	* @param {string} shapeColor : the new shapeColor
+	*/
 	void setShapeColor(const string shapeColor);
 
 	/**
@@ -108,7 +121,7 @@ public:
 	/**
 	* Applies a homothety to all the shape in the group using an invariant point and a homothety ratio
 	*
-	* @param  {Vector2D} v : The homothety's center
+	* @param  {Vector2D} center : The homothety's center
 	* @param  {double} k  : The homothety ratio
 	*
 	* @return {Shape*}  : A new group with applied homothety
@@ -118,7 +131,7 @@ public:
 	/**
 	* Applies a rotation to all the shape in the group using an invariant point and a rotation angle in radiant
 	*
-	* @param  {Vector2D} v  : The rotation's center
+	* @param  {Vector2D} center  : The rotation's center
 	* @param  {double} angle : The rotation's angle
 	*
 	* @return {Shape*}  : A new group with applied rotation

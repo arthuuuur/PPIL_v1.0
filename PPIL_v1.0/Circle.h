@@ -34,7 +34,7 @@ public:
 	* Circle
 	*
 	* @param  {string} shapeColor : The circle's color
-	* @param  {Vector2D} x : The circle's center
+	* @param  {Vector2D} v : The circle's center
 	* @param  {double} radius : The circle's radius
 	*/
 	Circle(const string shapeColor, const Vector2D& v, const double radius);
@@ -49,7 +49,7 @@ public:
 	/**
 	* Getter of center
 	* 
-	* @return {Vector2D*}  : The circle's center
+	* @return {Vector2D}  : The circle's center
 	*/
 	Vector2D getCenter() const;
 
@@ -70,7 +70,7 @@ public:
 	*
 	* @return {string}  : Formatted string
 	*/
-	string serialize() const;
+	const string serialize() const;
 
 	/**
 	* Applies a translation using a translation vector
@@ -84,7 +84,7 @@ public:
 	/**
 	* Applies a homothety using an invariant point and a homothety ratio
 	*
-	* @param  {Vector2D} v : The homothety's center
+	* @param  {Vector2D} center : The homothety's center
 	* @param  {double} k  : The homothety ratio
 	*
 	* @return {Shape*}  : A new Circle with applied homothety
@@ -94,7 +94,7 @@ public:
 	/**
 	* Applies a rotation using an invariant point and a rotation angle in radiant
 	*
-	* @param  {Vector2D} v  : The rotation's center
+	* @param  {Vector2D} center  : The rotation's center
 	* @param  {double} angle : The rotation's angle
 	*
 	* @return {Shape*}  : A new Circle with applied rotation

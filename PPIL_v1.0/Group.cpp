@@ -2,10 +2,10 @@
 #include "Error.h"
 #include <iostream>
 
-Group::Group(const string groupColor, vector<Shape*> F) : Shape(groupColor) 
+Group::Group(const string groupColor, vector<Shape*> L) : Shape(groupColor) 
 {
 	father = NULL;
-	for (vector<Shape*>::const_iterator it = F.begin(); it != F.end(); it++) {	
+	for (vector<Shape*>::const_iterator it = L.begin(); it != L.end(); it++) {	
 		(*it)->setColorIfGrouped(groupColor);
 		(*it)->setGroupID(this->getID());
 		(*it)->setFather(this);
@@ -20,14 +20,16 @@ Group::Group(const Group& G) : listShapes(G.listShapes) {}
 Group::~Group() {}
 
 
-void Group::addShape(Shape* F) {
-	F->setFather(this);
-	F->setColorIfGrouped(this->getFatherColor());
-	F->setGroupID(this->getFatherID());
-	listShapes.push_back(F);
+void Group::addShape(Shape* S) 
+{
+	S->setFather(this);
+	S->setColorIfGrouped(this->getFatherColor());
+	S->setGroupID(this->getFatherID());
+	listShapes.push_back(S);
 }
 
-void Group::addGroup(Shape *G) {
+void Group::addGroup(Shape *G) 
+{
 	G->setGroupID(this->getFatherID());
 	G->setFather(this);
 	G->setColorIfGrouped(this->getShapeColor());
@@ -38,7 +40,8 @@ void Group::addGroup(Shape *G) {
 	listShapes.push_back(G);
 }
 
-void Group::removeShape(Shape* S) {
+void Group::removeShape(Shape* S) 
+{
 	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
 		if ((*it)->getID() == S->getID()) {
 			listShapes.erase(it);
@@ -50,7 +53,8 @@ void Group::removeShape(Shape* S) {
 	S->setGroupID(S->getID());
 }
 
-void Group::removeGroup(Shape * G) {
+void Group::removeGroup(Shape * G) 
+{
 	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
 		if ((*it)->getID() == G->getID()) {
 			listShapes.erase(it);
@@ -66,7 +70,8 @@ void Group::removeGroup(Shape * G) {
 	G->setColorIfGrouped(G->getShapeColor());
 }
 
-const double Group::getArea() const {
+const double Group::getArea() const 
+{
 	double area = 0;
 	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
 		area += (**it).getArea();
@@ -74,17 +79,18 @@ const double Group::getArea() const {
 	return area;
 }
 
-vector<Shape*> Group::getList() {
+vector<Shape*> Group::getList() 
+{
 	return listShapes;
 }
 
-void Group::setColorIfGrouped(const string groupColor)
+void Group::setColorIfGrouped(const string ColorIfGrouped)
 {
-	if (Color::isAllowed(groupColor)) {
-		_colorIfGrouped = groupColor;
+	if (Color::isAllowed(ColorIfGrouped)) {
+		_colorIfGrouped = ColorIfGrouped;
 	}
 	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		(*it)->setColorIfGrouped(groupColor);
+		(*it)->setColorIfGrouped(ColorIfGrouped);
 	}
 }
 
@@ -110,7 +116,8 @@ void Group::setShapeColor(const string shapeColor)
 }
 
 
-Shape* Group::translation(const Vector2D& v) const{
+Shape* Group::translation(const Vector2D& v) const
+{
 	vector<Shape*> cloneShape;
 	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
 		cloneShape.push_back((*it)->translation(v));
@@ -118,7 +125,8 @@ Shape* Group::translation(const Vector2D& v) const{
 	return new Group(this->getColorIfGrouped(),cloneShape);
 }
 
-Shape* Group::homothety(const Vector2D& center, const double k) const {
+Shape* Group::homothety(const Vector2D& center, const double k) const 
+{
 	vector<Shape*> cloneShape;
 	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
 		cloneShape.push_back((*it)->homothety(center,k));
@@ -126,7 +134,8 @@ Shape* Group::homothety(const Vector2D& center, const double k) const {
 	return new Group(this->getColorIfGrouped(), cloneShape);
 }
 
-Shape* Group::rotation(const Vector2D& center, const double angle) const{
+Shape* Group::rotation(const Vector2D& center, const double angle) const
+{
 	vector<Shape*> cloneShape;
 	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
 		cloneShape.push_back((*it)->rotation(center, angle));
@@ -146,7 +155,7 @@ ostream& Group::print(ostream& flux) const {
 	return flux << ">";
 }
 
-string Group::serialize() const
+const string Group::serialize() const
 {
 	return nullptr;
 }

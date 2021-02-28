@@ -26,7 +26,7 @@ protected:
 	/**
 	* ShapeDetector
 	* 
-	* @param {ShapeDetector*} : The next ShapeDetector in the chaine of responsability
+	* @param {ShapeDetector*} next : The next ShapeDetector in the chaine of responsability
 	*/
 	ShapeDetector(ShapeDetector* next);
 

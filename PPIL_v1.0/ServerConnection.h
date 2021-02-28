@@ -70,7 +70,7 @@ public:
 	* This is the method that create the only object of this class on the first run.
 	* On subsequents runs, it returns the existing object stored in the static field
 	*
-	* @return {ServerConection}  : The only instance of this class
+	* @return {ServerConection*}  : The only instance of this class
 	*/
 	static ServerConnection* getInstance();
 

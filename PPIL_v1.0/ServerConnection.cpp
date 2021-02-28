@@ -6,7 +6,8 @@ using namespace std;
 ServerConnection* ServerConnection::_client{ nullptr };
 mutex ServerConnection::_mutex;
 
-ServerConnection::ServerConnection() {
+ServerConnection::ServerConnection() 
+{
 	try {
 		WSADATA wsadata;
 		int err = WSAStartup(MAKEWORD(2, 0), &wsadata);
@@ -44,7 +45,8 @@ ServerConnection::ServerConnection() {
 
 ServerConnection::~ServerConnection() {}
 
-ServerConnection* ServerConnection::getInstance() {
+ServerConnection* ServerConnection::getInstance() 
+{
 	lock_guard<mutex> lock(_mutex);
 	if (_client == nullptr)
 	{
@@ -53,7 +55,8 @@ ServerConnection* ServerConnection::getInstance() {
 	return _client;
 }
 
-void ServerConnection::openConnection() {
+void ServerConnection::openConnection() 
+{
 	try {
 		int err = connect(_sock, (SOCKADDR*)&_sockaddr, sizeof(_sockaddr));
 		if (err == SOCKET_ERROR) throw Error("Connection failed");
@@ -65,7 +68,8 @@ void ServerConnection::openConnection() {
 	}
 }
 
-void ServerConnection::closeConnection() {
+void ServerConnection::closeConnection()
+{
 	try {
 		int err;
 		err = shutdown(_sock, SD_BOTH);
@@ -85,6 +89,7 @@ void ServerConnection::closeConnection() {
 	}
 }
 
-SOCKET ServerConnection::getSocket() {
+SOCKET ServerConnection::getSocket() 
+{
 	return _sock;
 }
