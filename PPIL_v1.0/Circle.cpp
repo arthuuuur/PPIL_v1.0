@@ -47,14 +47,14 @@ Shape* Circle::translation(const Vector2D& v) const
 	return new Circle(this->getShapeColor(), _center.translation(v), _radius);
 }
 
-Shape* Circle::homothety(const Vector2D& centre, const double k) const 
+Shape* Circle::homothety(const double k, const Vector2D& center) const
 {
-	return new Circle(this->getShapeColor(), _center.homothety(centre, k), abs(k) * _radius);
+	return new Circle(this->getShapeColor(), _center.homothety(k,center), abs(k) * _radius);
 }
 
-Shape* Circle::rotation(const Vector2D& center, const double angle) const 
+Shape* Circle::rotation(const double angle, const Vector2D& center) const
 {
-	return new Circle(this->getShapeColor(), _center.rotation(center, angle), _radius);
+	return new Circle(this->getShapeColor(), _center.rotation(angle,center), _radius);
 }
 
 ostream& Circle::print(ostream& flux) const 

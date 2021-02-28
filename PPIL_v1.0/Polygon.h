@@ -69,7 +69,7 @@ public:
 	*
 	* @return {Shape*}  : A new shape with applied homothety
 	*/
-	Shape* homothety(const Vector2D& centre, const double k) const = 0;
+	Shape* homothety(const double k, const Vector2D& centre = Vector2D(0, 0)) const = 0;
 
 	/**
 	* Applies a rotation using an invariant point and a rotation angle in radiant
@@ -79,7 +79,7 @@ public:
 	*
 	* @return {Shape*}  : A new shape with applied rotation
 	*/
-	Shape* rotation(const Vector2D& center, const double angle) const = 0;
+	Shape* rotation(const double angle, const Vector2D& centre = Vector2D(0, 0)) const = 0;
 
 	/**
 	*

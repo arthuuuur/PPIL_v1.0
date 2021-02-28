@@ -126,7 +126,7 @@ public:
 	*
 	* @return {Shape*}  : A new group with applied homothety
 	*/
-	Shape* homothety(const Vector2D& center, const double k) const;
+	Shape* homothety(const double k, const Vector2D& center = Vector2D(0, 0)) const;
 
 	/**
 	* Applies a rotation to all the shape in the group using an invariant point and a rotation angle in radiant
@@ -136,7 +136,7 @@ public:
 	*
 	* @return {Shape*}  : A new group with applied rotation
 	*/
-	Shape* rotation(const Vector2D& center, const double angle) const;
+	Shape* rotation(const double angle, const Vector2D& center = Vector2D(0, 0)) const;
 
 	/**
 	*

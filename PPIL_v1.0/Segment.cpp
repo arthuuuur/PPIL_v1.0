@@ -46,14 +46,14 @@ Shape* Segment::translation(const Vector2D& v) const
 	return new Segment(this->getShapeColor(), _p1.translation(v), _p2.translation(v));
 }
 
-Shape* Segment::homothety(const Vector2D& centre, const double k) const 
+Shape* Segment::homothety(const double k, const Vector2D& center) const
 {
-	return new Segment(this->getShapeColor(), _p1.homothety(centre, k), _p2.homothety(centre, k));
+	return new Segment(this->getShapeColor(), _p1.homothety(k,center), _p2.homothety(k,center));
 }
 
-Shape* Segment::rotation(const Vector2D& v, const double angle) const 
+Shape* Segment::rotation(const double angle, const Vector2D& center) const
 {
-	return new Segment(this->getShapeColor(), _p1.rotation(v, angle), _p2.rotation(v, angle));
+	return new Segment(this->getShapeColor(), _p1.rotation(angle,center), _p2.rotation(angle,center));
 }
 
 ostream& Segment::print(ostream& flux) const 
