@@ -12,11 +12,6 @@ protected:
 	 */
 	vector<Shape*> listShapes;
 
-	/**
-	* Impossible to serialize a group 
-	*/
-	const string serialize() const;
-
 public:
 
 	/**

@@ -154,8 +154,3 @@ ostream& Group::print(ostream& flux) const {
 	}
 	return flux << ">";
 }
-
-const string Group::serialize() const
-{
-	return nullptr;
-}

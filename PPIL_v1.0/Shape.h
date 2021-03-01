@@ -11,13 +11,40 @@ using namespace std;
 class Shape {
  
 protected:
-
+	
+	/**
+	* The shape's color, red by default
+	*/
 	string _shapeColor;
+	
+	/**
+	* The shape's color if grouped, _shapeColor by default
+	*/
 	string _colorIfGrouped;
+	
+	/**
+	* The group in wich the shape is, null if not 
+	*/
 	Shape* father;
+	
+	/**
+	* The gravity center's point
+	*/
 	Vector2D gravityCenter; 
+	
+	/**
+	* The total number of shape created
+	*/
 	static int nbShape;
+	
+	/**
+	* A unique incremental identifier 
+	*/
 	int ID;
+	
+	/**
+	* The group id in wich the shape is, else the shape's id 
+	*/
 	int groupID;
 
 public:
@@ -188,7 +215,7 @@ public:
 	virtual Shape* rotation(const double angle, const Vector2D& centre = Vector2D(0, 0)) const = 0;
 
 	/**
-	*
+	* 
 	*/
 	friend ostream& operator<<(ostream& flux, const Shape& c);
 
