@@ -3,9 +3,8 @@
 
 SegmentDetector::SegmentDetector(ShapeDetector* next) : ShapeDetector(next) {}
 
-Shape* SegmentDetector::deserialize(const string D) const
+Shape* SegmentDetector::deserialize(const vector<string> data) const
 {
-	vector<string> data = split(D, ";");
 	if (data[indexOf(data, "type") + 1] == "1") {
 		Shape* shape;
 		string color = data[indexOf(data, "shapeColor") + 1];

@@ -22,10 +22,20 @@ Group::~Group() {}
 
 void Group::addShape(Shape* S) 
 {
-	S->setFather(this);
-	S->setColorIfGrouped(this->getFatherColor());
-	S->setGroupID(this->getFatherID());
-	listShapes.push_back(S);
+	bool canAdd = true;
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+		if ((*it)->getID() == S->getID()) {
+		cout << "this shape : " << **it <<  " is already in a group, so it has not been added" << endl;
+		canAdd = false;
+		}
+	}
+	if (canAdd) {
+		S->setFather(this);
+		S->setColorIfGrouped(this->getFatherColor());
+		S->setGroupID(this->getFatherID());
+		listShapes.push_back(S);
+	}
+
 }
 
 void Group::addGroup(Shape *G) 
@@ -36,8 +46,9 @@ void Group::addGroup(Shape *G)
 	for (vector<Shape*>::iterator it = dynamic_cast<Group*>(G)->listShapes.begin(); it != dynamic_cast<Group*>(G)->listShapes.end(); it++) {
 		(*it)->setColorIfGrouped(this->getFatherColor());
 		(*it)->setGroupID(this->getFatherID());
+		listShapes.push_back(*it);
 	}
-	listShapes.push_back(G);
+	
 }
 
 void Group::removeShape(Shape* S) 
@@ -55,15 +66,15 @@ void Group::removeShape(Shape* S)
 
 void Group::removeGroup(Shape * G) 
 {
-	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		if ((*it)->getID() == G->getID()) {
-			listShapes.erase(it);
-			break;
+	for (vector<Shape*>::iterator itG = dynamic_cast<Group*>(G)->listShapes.begin(); itG != dynamic_cast<Group*>(G)->listShapes.end(); itG++) {
+		for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+			if ((*it)->getID() == (*itG)->getID()) {
+				listShapes.erase(it);
+				break;
+			}
 		}
-	}
-	for (vector<Shape*>::iterator it = dynamic_cast<Group*>(G)->listShapes.begin(); it != dynamic_cast<Group*>(G)->listShapes.end(); it++) {
-		(*it)->setColorIfGrouped(G->getShapeColor());
-		(*it)->setGroupID(G->getID());
+		(*itG)->setColorIfGrouped(G->getShapeColor());
+		(*itG)->setGroupID(G->getID());
 	}
 	G->setGroupID(G->getID());
 	G->setFather(NULL);

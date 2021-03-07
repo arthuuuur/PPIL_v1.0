@@ -37,7 +37,7 @@ protected:
 	* 
 	* @return {Shape*} : The Shape corresponding to the string data 
 	*/
-	virtual Shape* deserialize(const string data) const;
+	virtual Shape* deserialize(const vector<string> data) const;
 
 	/*
 	* Split a string into a vector of string with a specific separator

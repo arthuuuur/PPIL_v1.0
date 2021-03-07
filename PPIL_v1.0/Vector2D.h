@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include "Matrix2_2.h"
 
 using namespace std;
 
@@ -62,6 +63,9 @@ public:
 	* @return {bool}        : Return true if they are not egal else return false
 	*/
 	inline bool operator!=(Vector2D& v2);
+
+	inline const Vector2D operator* (const Matrix2_2& M) const;
+
 
 	/**
 	* Getter of x
@@ -168,6 +172,12 @@ inline const Vector2D operator -(const Vector2D& u, const Vector2D& v)
 	return Vector2D(u.getX() - v.getX(), u.getY() - v.getY());
 }
 
+inline const Vector2D Vector2D::operator*(const Matrix2_2& M) const
+{
+	vector<vector<double>> matrix = M.getMatrix();
+	return Vector2D(matrix[0][0] * x + matrix[0][1] * y, matrix[1][0] * x + matrix[1][1] * y);
+}
+
 inline const double Vector2D::getX() const 
 {
 	return x;
@@ -202,14 +212,12 @@ inline Vector2D Vector2D::homothety(const double k, const Vector2D& center) cons
 
 inline Vector2D Vector2D::rotation(const double angle, const Vector2D& center) const 
 {
-	double f = x - center.getX();
-	double g = y - center.getY();
-	double xf, yf;
-	xf = f * cos(angle) + g * sin(angle) + center.getX();
-	yf = -f * sin(angle) + g * cos(angle) + center.getY();
-	Vector2D r(xf, yf);
+	Matrix2_2 matrice(cos(angle), -sin(angle), sin(angle), cos(angle));
+	Vector2D r = (*this - center) * matrice + center;
 	return r;
 }
+
+inline const Vector2D operator* (const Matrix2_2& m, const Vector2D& v) { return v * m; }
 
 inline ostream& operator<<(ostream& flux, const Vector2D& c) 
 {

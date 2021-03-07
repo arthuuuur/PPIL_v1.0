@@ -8,9 +8,10 @@ void LoadWithText::visite(ShapesManager& Sm)
 		if (!save) throw Error("failed to open file");
 		string line;
 		while (getline(save, line)) {
+			
 			Shape* var = Sm.getCOR()->charge(line);
 			if (var != NULL) {
-				if (var->getFather() != NULL) { // si une forme appartient à un group
+				if (var->getID() != var->getGroupID()) { // si une forme appartient à un group
 					bool here = false;
 					for (vector<Shape*>::const_iterator it = Sm.getGroupShape().begin(); it != Sm.getGroupShape().end(); it++) { // on regarde si le group est deja la
 						if ((*it)->getID() == var->getGroupID()) {
@@ -22,7 +23,7 @@ void LoadWithText::visite(ShapesManager& Sm)
 					}
 					if (!here) {
 						Group* G = new Group(var->getColorIfGrouped());
-						G->setGroupID(var->getID());
+						G->setGroupID(var->getGroupID());
 						G->setID(var->getGroupID());
 						G->addShape(var);
 						Sm.addGroup(G);

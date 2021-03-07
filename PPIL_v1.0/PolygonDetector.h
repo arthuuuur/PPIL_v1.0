@@ -21,5 +21,5 @@ protected:
 	* 
 	* @return {Shape*} : The Polygon corresponding to the string data
 	*/
-	Shape* deserialize(const string data) const;
+	Shape* deserialize(const vector<string> data) const;
 };

@@ -19,34 +19,12 @@ ShapesManager::~ShapesManager() {}
 
 void ShapesManager::addShape(Shape* S)
 {
-	try {
-		for (vector<Shape*>::const_iterator it = listShape.begin(); it != listShape.end(); it++) {
-			if ((*it)->getID() == S->getID()) {
-				throw Error("The shape is already in the ObjectManager");
-			}
-		}
-		listShape.push_back(S);
-	}
-	catch (exception const& err) {
-		cout << err.what() << endl;
-		exit(-1);
-	}
+	listShape.push_back(S);
 }
 
 void ShapesManager::addGroup(Shape* G) 
 {
-	try {
-		for (vector<Shape*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
-			if ((*it)->getID() == G->getID()) {
-				throw Error("The group is already in the ObjectManager");
-			}
-		}
-		listGroup.push_back(G);
-	}
-	catch (exception const& err) {
-		cout << err.what() << endl;
-		exit(-1);
-	}
+	listGroup.push_back(G);
 }
 
 

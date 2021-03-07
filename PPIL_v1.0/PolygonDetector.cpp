@@ -3,9 +3,8 @@
 
 PolygonDetector::PolygonDetector(ShapeDetector* next) :ShapeDetector(next) {}
 
-Shape* PolygonDetector::deserialize(const string D) const
+Shape* PolygonDetector::deserialize(const vector<string> data) const
 {
-	vector<string> data = split(D, ";");
 	if (data[indexOf(data, "type") + 1] == "3") {
 		Shape* shape;
 		int nbPoint = stoi(data[indexOf(data, "nbPoint") + 1]);

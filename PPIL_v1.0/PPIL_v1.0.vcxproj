@@ -146,6 +146,7 @@
     <ClInclude Include="DrawServerVisitor.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="LoadWithText.h" />
+    <ClInclude Include="Matrix2_2.h" />
     <ClInclude Include="Polygon.h" />
     <ClInclude Include="PolygonDetector.h" />
     <ClInclude Include="SaveInText.h" />
@@ -168,6 +169,7 @@
     <ClCompile Include="ConvexPolygon.cpp" />
     <ClCompile Include="DrawServerVisitor.cpp" />
     <ClCompile Include="LoadWithText.cpp" />
+    <ClCompile Include="Matrix2_2.cpp" />
     <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="PolygonDetector.cpp" />
     <ClCompile Include="SaveInText.cpp" />

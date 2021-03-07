@@ -10,7 +10,7 @@ void SaveInText::visite(ShapesManager& Sm)
 			save << (*it)->serialize();
 			save << "\n";
 		}
-		if (!Sm.getListShape().empty()) save << "\n";
+		//if (!Sm.getListShape().empty()) save << "\n";
 		for (vector<Shape*>::const_iterator it = Sm.getGroupShape().begin(); it != Sm.getGroupShape().end(); it++) {
 			vector<Shape*> tmp = dynamic_cast<Group*>(*it)->getList();
 			for (vector<Shape*>::const_iterator itbis = tmp.begin(); itbis != tmp.end(); itbis++) {

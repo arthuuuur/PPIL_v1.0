@@ -65,8 +65,9 @@ const string Shape::getFatherColor()
 	{
 		iterator = iterator->getFather();
 	}
-	if (iterator != NULL)
+	if (iterator != NULL){
 		return iterator->getShapeColor(); // si la forme a un pere on retourne la couleur du pere
+	}
 	else
 		return _shapeColor; // sinon on retourne la couleur de la forme
 }
