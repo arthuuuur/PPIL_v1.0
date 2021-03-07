@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['triangle_168',['Triangle',['../class_triangle.html',1,'']]]
+  ['polygon_104',['Polygon',['../class_polygon.html',1,'']]],
+  ['polygondetector_105',['PolygonDetector',['../class_polygon_detector.html',1,'']]]
 ];

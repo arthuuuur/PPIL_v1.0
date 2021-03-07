@@ -23,7 +23,7 @@ protected:
 	string _colorIfGrouped;
 	
 	/**
-	* The group in wich the shape is, null if not 
+	* A pointer to the group in wich the shape is, null if not 
 	*/
 	Shape* father;
 	

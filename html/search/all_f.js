@@ -1,8 +1,19 @@
 var searchData=
 [
-  ['translation_130',['translation',['../class_circle.html#a2bef5a19f536052110ba27c28d8ba30f',1,'Circle::translation()'],['../class_group.html#abb34a2e84fef4cce5696828efbd631db',1,'Group::translation()'],['../class_polygon.html#a6705084c0087ddd8e73474846593ff28',1,'Polygon::translation()'],['../class_segment.html#ac0bfa64c1ac8a8c4c706461c336ee6f5',1,'Segment::translation()'],['../class_shape.html#a6257150697288b35003792989bf9daf7',1,'Shape::translation()'],['../class_vector2_d.html#a60c45508fe6cca278f1e12d2c51c4c93',1,'Vector2D::translation()']]],
-  ['triangle_131',['Triangle',['../class_triangle.html',1,'Triangle'],['../class_triangle.html#a65e4deca5f393bebd5c95d59b8eb1e1a',1,'Triangle::Triangle(double ax, double ay, double bx, double by, double cx, double cy)'],['../class_triangle.html#a4fd9ea2ce0bc1cc59393e888e514b9bf',1,'Triangle::Triangle(string shapeColor, double ax, double ay, double bx, double by, double cx, double cy)'],['../class_triangle.html#a1ded8e05ada7c707a00f59b413c21729',1,'Triangle::Triangle(vector&lt; Vector2D &gt; S)'],['../class_triangle.html#af3d87310a09dabcd9582e7831012f54f',1,'Triangle::Triangle(string shapeColor, vector&lt; Vector2D &gt; S)']]],
-  ['triangle_2ecpp_132',['Triangle.cpp',['../_triangle_8cpp.html',1,'']]],
-  ['triangle_2eh_133',['Triangle.h',['../_triangle_8h.html',1,'']]],
-  ['type_134',['type',['../save1_8txt.html#a7aead736a07eaf25623ad7bfa1f0ee2d',1,'save1.txt']]]
+  ['saveintext_68',['SaveInText',['../class_save_in_text.html',1,'']]],
+  ['segment_69',['Segment',['../class_segment.html',1,'Segment'],['../class_segment.html#a0619da18917dfa04e6d4d1a93f88e8df',1,'Segment::Segment(const Vector2D &amp;p1, const Vector2D &amp;p2)'],['../class_segment.html#a2654cfa1c135a0e38e5e66b6913634b7',1,'Segment::Segment(const string shapeColor, const Vector2D &amp;p1, const Vector2D &amp;p2)']]],
+  ['segmentdetector_70',['SegmentDetector',['../class_segment_detector.html',1,'SegmentDetector'],['../class_segment_detector.html#add2a60e12997d35e5c93d0abbea879b2',1,'SegmentDetector::SegmentDetector()']]],
+  ['serialize_71',['serialize',['../class_circle.html#ac7cfd25d95a3d82ccced9fb551ff0bdd',1,'Circle::serialize()'],['../class_polygon.html#a8a0b7718756494fee60f3e49e5ec9bda',1,'Polygon::serialize()'],['../class_segment.html#abef156cff76f56cef3aff87de4164efe',1,'Segment::serialize()'],['../class_shape.html#aca61d77ba361f6e33499ab0d831b8013',1,'Shape::serialize()']]],
+  ['serverconnection_72',['ServerConnection',['../class_server_connection.html',1,'ServerConnection'],['../class_server_connection.html#a0adf644e7715ddbb83a53651b0804dec',1,'ServerConnection::ServerConnection()'],['../class_server_connection.html#af4ec454e4e308a9bcfe28b864638d9d5',1,'ServerConnection::ServerConnection(ServerConnection &amp;other)=delete']]],
+  ['setcolorifgrouped_73',['setColorIfGrouped',['../class_group.html#a094238c43d8241606ae2e4e5ef86c54a',1,'Group::setColorIfGrouped()'],['../class_shape.html#ab2283ca365e05a4964fbad6e133779c1',1,'Shape::setColorIfGrouped()']]],
+  ['setfather_74',['setFather',['../class_shape.html#aa8e5eb951c7dc8b9e42575f5cf152fc8',1,'Shape']]],
+  ['setgroupid_75',['setGroupID',['../class_group.html#a3c875e263cf6d770a1aac815205d597b',1,'Group']]],
+  ['setshapecolor_76',['setShapeColor',['../class_group.html#a947243bd440dc0eb626da0f227f50134',1,'Group::setShapeColor()'],['../class_shape.html#a9996858233dc1ec378554684bb0b6ca0',1,'Shape::setShapeColor()']]],
+  ['setx_77',['setX',['../class_vector2_d.html#af13a77890889174cad88f6ea09e4a7a9',1,'Vector2D']]],
+  ['sety_78',['setY',['../class_vector2_d.html#a3c86bb13e2a48c624ca68361419630dd',1,'Vector2D']]],
+  ['shape_79',['Shape',['../class_shape.html',1,'Shape'],['../class_shape.html#a447521b15dfd710d47a6eec7bdb56a8c',1,'Shape::Shape(const string shapeColor=Color::RED)'],['../class_shape.html#af2ee7b41d50c5328a3e9e35740d188c4',1,'Shape::Shape(const Shape &amp;S)']]],
+  ['shapedetector_80',['ShapeDetector',['../class_shape_detector.html',1,'ShapeDetector'],['../class_shape_detector.html#a493f9b373f382f3d304b3b91166eade3',1,'ShapeDetector::ShapeDetector()']]],
+  ['shapedetectorcor_81',['ShapeDetectorCOR',['../class_shape_detector_c_o_r.html',1,'']]],
+  ['shapemanagervisitor_82',['ShapeManagerVisitor',['../class_shape_manager_visitor.html',1,'']]],
+  ['shapesmanager_83',['ShapesManager',['../class_shapes_manager.html',1,'ShapesManager'],['../class_shapes_manager.html#a6f85717877082ff455ab90e0be6d73f0',1,'ShapesManager::ShapesManager()']]]
 ];

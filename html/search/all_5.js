@@ -1,30 +1,4 @@
 var searchData=
 [
-  ['getarea_32',['getArea',['../class_circle.html#a53dffbdc70538c1fd0e475e6ea9ab83c',1,'Circle::getArea()'],['../class_convex_polygon.html#a1f9395c94faa701b53788244c14625a5',1,'ConvexPolygon::getArea()'],['../class_group.html#a96488582b402babda2cdce234ecabb28',1,'Group::getArea()'],['../class_polygon.html#a3e9e9fd1bb32440dde4ed423820c8ccd',1,'Polygon::getArea()'],['../class_segment.html#a50757b27f8017bab20db14e466836da8',1,'Segment::getArea()'],['../class_shape.html#adf19be2891ba912dfe27f0a59499067e',1,'Shape::getArea()'],['../class_triangle.html#a01d1bf89e039a23952d92230a1a2a2b0',1,'Triangle::getArea()']]],
-  ['getcenter_33',['getCenter',['../class_circle.html#a3b74841181b2bbd0b0db95716fad3849',1,'Circle']]],
-  ['getgravity_34',['getGravity',['../class_shape.html#a93663d7fc920fdb7a36c2b095a9d4f77',1,'Shape']]],
-  ['getgroupcolor_35',['getGroupColor',['../class_shape.html#a1049f707967456e54384dd47dc31bd49',1,'Shape']]],
-  ['getgroupid_36',['getGroupID',['../class_shape.html#a1fe03d9dccf93da0649794d943ea73b4',1,'Shape']]],
-  ['getgroupshape_37',['getGroupShape',['../class_shapes_manager.html#a7555b6d028a82d55712616de54b13b6d',1,'ShapesManager']]],
-  ['getid_38',['getID',['../class_shape.html#a16b3d7d47a4e6400301134849b16e1fe',1,'Shape']]],
-  ['getinstance_39',['getInstance',['../class_server_connection.html#a64aa690487c37bc892b97cbe9187fed5',1,'ServerConnection']]],
-  ['getisgrouped_40',['getIsGrouped',['../class_shape.html#a8d6aa3aeb9391fb52ec048f875606b23',1,'Shape']]],
-  ['getlist_41',['getList',['../class_group.html#a79f7b166bddd84933386e871c6647391',1,'Group']]],
-  ['getlistshape_42',['getListShape',['../class_shapes_manager.html#a2669f2323630f43e898657dcdb9f7ae0',1,'ShapesManager']]],
-  ['getnbid_43',['getNbID',['../class_shape.html#a4977150fec9ccfa9dd408d9dc278e1c3',1,'Shape']]],
-  ['getp1_44',['getP1',['../class_segment.html#a93090809244c1e7a7ef47a93dd67c1c4',1,'Segment']]],
-  ['getp2_45',['getP2',['../class_segment.html#a6302acd0159b2cb3dd6054b010a28ae7',1,'Segment']]],
-  ['getradius_46',['getRadius',['../class_circle.html#a664398e15e7630bbfc7acae468b8d2ad',1,'Circle']]],
-  ['getshapecolor_47',['getShapeColor',['../class_shape.html#a0e673a71544b8ef912847961cee2133b',1,'Shape']]],
-  ['getsocket_48',['getSocket',['../class_server_connection.html#a472b3b362cf4e120165162cd119a9bd6',1,'ServerConnection']]],
-  ['getx_49',['getX',['../class_vector2_d.html#a8b66579a83278dc9ad661fabd56a39ad',1,'Vector2D']]],
-  ['gety_50',['getY',['../class_vector2_d.html#a0729d48a0be6ec7a329a270fd68e3ce6',1,'Vector2D']]],
-  ['gravity_51',['gravity',['../class_circle.html#aa9a1892abda958c0e106863123c9c3d2',1,'Circle::gravity()'],['../class_polygon.html#a91804682e21e75afa4e66ddddccb5230',1,'Polygon::gravity()'],['../class_segment.html#abf7c1a6468d9e7918f8803a419f20de0',1,'Segment::gravity()'],['../class_shape.html#a6941d30996a3339ea8d782268e4e29a5',1,'Shape::gravity()']]],
-  ['gravitycenter_52',['gravityCenter',['../class_shape.html#aed9e902a5c635afd30d04960a30b4483',1,'Shape']]],
-  ['green_53',['green',['../save1_8txt.html#ad83fb941855ba7c4aa2bb65245437777',1,'save1.txt']]],
-  ['group_54',['Group',['../class_group.html',1,'Group'],['../class_group.html#ad499dd8c4bb8159cd35048922c8ee930',1,'Group::Group(string groupColor, vector&lt; Shape * &gt; F)'],['../class_group.html#aff39610aa22c8d3fd27063f5ab164c30',1,'Group::Group(string groupColor)'],['../class_group.html#ad5b6ff1a05084ad3810466f2544259b3',1,'Group::Group(const Group &amp;G)']]],
-  ['group_2ecpp_55',['Group.cpp',['../_group_8cpp.html',1,'']]],
-  ['group_2eh_56',['Group.h',['../_group_8h.html',1,'']]],
-  ['groupcolor_57',['groupColor',['../save1_8txt.html#aacd0055ad1dcefd0c6fc26646bc30c8f',1,'save1.txt']]],
-  ['groupid_58',['groupID',['../class_shape.html#a1825b4bd98cff1d23e0d03587ff32083',1,'Shape::groupID()'],['../save1_8txt.html#a3f4f61f941d466f681591a65181d3d11',1,'groupID():&#160;save1.txt']]]
+  ['father_18',['father',['../class_shape.html#af3ed1cf1ace88639e3257eab95840b77',1,'Shape']]]
 ];

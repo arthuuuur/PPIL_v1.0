@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['id_60',['ID',['../class_shape.html#a24a25c3d22ee7e05d0439f765f247125',1,'Shape::ID()'],['../save1_8txt.html#a094c367727273b4da2b960ca3b3edc06',1,'ID():&#160;save1.txt']]],
-  ['indexof_61',['indexOf',['../class_shape_detector.html#ab784b51770af4c6b9d53c57c77252213',1,'ShapeDetector']]]
+  ['homothety_45',['homothety',['../class_circle.html#a9c61607a9d373a9788e0b5c1ba80b923',1,'Circle::homothety()'],['../class_convex_polygon.html#abc1deb43defcb2c78e6f4bd567abf2d8',1,'ConvexPolygon::homothety()'],['../class_group.html#a94b539eaa6bb9c63419e5d100024649f',1,'Group::homothety()'],['../class_polygon.html#a98fc358bbf94ff9d9100eb3bc1180d97',1,'Polygon::homothety()'],['../class_segment.html#a61c1d2d6dd45067a526b83d0cd31fc96',1,'Segment::homothety()'],['../class_shape.html#a33747dfba77d5fac07f8d8e738bcfacf',1,'Shape::homothety()'],['../class_vector2_d.html#ad43d0f9dbd25a41a8880af9cb8f11fdb',1,'Vector2D::homothety()']]]
 ];

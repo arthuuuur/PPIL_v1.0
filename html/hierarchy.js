@@ -1,8 +1,10 @@
 var hierarchy =
 [
+    [ "Color", "class_color.html", null ],
     [ "exception", null, [
       [ "Error", "class_error.html", null ]
     ] ],
+    [ "Matrix2_2", "class_matrix2__2.html", null ],
     [ "ServerConnection", "class_server_connection.html", null ],
     [ "Shape", "class_shape.html", [
       [ "Circle", "class_circle.html", null ],
@@ -22,8 +24,9 @@ var hierarchy =
       ] ]
     ] ],
     [ "ShapeManagerVisitor", "class_shape_manager_visitor.html", [
-      [ "DrawCppVisitor", "class_draw_cpp_visitor.html", null ],
-      [ "DrawServerVisitor", "class_draw_server_visitor.html", null ]
+      [ "DrawServerVisitor", "class_draw_server_visitor.html", null ],
+      [ "LoadWithText", "class_load_with_text.html", null ],
+      [ "SaveInText", "class_save_in_text.html", null ]
     ] ],
     [ "ShapesManager", "class_shapes_manager.html", null ],
     [ "Vector2D", "class_vector2_d.html", null ]

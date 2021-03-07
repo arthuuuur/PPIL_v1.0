@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['nbid_307',['nbID',['../class_shape.html#a1559e60447f15123c2408035ca4aebdb',1,'Shape']]],
-  ['nbpoint_308',['nbPoint',['../save1_8txt.html#ade2f271435bbe7ec9a1aa4bf7bee0c89',1,'save1.txt']]],
-  ['next_309',['next',['../class_shape_detector.html#ae6194600236fcdf5ca73031638ac0d3b',1,'ShapeDetector']]]
+  ['nbshape_203',['nbShape',['../class_shape.html#a36d4daeb413db39017f6e5d05e8ae22b',1,'Shape']]],
+  ['next_204',['next',['../class_shape_detector.html#ae6194600236fcdf5ca73031638ac0d3b',1,'ShapeDetector']]]
 ];

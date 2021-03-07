@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['lenght_242',['lenght',['../class_segment.html#a0ee6aa142a596c79234568a6eede3ba3',1,'Segment']]],
-  ['load_243',['load',['../class_shapes_manager.html#a380ba38f5acb14005ecac18f1e1fc700',1,'ShapesManager']]]
+  ['isallowed_153',['isAllowed',['../class_color.html#a8728a97c69896d38165afe2eddfb2016',1,'Color']]]
 ];

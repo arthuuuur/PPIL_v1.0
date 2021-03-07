@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['removegroup_256',['removeGroup',['../class_shapes_manager.html#a31ef964c2edc0e09dfe9112d9749d818',1,'ShapesManager']]],
-  ['removeshape_257',['removeShape',['../class_shapes_manager.html#a3adf3b7649a0ad507721c6aea236f241',1,'ShapesManager']]],
-  ['rotation_258',['rotation',['../class_circle.html#a55d8d84325f0db3f071c55391159bd1c',1,'Circle::rotation()'],['../class_group.html#a1771a0cb84bea231526858fa08966d58',1,'Group::rotation()'],['../class_polygon.html#a1d2b03dfc935535f0c4efa65bf24975f',1,'Polygon::rotation()'],['../class_segment.html#aa449c7c59a49be34d7d9c5447c464fd7',1,'Segment::rotation()'],['../class_shape.html#a47649c5941b64f601414a1d3eafd4319',1,'Shape::rotation()'],['../class_vector2_d.html#afca70c03bffd9cc163968e32667d1650',1,'Vector2D::rotation()']]]
+  ['removegroup_165',['removeGroup',['../class_group.html#aca9ed4fd49c5201ab26ae4b14a477f6f',1,'Group::removeGroup()'],['../class_shapes_manager.html#a6a98626e374b4db6ed7b7447d80b6d93',1,'ShapesManager::removeGroup()']]],
+  ['removeshape_166',['removeShape',['../class_group.html#ad5352c5537c06bb065f3e733f162524c',1,'Group::removeShape()'],['../class_shapes_manager.html#a3adf3b7649a0ad507721c6aea236f241',1,'ShapesManager::removeShape()']]],
+  ['rotation_167',['rotation',['../class_circle.html#a6849bf6ccbdea9d3c70215bf3032e1ea',1,'Circle::rotation()'],['../class_convex_polygon.html#ac2a60a6719f2539c26a8be183ab379af',1,'ConvexPolygon::rotation()'],['../class_group.html#af698cf574783d269d8a8e8b4d5c62c4e',1,'Group::rotation()'],['../class_polygon.html#ad62d424182c83d0a4c991e83eaf5b10b',1,'Polygon::rotation()'],['../class_segment.html#a9ab82c52949bfe569906e7408046fa2e',1,'Segment::rotation()'],['../class_shape.html#abbdd9f5ad4069f30ab69943511fd156c',1,'Shape::rotation()'],['../class_vector2_d.html#a1f8f96eafa5a64202714bbcaa8bb154a',1,'Vector2D::rotation()']]]
 ];
