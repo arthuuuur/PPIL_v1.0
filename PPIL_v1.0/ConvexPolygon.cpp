@@ -17,8 +17,7 @@ ConvexPolygon::ConvexPolygon() {}
 
 const double ConvexPolygon::getArea() const 
 {
-	unsigned int i;
-	int j;
+	int i,j;
 	vector<Segment> listeSegments;
 	for (i = 0; i < listPoints.size(); i++) {
 		if (i + 1 == listPoints.size()) {
@@ -27,24 +26,22 @@ const double ConvexPolygon::getArea() const
 		else {
 			j = i + 1;
 		}
-		Vector2D v1(listPoints[i].getX(), listPoints[i].getY());
-		Vector2D v2(listPoints[j].getX(), listPoints[j].getY());
+		Vector2D v1(listPoints[i].x, listPoints[i].y);
+		Vector2D v2(listPoints[j].x, listPoints[j].y);
 		Segment s(v1,v2);
 		listeSegments.push_back(s);
 	}
 	double area = 0;
-	double x, y;
+	Vector2D r;
 	for (vector<Segment>::const_iterator it = listeSegments.begin(); it != listeSegments.end(); it++) {
 		if (it == listeSegments.begin()) { // on cherche les coordonnées du premier coté du polygone
-			x = ((*it).getP1().getX() + (*it).getP2().getX()) * 0.5;
-			y = ((*it).getP1().getY() + (*it).getP2().getY()) * 0.5;
+			r = 0.5 * ((*it).getP1() + (*it).getP2());
 		}
 		else { // ensuite on créer un triangle entre le premier coté et tous les autres cotés du polygone
-			Vector2D v1(x, y),
-					 v2((*it).getP1().getX(), (*it).getP1().getY()),
-					 v3((*it).getP2().getX(), (*it).getP2().getY());
+			Vector2D v2((*it).getP1().x, (*it).getP1().y),
+					 v3((*it).getP2().x, (*it).getP2().y);
 			Triangle* t;
-			t = new Triangle(v1,v2,v3);
+			t = new Triangle(r,v2,v3);
 			area += (*t).getArea();
 			delete t;
 		}
@@ -56,7 +53,7 @@ Shape* ConvexPolygon::translation(const Vector2D& v) const
 {
 	vector<Vector2D> clonePoints;
 	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
-		clonePoints.push_back(it->translation(v));
+		clonePoints.push_back(it->translation(v)); // comment ecrire une seule fois la boucle for ? 
 	}
 	return new ConvexPolygon(this->getShapeColor(), clonePoints);
 }
@@ -77,15 +74,4 @@ Shape* ConvexPolygon::rotation(const double angle, const Vector2D& center) const
 		clonePoints.push_back(it->rotation(angle,center));
 	}
 	return new ConvexPolygon(this->getShapeColor(), clonePoints);
-}
-
-ostream& ConvexPolygon::print(ostream& flux) const 
-{
-	flux << "ConvexPolygon ";
-	Shape::print(flux);
-	flux << "<";
-	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
-		flux << " " << *it << " ";
-	}
-	return flux << ">";
 }

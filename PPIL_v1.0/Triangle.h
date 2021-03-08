@@ -13,7 +13,7 @@ public:
 	* Triangle
 	*
 	* @param  {Vector2D} v1 : First point
-	* @param  {Vector2D} v2 : Seconde point
+	* @param  {Vector2D} v2 : Second point
 	* @param  {Vector2D} v3 : Third point
 	*/
 	Triangle(const Vector2D& v1, const Vector2D& v2, const Vector2D& v3);
@@ -23,7 +23,7 @@ public:
 	*
 	* @param  {string} shapeColor : triangle's color
 	* @param  {Vector2D} v1 : First point
-	* @param  {Vector2D} v2 : Seconde point
+	* @param  {Vector2D} v2 : Second point
 	* @param  {Vector2D} v3 : Third point
 	*/
 	Triangle(const string shapeColor, const Vector2D& v1, const Vector2D& v2, const Vector2D& v3);
@@ -50,8 +50,4 @@ public:
 	*/
 	const double getArea() const;
 
-	/**
-	*
-	*/
-	ostream& print(ostream& flux) const;
 };

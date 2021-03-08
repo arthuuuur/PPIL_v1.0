@@ -74,24 +74,27 @@ void ShapesManager::accepte(ShapeManagerVisitor* S)
 	S->visite(*this);
 }
 
-ostream& ShapesManager::print(ostream& flux) const 
+ShapesManager::operator string() const
 {
+	ostringstream flux;
 	flux << "ShapesManager ";
 	flux << "{ ";
 	flux << endl << endl;
 	for (vector<Shape*>::const_iterator it = listShape.begin(); it != listShape.end(); it++) {
-		(*it)->print(flux);
+		flux << **it;
 		flux << endl;
 	}
 	flux << endl;
 	for (vector<Shape*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
-		(*it)->print(flux);
+		flux << **it;
 		flux << endl;
 	}
-	return flux << endl << "}";
+	flux << endl << "}";
+	return flux.str();
 }
 
 ostream& operator<<(ostream& flux, const ShapesManager& c) 
 {
-	return c.print(flux);
+	return flux << (string)c;
 }
+

@@ -37,7 +37,7 @@ void Segment::gravity()
 const string Segment::serialize() const 
 {
 	ostringstream os;
-	os << "type;1;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _colorIfGrouped << ";nbPoint;2;list;" << _p1.getX() << ";" << _p1.getY() << ";" << _p2.getX() << ";" << _p2.getY();
+	os << "type;1;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _colorIfGrouped << ";nbPoint;2;list;" << _p1.x << ";" << _p1.y << ";" << _p2.x << ";" << _p2.y;
 	return os.str();
 }
 
@@ -56,9 +56,11 @@ Shape* Segment::rotation(const double angle, const Vector2D& center) const
 	return new Segment(this->getShapeColor(), _p1.rotation(angle,center), _p2.rotation(angle,center));
 }
 
-ostream& Segment::print(ostream& flux) const 
+Segment::operator string() const
 {
+	ostringstream flux;
 	flux << "Segment ";
 	Shape::print(flux);
-	return(flux << "[" << _p1 << "; " << _p2 << "] ");
+	flux << "[" << _p1 << "; " << _p2 << "] ";
+	return flux.str();
 }

@@ -154,14 +154,18 @@ Shape* Group::rotation(const double angle, const Vector2D& center) const
 	return new Group(this->getColorIfGrouped(), cloneShape);
 }
 
-ostream& Group::print(ostream& flux) const {
+Group::operator string() const
+{
+	ostringstream flux;
 	flux << "Group ";
 	Shape::print(flux);
 	flux << "< ";
 	flux << endl;
 	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		(*it)->print(flux);
+		
+		flux << **it;
 		flux << endl;
 	}
-	return flux << ">";
+	flux << ">";
+	return flux.str();
 }

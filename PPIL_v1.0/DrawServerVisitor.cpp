@@ -2,6 +2,7 @@
 #include <sstream>
 #include "DrawServerVisitor.h"
 #include "ShapesManager.h"
+#include "ServerConnection.h"
 
 void DrawServerVisitor::visite(ShapesManager& Sm) 
 {

@@ -137,12 +137,18 @@ void Shape::setID(const int id)
 
 ostream& Shape::print(ostream& flux) const 
 {
-	flux << _shapeColor << " | id = " << ID << " | groupID = " << groupID << " | ";
-	return flux;
+	return flux << _shapeColor << " | id = " << ID << " | groupID = " << groupID << " | ";
+}
+
+Shape::operator string() const
+{
+	ostringstream flux;
+	print(flux);
+	return flux.str();
 }
 
 ostream& operator<<(ostream& flux, const Shape& c)
 {
-	return c.print(flux);
+	return flux << (string)c;
 }
 

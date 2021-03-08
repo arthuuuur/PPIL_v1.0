@@ -102,8 +102,5 @@ public:
 	*/
 	Shape* rotation(const double angle, const Vector2D& center = Vector2D(0, 0)) const;
 
-	/**
-	*
-	*/
-	ostream& print(ostream& flux) const;
+	operator string() const;
 };

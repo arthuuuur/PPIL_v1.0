@@ -3,7 +3,6 @@
 #include <string>
 #include <sstream>
 #include "Vector2D.h"
-#include "ServerConnection.h"
 #include "Color.h"
 
 using namespace std;
@@ -205,23 +204,18 @@ public:
 	virtual Shape* homothety(const double k, const Vector2D& centre = Vector2D(0, 0)) const = 0;
 
 	/**
-	* Applies a rotation using an invariant point and a rotation angle in radiant
+	* Applies a rotation using an invariant point and a rotation angle in radian
 	*
 	* @param  {Vector2D} center  : The rotation's center
 	* @param  {double} angle : The rotation's angle
 	* 
 	* @return {Shape*}  : A new shape with applied rotation
 	*/
-	virtual Shape* rotation(const double angle, const Vector2D& centre = Vector2D(0, 0)) const = 0;
+	virtual Shape* rotation(const double angle, const Vector2D& centre = Vector2D(0, 0)) const = 0; // verifier si l'angle est bien orienté ou pas 
 
-	/**
-	* 
-	*/
 	friend ostream& operator<<(ostream& flux, const Shape& c);
 
-	/**
-	* 
-	*/
-	virtual ostream& print(ostream& flux) const;
+	ostream& print(ostream& flux) const;
 
+	virtual operator string() const; 
 };

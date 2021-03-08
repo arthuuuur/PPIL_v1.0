@@ -28,24 +28,8 @@ Triangle::Triangle(const string shapeColor, vector<Vector2D> S) : ConvexPolygon(
 
 const double Triangle::getArea() const 
 {
-	double ax, ay, bx, by, cx, cy;
-	ax = listPoints[0].getX();
-	ay = listPoints[0].getY();
-	bx = listPoints[1].getX();
-	by = listPoints[1].getY();
-	cx = listPoints[2].getX();
-	cy = listPoints[2].getY();
-	return 0.5 * abs((bx - ax) * (cy - ay) - (cx - ax) * (by - ay));
-}
-
-ostream& Triangle::print(ostream& flux) const
-{
-	flux << "Triangle ";
-	Shape::print(flux);
-	flux << "<";
-	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
-		flux << " " << *it << " ";
-	}
-	flux << ">";
-	return flux;
+	Vector2D ab = listPoints[1] - listPoints[0];
+	Vector2D ac = listPoints[2] - listPoints[0];
+	double det = 0.5 * abs(ab.det(ac));
+	return det;
 }

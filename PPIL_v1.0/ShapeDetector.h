@@ -8,14 +8,14 @@ class ShapeDetector : public ShapeDetectorCOR {
 public:
 
 	/**
-	* The next ShapeDetector in the chaine of responsability
+	* The next ShapeDetector in the chain of responsability
 	*/
 	ShapeDetector* next;
 
 	/**
-	* Charge the string into the chaine of responsability
+	* Charge the string into the chain of responsability
 	* 
-	* @param {string} data : The string to process thanks to the chaine of responsability
+	* @param {string} data : The string to process thanks to the chain of responsability
 	* 
 	* @return {Shape*} : The shape corresponding to the string data
 	*/
@@ -26,7 +26,7 @@ protected:
 	/**
 	* ShapeDetector
 	* 
-	* @param {ShapeDetector*} next : The next ShapeDetector in the chaine of responsability
+	* @param {ShapeDetector*} next : The next ShapeDetector in the chain of responsability
 	*/
 	ShapeDetector(ShapeDetector* next);
 

@@ -83,14 +83,14 @@ int main() {
 	ShapesManager sm = ShapesManager();
 	
 	
-	//sm.addGroup(G1);
-	//sm.addGroup(G2);
-	//sm.addGroup(G3);
-	//G2->addGroup(G3);
+	sm.addGroup(G1);
+	sm.addGroup(G2);
+	sm.addGroup(G3);
+	G2->addGroup(G3);
 
-	sm.addShape(s4);
-	Shape* test = s4->rotation(0.40, v12);
-	sm.addShape(test);
+	//sm.addShape(s4);
+	//Shape* test = s4->rotation(0.40, v12);
+	//sm.addShape(test);
 	
 	cout << endl << sm << endl << endl;
 
@@ -102,11 +102,11 @@ int main() {
 	loadTxt = new LoadWithText;
 
 
-	//sm.accepte(saveTxt);
+	sm.accepte(saveTxt);
 
-	//sm.clean();
+	sm.clean();
 
-	//sm.accepte(loadTxt);
+	sm.accepte(loadTxt);
 
 	cout << endl << sm << endl << endl;
 

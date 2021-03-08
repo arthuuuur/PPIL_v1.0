@@ -8,6 +8,7 @@
 #include "Error.h"
 #include "ShapeDetector.h"
 
+
 class ShapesManager {
 
 private:
@@ -98,17 +99,7 @@ public:
 	*/
 	void accepte(ShapeManagerVisitor* S);
 
-	/**
-	*
-	* @param  {ostream} flux :
-	* @param  {ShapesManager} c  :
-	* @return {ostream}      :
-	*/
-	friend ostream& operator<<(ostream& flux, const ShapesManager& c);
-
-	/**
-	* @param  {ostream} flux : The output stream
-	* @return {ostream}      : Return the output stream with the print of the shape
-	*/
-	virtual ostream& print(ostream& flux) const;
+	operator string() const;
 };
+
+ostream& operator<<(ostream& flux, const ShapesManager& c);

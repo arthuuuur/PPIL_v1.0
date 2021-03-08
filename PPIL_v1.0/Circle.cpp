@@ -26,7 +26,7 @@ Circle::Circle(const string shapeColor, const Vector2D& v, const double radius) 
 
 const double Circle::getArea() const 
 {
-	return M_PI * pow(_radius, 2);
+	return M_PI * _radius * _radius;
 }
 
 Vector2D Circle::getCenter() const 
@@ -47,7 +47,9 @@ void Circle::gravity()
 const string Circle::serialize() const 
 {
 	ostringstream os;
-	os << "type;2;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _colorIfGrouped << ";center;" << _center.getX() << ";" << _center.getY() << ";radius;" << _radius;
+	os << "type;2;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor 
+	   << ";groupColor;" << _colorIfGrouped << ";center;" << _center.x << ";" << _center.y 
+	   << ";radius;" << _radius; //appeller le tostring de centre
 	return os.str();
 }
 
@@ -67,9 +69,10 @@ Shape* Circle::rotation(const double angle, const Vector2D& center) const
 	return new Circle(this->getShapeColor(), _center.rotation(angle,center), _radius);
 }
 
-ostream& Circle::print(ostream& flux) const 
+Circle::operator string() const
 {
-	flux << "Circle ";
+	ostringstream flux;
 	Shape::print(flux);
-	return(flux << "< " << _center << ", r = " << _radius << " >");
+	flux << "< " << _center << ", r = " << _radius << " >";
+	return flux.str();
 }

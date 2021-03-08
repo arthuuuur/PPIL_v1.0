@@ -4,12 +4,13 @@
 #include <iostream>
 #include <sstream>
 #include "Matrix2_2.h"
+#include "Error.h"
 
 using namespace std;
 
 class Vector2D {
 
-private:
+public:
 
 	/**
 	* The point's abscissa
@@ -21,8 +22,6 @@ private:
 	*/
 	double y;
 
-public:
-
 	/**
 	* Vector2D
 	*
@@ -30,6 +29,8 @@ public:
 	* @param  {double} y : The point's ordinate
 	*/
 	inline explicit Vector2D(const double x = 0, const double y = 0);
+
+	inline const double det(const Vector2D& u) const;
 
 	/**
 	* @param  {Vector2D} u : The vector to add
@@ -44,6 +45,15 @@ public:
 	* @return {Vector2D*}  : The vector resulting from the multiplication
 	*/
 	inline const Vector2D operator* (const double& a) const;
+	
+	/**
+	* Divide the coordinate of the vector by a
+	* 
+	* @param  {double} a   : The constante that divides the vector
+	*
+	* @return {Vector2D*}  : The vector resulting from the division
+	*/
+	inline const Vector2D operator/ (const double& a) const;
 
 	/**
 	* @return {Vector2D}  : The inverse of the vector
@@ -65,35 +75,6 @@ public:
 	inline bool operator!=(Vector2D& v2);
 
 	inline const Vector2D operator* (const Matrix2_2& M) const;
-
-
-	/**
-	* Getter of x
-	*
-	* @return {double}  : The point's abscissa
-	*/
-	inline const double getX() const;
-
-	/**
-	* Getter of y
-	*
-	* @return {double}  : The point's ordinate
-	*/
-	inline const double getY() const;
-
-	/**
-	* Setter of x
-	*
-	* @param  {double} a : The new abscissa
-	*/
-	inline const void setX(const double a);
-
-	/**
-	* Setter of y
-	*
-	* @param  {double} a : the new ordinate
-	*/
-	inline const void setY(const double a);
 
 	/**
 	* Applies a translation using a translation vector
@@ -135,12 +116,17 @@ public:
 	inline ostream& print(ostream& flux) const;
 };
 
-inline Vector2D operator*(const double a, const Vector2D& v) // v5 = 2.5 * v1
+inline Vector2D operator*(const double a, const Vector2D& v)
 {
 	return v * a;
 }
 
 inline Vector2D::Vector2D(const double x, const double y) : x(x), y(y) {}
+
+inline const double Vector2D::det(const Vector2D& u) const
+{
+	return (this->x * u.y) - (u.x * this->y);
+}
 
 inline const Vector2D Vector2D::operator + (const Vector2D& u) const 
 {
@@ -152,50 +138,46 @@ inline const Vector2D Vector2D::operator* (const double& a) const
 	return Vector2D(x * a, y * a);
 }
 
-inline const Vector2D Vector2D::operator - () const 
+inline const Vector2D Vector2D::operator/(const double& a) const
+{
+	try 
+	{
+		if (a == 0)
+			throw Error("Division by 0");
+		else
+			return Vector2D(x / a, y / a);
+	}
+	catch (exception const& err) {
+		cout << err.what() << endl;
+		exit(-1);
+	}
+}
+
+inline const Vector2D Vector2D::operator - () const
 {
 	return Vector2D(-x, -y);
 }
 
 inline bool Vector2D::operator==(Vector2D& v2) 
 {
-	return x == v2.getX() && y == v2.getY();
+	return x == v2.x && y == v2.y;
 }
 
 inline bool Vector2D::operator!=(Vector2D& v2) 
 {
-	return !(x == v2.getX() && y == v2.getY());
+	return !(x == v2.x && y == v2.y);
 }
 
 inline const Vector2D operator -(const Vector2D& u, const Vector2D& v) 
 {
-	return Vector2D(u.getX() - v.getX(), u.getY() - v.getY());
+	return Vector2D(u.x - v.x, u.y - v.y);
 }
 
 inline const Vector2D Vector2D::operator*(const Matrix2_2& M) const
 {
 	vector<vector<double>> matrix = M.getMatrix();
 	return Vector2D(matrix[0][0] * x + matrix[0][1] * y, matrix[1][0] * x + matrix[1][1] * y);
-}
-
-inline const double Vector2D::getX() const 
-{
-	return x;
-}
-
-inline const double Vector2D::getY() const
-{
-	return y;
-}
-
-inline const void Vector2D::setX(const double a) 
-{
-	x = a;
-}
-
-inline const void Vector2D::setY(const double a) 
-{
-	y = a;
+	//utiliser produit scalaire
 }
 
 inline Vector2D Vector2D::translation(const Vector2D& v) const 
@@ -212,6 +194,7 @@ inline Vector2D Vector2D::homothety(const double k, const Vector2D& center) cons
 
 inline Vector2D Vector2D::rotation(const double angle, const Vector2D& center) const 
 {
+
 	Matrix2_2 matrice(cos(angle), -sin(angle), sin(angle), cos(angle));
 	Vector2D r = (*this - center) * matrice + center;
 	return r;
@@ -226,5 +209,5 @@ inline ostream& operator<<(ostream& flux, const Vector2D& c)
 
 inline ostream& Vector2D::print(ostream& flux) const 
 {
-	return (flux << "(" << x << "," << y << ")");
+	return (flux << "(" << x << "," << y << ")"); // rajouter 3 parametres separateur debut et fin de chaine
 }
