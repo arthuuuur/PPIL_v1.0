@@ -22,7 +22,7 @@ protected:
 	string _colorIfGrouped;
 	
 	/**
-	* A pointer to the group in wich the shape is, null if not 
+	* v1 pointer to the group in wich the shape is, null if not 
 	*/
 	Shape* father;
 	
@@ -37,7 +37,7 @@ protected:
 	static int nbShape;
 	
 	/**
-	* A unique incremental identifier 
+	* v1 unique incremental identifier 
 	*/
 	int ID;
 	
@@ -70,14 +70,14 @@ public:
 	/**
 	* Getter of father
 	* 
-	* @return {Shape*} : A pointer to the group in wich the shape is
+	* @return {Shape*} : v1 pointer to the group in wich the shape is
 	*/
 	Shape* getFather() const;
 
 	/**
 	* Setter of father
 	*
-	* @param {Shape*} S : A pointer to the group in wich the shape is
+	* @param {Shape*} S : v1 pointer to the group in wich the shape is
 	*/
 	void setFather(Shape* S);
 
@@ -189,7 +189,7 @@ public:
 	*
 	* @param  {Vector2D} v : The translation vector
 	* 
-	* @return {Shape*}  : A new shape with applied translation
+	* @return {Shape*}  : v1 new shape with applied translation
 	*/
 	virtual Shape* translation(const Vector2D& v) const = 0;
 
@@ -199,17 +199,17 @@ public:
 	* @param  {Vector2D} center : The homothety's center
 	* @param  {double} k  : The homothety ratio
 	* 
-	* @return {Shape*}  : A new shape with applied homothety
+	* @return {Shape*}  : v1 new shape with applied homothety
 	*/
 	virtual Shape* homothety(const double k, const Vector2D& centre = Vector2D(0, 0)) const = 0;
 
 	/**
-	* Applies a rotation using an invariant point and a rotation angle in radian
+	* Applies a rotation in the counterclokwise using an invariant point and a rotation angle in radian
 	*
 	* @param  {Vector2D} center  : The rotation's center
 	* @param  {double} angle : The rotation's angle
 	* 
-	* @return {Shape*}  : A new shape with applied rotation
+	* @return {Shape*}  : v1 new shape with applied rotation
 	*/
 	virtual Shape* rotation(const double angle, const Vector2D& centre = Vector2D(0, 0)) const = 0; // verifier si l'angle est bien orienté ou pas 
 

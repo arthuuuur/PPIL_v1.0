@@ -14,7 +14,7 @@ class ShapesManager {
 private:
 
 	/**
-	* A chaine of responsability to convert a serialized shape into a shape
+	* v1 chaine of responsability to convert a serialized shape into a shape
 	*/
 	ShapeDetectorCOR* cor;
 	

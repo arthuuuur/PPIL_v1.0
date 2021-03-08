@@ -10,7 +10,7 @@ class Matrix2_2
 {
 	private :
 		/**
-		* A matrix 2x2
+		* v1 matrix 2x2
 		*/
 		vector<vector<double>> matrix;
 		//Vector2D matrix[2];

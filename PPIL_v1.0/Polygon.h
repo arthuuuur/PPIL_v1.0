@@ -57,7 +57,7 @@ public:
 	*
 	* @param  {Vector2D} v : The translation vector
 	*
-	* @return {Shape*}  : A new shape with applied translation
+	* @return {Shape*}  : v1 new shape with applied translation
 	*/
 	Shape* translation(const Vector2D& v) const = 0;
 
@@ -67,17 +67,17 @@ public:
 	* @param  {Vector2D} center : The homothety's center
 	* @param  {double} k  : The homothety ratio
 	*
-	* @return {Shape*}  : A new shape with applied homothety
+	* @return {Shape*}  : v1 new shape with applied homothety
 	*/
 	Shape* homothety(const double k, const Vector2D& centre = Vector2D(0, 0)) const = 0;
 
 	/**
-	* Applies a rotation using an invariant point and a rotation angle in radiant
+	* Applies a rotation in the counterclokwise using an invariant point and a rotation angle in radiant
 	*
 	* @param  {Vector2D} center  : The rotation's center
 	* @param  {double} angle : The rotation's angle
 	*
-	* @return {Shape*}  : A new shape with applied rotation
+	* @return {Shape*}  : v1 new shape with applied rotation
 	*/
 	Shape* rotation(const double angle, const Vector2D& centre = Vector2D(0, 0)) const = 0;
 

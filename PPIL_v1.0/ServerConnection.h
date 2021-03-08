@@ -10,7 +10,7 @@
 using namespace std;
 
 /**
-* A singleton pattern to initialize only once this class to have only one communication with the server
+* v1 singleton pattern to initialize only once this class to have only one communication with the server
 */
 class ServerConnection {
 
