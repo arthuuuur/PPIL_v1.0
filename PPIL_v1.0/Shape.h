@@ -175,7 +175,7 @@ public:
 	/**
 	* Calculate and initialize the shape's gravity center
 	*/
-	void gravity();
+	virtual void gravity();
 
 	/**
 	* Transforme the shape into a formatted string 

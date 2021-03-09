@@ -5,18 +5,6 @@
 
 using namespace std;
 
-ShapesManager::ShapesManager() 
-{
-	ShapeDetector* Segment = new SegmentDetector(NULL);
-	ShapeDetector* Circle = new CircleDetector(Segment);
-	ShapeDetector* Polygon = new PolygonDetector(Circle);
-	cor = Polygon;
-}
-
-ShapesManager::~ShapesManager() {}
-
-
-
 void ShapesManager::addShape(Shape* S)
 {
 	listShape.push_back(S);
@@ -64,10 +52,10 @@ const vector<Shape*>& ShapesManager::getGroupShape() const
 	return listGroup;
 }
 
-const ShapeDetectorCOR* ShapesManager::getCOR() const
-{
-	return cor;
-}
+//const ShapeDetectorCOR* ShapesManager::getCOR() const
+//{
+//	return cor;
+//}
 
 void ShapesManager::accepte(ShapeManagerVisitor* S) 
 {

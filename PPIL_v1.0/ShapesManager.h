@@ -14,11 +14,6 @@ class ShapesManager {
 private:
 
 	/**
-	* v1 chaine of responsability to convert a serialized shape into a shape
-	*/
-	ShapeDetectorCOR* cor;
-	
-	/**
 	* List of ShapesManager's shapes
 	*/
 	vector<Shape*> listShape;
@@ -29,16 +24,6 @@ private:
 	vector<Shape*> listGroup;
 
 public:
-
-	/**
-	* ShapesManager
-	*/
-	ShapesManager();
-
-	/**
-	* ~ShapesManager
-	*/
-	~ShapesManager();
 
 	/**
 	* Add a new Shape to the list of shapes
@@ -86,13 +71,6 @@ public:
 	* @return {vector<Shape*>} : the list of Groups
 	*/
 	const vector<Shape*>& getGroupShape() const;
-
-	/**
-	* Getter of cor
-	* 
-	* @return {ShapeDetectorCOR*} : The chain of responsability to deserialize a shape
-	*/
-	const ShapeDetectorCOR* getCOR() const;
 
 	/**
 	* TO DO

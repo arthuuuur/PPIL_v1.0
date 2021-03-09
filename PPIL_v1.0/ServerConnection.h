@@ -54,8 +54,6 @@ public:
 	*/
 	~ServerConnection();
 
-public:
-
 	/**
 	* This class should not be cloneable
 	*/

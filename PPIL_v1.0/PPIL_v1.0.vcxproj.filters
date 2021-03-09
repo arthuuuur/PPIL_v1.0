@@ -82,7 +82,7 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Triangle.h">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -140,29 +140,29 @@
     <ClCompile Include="Matrix2_2.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Test_GroupShapes.cpp">
-      <Filter>Fichiers sources\Test</Filter>
+    <ClCompile Include="Source.cpp">
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Test_Circle.cpp">
-      <Filter>Fichiers sources\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="Test_Polygon.cpp">
-      <Filter>Fichiers sources\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="Test_Save_Load.cpp">
+    <ClCompile Include="Test_Vector2D.cpp">
       <Filter>Fichiers sources\Test</Filter>
     </ClCompile>
     <ClCompile Include="Test_Segment.cpp">
       <Filter>Fichiers sources\Test</Filter>
     </ClCompile>
-    <ClCompile Include="Test_Vector2D.cpp">
+    <ClCompile Include="Test_Save_Load.cpp">
+      <Filter>Fichiers sources\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_Polygon.cpp">
+      <Filter>Fichiers sources\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_GroupShapes.cpp">
       <Filter>Fichiers sources\Test</Filter>
     </ClCompile>
     <ClCompile Include="Test_Draw.cpp">
       <Filter>Fichiers sources\Test</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="Test_Circle.cpp">
+      <Filter>Fichiers sources\Test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

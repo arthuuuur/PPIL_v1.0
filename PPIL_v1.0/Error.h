@@ -33,6 +33,5 @@ public:
 	/**
 	* ~Error
 	*/
-	virtual  ~Error()
-	{}
+	virtual  ~Error() {}
 };

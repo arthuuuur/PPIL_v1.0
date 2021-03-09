@@ -1,5 +1,21 @@
 #include "LoadWithText.h"
 #include "ShapesManager.h"
+#include "SegmentDetector.h"
+#include "CircleDetector.h"
+#include "PolygonDetector.h"
+
+LoadWithText::LoadWithText()
+{
+	ShapeDetector* Segment = new SegmentDetector(NULL);
+	ShapeDetector* Circle = new CircleDetector(Segment);
+	ShapeDetector* Polygon = new PolygonDetector(Circle);
+	cor = Polygon;
+}
+
+LoadWithText::~LoadWithText()
+{
+	free(cor);
+}
 
 void LoadWithText::visite(ShapesManager& Sm)
 {
@@ -9,7 +25,7 @@ void LoadWithText::visite(ShapesManager& Sm)
 		string line;
 		while (getline(save, line)) {
 			
-			Shape* var = Sm.getCOR()->charge(line);
+			Shape* var =cor->charge(line);
 			if (var != NULL) {
 				if (var->getID() != var->getGroupID()) { // si une forme appartient à un group
 					bool here = false;
@@ -44,3 +60,4 @@ void LoadWithText::visite(ShapesManager& Sm)
 		exit(-1);
 	}
 }
+
