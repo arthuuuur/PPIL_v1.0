@@ -75,7 +75,7 @@ Shape* Circle::rotation(const double angle, const Vector2D& center) const
 
 Circle::operator string() const
 {
-	ostringstream flux;
+	ostringstream flux; 
 	Shape::print(flux);
 	flux << "< " << _center << ", r = " << _radius << " >";
 	return flux.str();
