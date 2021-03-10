@@ -1,8 +1,7 @@
 #pragma once
 
-#include <string>
 #include <iostream>
-#include <sstream>
+
 #include "Matrix2_2.h"
 #include "Error.h"
 
@@ -23,13 +22,20 @@ public:
 	double y;
 
 	/**
-	* Vector2D
+	* Vector2D's constructor
 	*
 	* @param  {double} x : The point's abscissa
 	* @param  {double} y : The point's ordinate
 	*/
 	inline explicit Vector2D(const double x = 0, const double y = 0);
 
+	/**
+	* Calculates the det between this vector2D and an other vector2D
+	* 
+	* @param {Vector2D} : The other vector2D
+	* 
+	* @return {double} : The determinant
+	*/
 	inline const double det(const Vector2D& u) const;
 
 	/**
@@ -105,14 +111,8 @@ public:
 	*/
 	inline Vector2D rotation(const double angle, const Vector2D& center = Vector2D(0, 0)) const;
 
-	/**
-	*
-	*/
 	inline friend ostream& operator<<(ostream&, const Vector2D& c);
 
-	/**
-	*
-	*/
 	inline ostream& print(ostream& flux) const;
 };
 

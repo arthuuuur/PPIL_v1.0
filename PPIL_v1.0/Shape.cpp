@@ -1,13 +1,11 @@
 #include "Shape.h"
-#include "Error.h"
-
-
 
 int Shape::nbShape = 0;
 
 Shape::Shape(const string shapeColor) 
 {
-		if (Color::isAllowed(shapeColor)){
+		if (Color::isAllowed(shapeColor))
+		{
 			_shapeColor = shapeColor;
 			_colorIfGrouped = shapeColor;
 		}
@@ -65,7 +63,8 @@ const string Shape::getFatherColor()
 	{
 		iterator = iterator->getFather();
 	}
-	if (iterator != NULL){
+	if (iterator != NULL)
+	{
 		return iterator->getShapeColor(); // si la forme a un pere on retourne la couleur du pere
 	}
 	else
@@ -79,7 +78,8 @@ const string Shape::getShapeColor() const
 
 void Shape::setShapeColor(const string shapeColor) 
 {
-	if (Color::isAllowed(shapeColor)) {
+	if (Color::isAllowed(shapeColor)) 
+	{
 		_shapeColor = shapeColor;
 	}
 }
@@ -92,7 +92,8 @@ const string Shape::getColorIfGrouped() const
 void Shape::setColorIfGrouped(const string groupColor) 
 {
 
-	if (Color::isAllowed(groupColor)) {
+	if (Color::isAllowed(groupColor)) 
+	{
 		_colorIfGrouped = groupColor;
 	}		
 }

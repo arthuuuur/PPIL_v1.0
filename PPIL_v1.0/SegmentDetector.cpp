@@ -1,11 +1,11 @@
 #include "SegmentDetector.h"
-#include "Segment.h"
 
 SegmentDetector::SegmentDetector(ShapeDetector* next) : ShapeDetector(next) {}
 
 Shape* SegmentDetector::deserialize(const vector<string> data) const
 {
-	if (data[indexOf(data, "type") + 1] == "1") {
+	if (data[indexOf(data, "type") + 1] == "1") 
+	{
 		Shape* shape;
 		string color = data[indexOf(data, "shapeColor") + 1];
 		int id = stoi(data[indexOf(data, "ID") + 1]);

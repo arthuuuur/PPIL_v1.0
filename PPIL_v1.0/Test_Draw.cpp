@@ -1,16 +1,9 @@
-#include "Shape.h"
-#include "Vector2D.h"
 #include "Segment.h"
 #include "Circle.h"
 #include "Triangle.h"
-#include "Polygon.h"
 #include "Group.h"
-#include "ConvexPolygon.h"
-#include "Error.h"
 #include "ServerConnection.h"
-#include "ShapeManagerVisitor.h"
 #include "DrawServerVisitor.h"
-#include "ShapesManager.h"
 #include "SaveInText.h"
 #include "LoadWithText.h"
 
@@ -40,7 +33,7 @@ int main() {
 	listeV2.push_back(v4);
 	listeV2.push_back(v5);
 	listeV2.push_back(v6);
-	Shape* s6 = new Triangle(Color::BLUE, listeV2);
+	Shape* s6 = new ConvexPolygon(Color::BLUE, listeV2);
 	G2->addShape(s4);
 	G2->addShape(s5);
 	G2->addShape(s6);
@@ -88,9 +81,6 @@ int main() {
 	sm.addGroup(G3);
 	G2->addGroup(G3);
 
-	//sm.addShape(s4);
-	//Shape* test = s4->rotation(0.40, v12);
-	//sm.addShape(test);
 	
 	cout << endl << sm << endl << endl;
 
@@ -117,7 +107,5 @@ int main() {
 	ShapeManagerVisitor* drawWithJavaServer;
 	drawWithJavaServer = new DrawServerVisitor;
 
-
-	//cout << sm << endl;
 	sm.accepte(drawWithJavaServer);
 }

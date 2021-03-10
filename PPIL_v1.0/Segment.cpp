@@ -9,7 +9,8 @@ Segment::Segment(const Vector2D& p1, const Vector2D& p2)
 
 Segment::Segment(const string shapeColor, const Vector2D& p1, const Vector2D& p2) : Segment(p1,p2)
 {
-	if (Color::isAllowed(shapeColor)) {
+	if (Color::isAllowed(shapeColor)) 
+	{
 		_shapeColor = shapeColor;
 	}
 }

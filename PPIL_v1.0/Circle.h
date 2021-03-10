@@ -1,8 +1,8 @@
 #pragma once
+
 #define _USE_MATH_DEFINES // to get the constante M_PI with the <math.h> include
-#include "Vector2D.h"
+
 #include "Shape.h"
-#include "Error.h"
 
 using namespace std;
 
@@ -23,7 +23,7 @@ private:
 public:
 
 	/**
-	* Circle
+	* Circle's constructor
 	*
 	* @param  {Vector2D} x : The circle's center
 	* @param  {double} radius : The circle's radius
@@ -31,7 +31,7 @@ public:
 	Circle(const Vector2D& v, const double radius);
 
 	/**
-	* Circle
+	* Circle's constructor
 	*
 	* @param  {string} shapeColor : The circle's color
 	* @param  {Vector2D} v : The circle's center

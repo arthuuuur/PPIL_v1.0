@@ -1,7 +1,5 @@
 #pragma once
 
-#include <vector>
-#include "Vector2D.h"
 #include "Shape.h"
 
 using namespace std;
@@ -17,12 +15,12 @@ protected:
 public:
 	
 	/**
-	* Polygon
+	* Polygon's constructor
 	*/
 	Polygon();
 
 	/**
-	* Polygon
+	* Polygon's constructor
 	*
 	* @param  {vector<Vector2D>} S : The list of polygon's points
 	*/

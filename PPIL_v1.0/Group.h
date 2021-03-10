@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Shape.h"
-#include <vector>
 
 class Group : public Shape {
 
@@ -15,7 +14,7 @@ protected:
 public:
 
 	/**
-	 * Group
+	 * Group's constructor
 	 *
 	 * @param  {string} groupColor : The group's color
 	 * @param  {vector<Shape*>} L : The list of the group's shapes
@@ -23,23 +22,11 @@ public:
 	Group(const string groupColor, vector<Shape*> L);
 
 	/**
-	 * Group
+	 * Group's constructor
 	 *
 	 * @param  {string} groupColor : The group's color
 	 */
 	Group(const string groupColor);
-
-	/**
-	 * Group
-	 *
-	 * @param  {Group&} G : The group to be copied
-	 */
-	Group(const Group& G);
-
-	/**
-	 * ~Group
-	 */
-	virtual ~Group();
 
 	/**
 	* Add a new Shape to the list of shapes

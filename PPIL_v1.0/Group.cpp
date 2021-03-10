@@ -1,11 +1,11 @@
 #include "Group.h"
-#include "Error.h"
-#include <iostream>
+
 
 Group::Group(const string groupColor, vector<Shape*> L) : Shape(groupColor) 
 {
 	father = NULL;
-	for (vector<Shape*>::const_iterator it = L.begin(); it != L.end(); it++) {	
+	for (vector<Shape*>::const_iterator it = L.begin(); it != L.end(); it++) 
+	{	
 		(*it)->setColorIfGrouped(groupColor);
 		(*it)->setGroupID(this->getID());
 		(*it)->setFather(this);
@@ -15,21 +15,19 @@ Group::Group(const string groupColor, vector<Shape*> L) : Shape(groupColor)
 
 Group::Group(const string groupColor) : Shape(groupColor) {}
 
-Group::Group(const Group& G) : listShapes(G.listShapes) {}
-
-Group::~Group() {}
-
-
 void Group::addShape(Shape* S) 
 {
 	bool canAdd = true;
-	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		if ((*it)->getID() == S->getID()) {
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) 
+	{
+		if ((*it)->getID() == S->getID()) 
+		{
 		cout << "this shape : " << **it <<  " is already in a group, so it has not been added" << endl;
 		canAdd = false;
 		}
 	}
-	if (canAdd) {
+	if (canAdd) 
+	{
 		S->setFather(this);
 		S->setColorIfGrouped(this->getFatherColor());
 		S->setGroupID(this->getFatherID());
@@ -43,7 +41,8 @@ void Group::addGroup(Shape *G)
 	G->setGroupID(this->getFatherID());
 	G->setFather(this);
 	G->setColorIfGrouped(this->getShapeColor());
-	for (vector<Shape*>::iterator it = dynamic_cast<Group*>(G)->listShapes.begin(); it != dynamic_cast<Group*>(G)->listShapes.end(); it++) {
+	for (vector<Shape*>::iterator it = dynamic_cast<Group*>(G)->listShapes.begin(); it != dynamic_cast<Group*>(G)->listShapes.end(); it++) 
+	{
 		(*it)->setColorIfGrouped(this->getFatherColor());
 		(*it)->setGroupID(this->getFatherID());
 		listShapes.push_back(*it);
@@ -53,8 +52,10 @@ void Group::addGroup(Shape *G)
 
 void Group::removeShape(Shape* S) 
 {
-	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-		if ((*it)->getID() == S->getID()) {
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) 
+	{
+		if ((*it)->getID() == S->getID()) 
+		{
 			listShapes.erase(it);
 			break;
 		}
@@ -66,9 +67,12 @@ void Group::removeShape(Shape* S)
 
 void Group::removeGroup(Shape * G) 
 {
-	for (vector<Shape*>::iterator itG = dynamic_cast<Group*>(G)->listShapes.begin(); itG != dynamic_cast<Group*>(G)->listShapes.end(); itG++) {
-		for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
-			if ((*it)->getID() == (*itG)->getID()) {
+	for (vector<Shape*>::iterator itG = dynamic_cast<Group*>(G)->listShapes.begin(); itG != dynamic_cast<Group*>(G)->listShapes.end(); itG++) 
+	{
+		for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) 
+		{
+			if ((*it)->getID() == (*itG)->getID()) 
+			{
 				listShapes.erase(it);
 				break;
 			}
@@ -84,7 +88,8 @@ void Group::removeGroup(Shape * G)
 const double Group::getArea() const 
 {
 	double area = 0;
-	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) 
+	{
 		area += (**it).getArea();
 	}
 	return area;
@@ -97,10 +102,12 @@ vector<Shape*> Group::getList()
 
 void Group::setColorIfGrouped(const string ColorIfGrouped)
 {
-	if (Color::isAllowed(ColorIfGrouped)) {
+	if (Color::isAllowed(ColorIfGrouped)) 
+	{
 		_colorIfGrouped = ColorIfGrouped;
 	}
-	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++)
+	{
 		(*it)->setColorIfGrouped(ColorIfGrouped);
 	}
 }
@@ -108,7 +115,8 @@ void Group::setColorIfGrouped(const string ColorIfGrouped)
 void Group::setGroupID(const int GID)
 {
 	groupID = GID;
-	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) 
+	{
 		(*it)->setGroupID(GID);
 	}
 }
@@ -120,7 +128,8 @@ void Group::setShapeColor(const string shapeColor)
 	}
 	if (this->getFather() == NULL) // si le groupe n'est pas dans un groupe
 	{ // on donne a chaque forme du groupe le nouveau groupColor correspondant a la nouvelle couleur du groupe
-		for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+		for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) 
+		{
 			(*it)->setColorIfGrouped(shapeColor);
 		}
 	}
@@ -130,7 +139,8 @@ void Group::setShapeColor(const string shapeColor)
 Shape* Group::translation(const Vector2D& v) const
 {
 	vector<Shape*> cloneShape;
-	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) 
+	{
 		cloneShape.push_back((*it)->translation(v));
 	}
 	return new Group(this->getColorIfGrouped(),cloneShape);
@@ -139,7 +149,8 @@ Shape* Group::translation(const Vector2D& v) const
 Shape* Group::homothety(const double k, const Vector2D& center) const
 {
 	vector<Shape*> cloneShape;
-	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) 
+	{
 		cloneShape.push_back((*it)->homothety(k,center));
 	}
 	return new Group(this->getColorIfGrouped(), cloneShape);
@@ -148,7 +159,8 @@ Shape* Group::homothety(const double k, const Vector2D& center) const
 Shape* Group::rotation(const double angle, const Vector2D& center) const
 {
 	vector<Shape*> cloneShape;
-	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++)
+	{
 		cloneShape.push_back((*it)->rotation(angle,center));
 	}
 	return new Group(this->getColorIfGrouped(), cloneShape);
@@ -161,7 +173,8 @@ Group::operator string() const
 	Shape::print(flux);
 	flux << "< ";
 	flux << endl;
-	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) {
+	for (vector<Shape*>::const_iterator it = listShapes.begin(); it != listShapes.end(); it++) 
+	{
 		
 		flux << **it;
 		flux << endl;

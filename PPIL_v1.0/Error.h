@@ -16,7 +16,7 @@ private:
 public:
 
 	/**
-	* Error
+	* Error's constructor
 	*
 	* @param {string} error : the error's message
 	*/
@@ -29,9 +29,4 @@ public:
 	virtual const char* what() const throw() {
 		return _error.c_str();
 	}
-
-	/**
-	* ~Error
-	*/
-	virtual  ~Error() {}
 };

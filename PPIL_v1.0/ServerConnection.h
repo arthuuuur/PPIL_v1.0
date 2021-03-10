@@ -7,6 +7,8 @@
 #include <WS2tcpip.h>
 #pragma comment(lib, "ws2_32.lib")
 
+#include "Error.h"
+
 using namespace std;
 
 /**
@@ -43,7 +45,7 @@ public:
 	SOCKADDR_IN _sockaddr;
 
 	/**
-	* ServerConnection
+	* ServerConnection's constructor
 	*
 	* Initialize the WSADATA structure, the SOCKADDRIN structure and the SOCKET
 	*/

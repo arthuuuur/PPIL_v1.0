@@ -11,15 +11,19 @@ const vector<string> Color::AllowedColor = { "red", "green", "blue", "cyan", "ye
 
 bool Color::isAllowed(const string color)
 {
-	try {
-		if (find(AllowedColor.begin(), AllowedColor.end(), color) != AllowedColor.end()) {
+	try 
+	{
+		if (find(AllowedColor.begin(), AllowedColor.end(), color) != AllowedColor.end()) 
+		{
 			return true;
 		}
-		else {
+		else 
+		{
 			throw Error("Unallowed color : " + color);
 		}
 	}
-	catch (exception const& err) {
+	catch (exception const& err) 
+	{
 		cerr << err.what() << endl;
 		exit(-1);
 	}

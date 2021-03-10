@@ -13,12 +13,11 @@ class Matrix2_2
 		* Matrix 2x2
 		*/
 		vector<vector<double>> matrix;
-		//Vector2D matrix[2];
 
 	public:
 
 		/**
-		* Matrix2_2
+		* Matrix2_2 's constructor
 		* __________
 		* | a1 | a2 |
 		* |----|----|

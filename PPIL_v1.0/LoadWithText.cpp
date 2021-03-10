@@ -19,25 +19,31 @@ LoadWithText::~LoadWithText()
 
 void LoadWithText::visite(ShapesManager& Sm)
 {
-	try {
+	try 
+	{
 		ifstream save("save.txt");
 		if (!save) throw Error("failed to open file");
 		string line;
-		while (getline(save, line)) {
-			
+		while (getline(save, line)) 
+		{
 			Shape* var =cor->charge(line);
-			if (var != NULL) {
-				if (var->getID() != var->getGroupID()) { // si une forme appartient à un group
+			if (var != NULL) 
+			{
+				if (var->getID() != var->getGroupID()) 
+				{ 
 					bool here = false;
-					for (vector<Shape*>::const_iterator it = Sm.getGroupShape().begin(); it != Sm.getGroupShape().end(); it++) { // on regarde si le group est deja la
-						if ((*it)->getID() == var->getGroupID()) {
+					for (vector<Shape*>::const_iterator it = Sm.getGroupShape().begin(); it != Sm.getGroupShape().end(); it++) 
+					{ 
+						if ((*it)->getID() == var->getGroupID()) 
+						{
 							here = true;
 							if (here) {
 								dynamic_cast<Group*>(*it)->addShape(var);
 							}
 						}
 					}
-					if (!here) {
+					if (!here) 
+					{
 						Group* G = new Group(var->getColorIfGrouped());
 						G->setGroupID(var->getGroupID());
 						G->setID(var->getGroupID());
@@ -46,16 +52,19 @@ void LoadWithText::visite(ShapesManager& Sm)
 						here = false;
 					}
 				}
-				else {
+				else 
+				{
 					Sm.addShape(var);
 				}
 			}
-			else {
+			else 
+			{
 				throw Error("the file contains an unknown shape");
 			}
 		}
 	}
-	catch (exception const& err) {
+	catch (exception const& err) 
+	{
 		cout << err.what() << endl;
 		exit(-1);
 	}

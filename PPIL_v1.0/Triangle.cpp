@@ -1,6 +1,5 @@
 #include "Triangle.h"
-#include "Segment.h"
-#include <cmath>
+
 
 Triangle::Triangle(const Vector2D& v1, const Vector2D& v2, const Vector2D& v3)
 {
@@ -12,7 +11,8 @@ Triangle::Triangle(const Vector2D& v1, const Vector2D& v2, const Vector2D& v3)
 
 Triangle::Triangle(const string shapeColor, const Vector2D& v1, const Vector2D& v2, const Vector2D& v3) : Triangle(v1,v2,v3)
 {
-	if (Color::isAllowed(shapeColor)) {
+	if (Color::isAllowed(shapeColor)) 
+	{
 		_shapeColor = shapeColor;
 	}
 }
@@ -21,7 +21,8 @@ Triangle::Triangle(vector<Vector2D> S) : ConvexPolygon(S) {}
 
 Triangle::Triangle(const string shapeColor, vector<Vector2D> S) : ConvexPolygon(S) 
 {
-	if (Color::isAllowed(shapeColor)) {
+	if (Color::isAllowed(shapeColor)) 
+	{
 		_shapeColor = shapeColor;
 	}
 }

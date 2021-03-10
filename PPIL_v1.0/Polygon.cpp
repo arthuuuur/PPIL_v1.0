@@ -1,11 +1,11 @@
 #include "Polygon.h"
-#include "Error.h"
 
 Polygon::Polygon() {}
 
 Polygon::Polygon(vector<Vector2D> S) 
 {
-	for (vector<Vector2D>::iterator it = S.begin(); it != S.end(); it++) {
+	for (vector<Vector2D>::iterator it = S.begin(); it != S.end(); it++) 
+	{
 		listPoints.push_back(*it);
 	}
 	gravity();
@@ -21,8 +21,10 @@ void Polygon::gravity()
 	Vector2D gravityC;
 	double area = 0.0, a;
 	int i, j;
-	for (i = 0; i < listPoints.size(); i++) {
-		if (i + 1 == listPoints.size()) {
+	for (i = 0; i < listPoints.size(); i++) 
+	{
+		if (i + 1 == listPoints.size()) 
+		{
 			j = 0;
 		}
 		else {
@@ -42,7 +44,8 @@ const string Polygon::serialize() const
 {
 	ostringstream os;
 	os << "type;3;ID;" << ID << ";groupID;" << groupID << ";shapeColor;" << _shapeColor << ";groupColor;" << _colorIfGrouped << ";nbPoint;" << listPoints.size() << ";list;";
-	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
+	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) 
+	{
 		os << it->x << ";" << it->y;
 		if (it != listPoints.end() - 1)
 			os << ";";
@@ -56,7 +59,8 @@ Polygon::operator string() const
 	flux << "Polygon ";
 	Shape::print(flux);
 	flux << " < ";
-	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) {
+	for (vector<Vector2D>::const_iterator it = listPoints.begin(); it != listPoints.end(); it++) 
+	{
 		flux << " " << *it << " ";
 	}
 	flux << ">";

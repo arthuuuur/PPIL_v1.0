@@ -1,6 +1,4 @@
-#include "Shape.h"
 #include "Circle.h"
-#include "Vector2D.h"
 #include "Group.h"
 #include "Segment.h"
 #include "Triangle.h"

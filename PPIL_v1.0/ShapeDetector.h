@@ -1,6 +1,5 @@
 #pragma once
-#include "Shape.h"
-#include <vector>
+
 #include "ShapeDetectorCOR.h"
 
 class ShapeDetector : public ShapeDetectorCOR {
@@ -24,7 +23,7 @@ public:
 protected:
 
 	/**
-	* ShapeDetector
+	* ShapeDetector's constructor
 	* 
 	* @param {ShapeDetector*} next : The next ShapeDetector in the chain of responsability
 	*/
@@ -33,7 +32,7 @@ protected:
 	/**
 	* Conversion of string into Shape
 	*
-	* @param {string} data : the string to convert into Polygon
+	* @param {vector<string>} data : the string to convert into Polygon
 	* 
 	* @return {Shape*} : The Shape corresponding to the string data 
 	*/

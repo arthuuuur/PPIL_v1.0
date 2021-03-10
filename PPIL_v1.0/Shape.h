@@ -1,9 +1,11 @@
 #pragma once
 
 #include <string>
-#include <sstream>
+#include <cmath>
+
 #include "Vector2D.h"
 #include "Color.h"
+#include "Error.h"
 
 using namespace std;
 
@@ -49,14 +51,14 @@ protected:
 public:
 
 	/**
-	* Shape
+	* Shape's constructor
 	*
 	* @param  {string} shapeColor : Shape's color, red by default
 	*/
 	Shape(const string shapeColor = Color::RED);
 
 	/**
-	* Shape
+	* Shape's constructor by copy
 	* 
 	* @param  {Shape} S : The shape to be copied
 	*/

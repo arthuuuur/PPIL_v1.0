@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ConvexPolygon.h"
-#include "Vector2D.h"
 
 using namespace std;
 
@@ -10,7 +9,7 @@ class Triangle : public ConvexPolygon {
 public:
 
 	/**
-	* Triangle
+	* Triangle's constructor
 	*
 	* @param  {Vector2D} v1 : First point
 	* @param  {Vector2D} v2 : Second point
@@ -19,7 +18,7 @@ public:
 	Triangle(const Vector2D& v1, const Vector2D& v2, const Vector2D& v3);
 
 	/**
-	* Triangle
+	* Triangle's constructor
 	*
 	* @param  {string} shapeColor : triangle's color
 	* @param  {Vector2D} v1 : First point
@@ -49,5 +48,4 @@ public:
 	* @return {double}  : The triangle's area
 	*/
 	const double getArea() const;
-
 };

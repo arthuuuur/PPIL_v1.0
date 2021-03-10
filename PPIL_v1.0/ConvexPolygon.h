@@ -2,12 +2,13 @@
 
 #include "Polygon.h"
 
+
 class ConvexPolygon : public Polygon {
 
 protected:
 
 	/**
-	* ConvexPolygon
+	* ConvexPolygon's constructor
 	* Protected to prevent the user from creating an empty convex polygon
 	*/
 	ConvexPolygon();
@@ -15,20 +16,19 @@ protected:
 public:
 
 	/**
-	* ConvexPolygon
+	* ConvexPolygon's constructor
 	*
 	* @param  {vector<Vector2D>} S : The list of the convex polygon's points
 	*/
 	ConvexPolygon(vector<Vector2D> S);
 
 	/**
-	* ConvexPolygon
+	* ConvexPolygon's constructor
 	*
 	* @param  {string} shapeColor  : The convex polygon's color
 	* @param  {vector<Vector2D>} S : The list of the the convex polygon's points
 	*/
 	ConvexPolygon(const string shapeColor, vector<Vector2D> S);
-
 
 	/**
 	* Calculate the convex polygon's area

@@ -1,6 +1,7 @@
-#include "Vector2D.h"
 #define _USE_MATH_DEFINES // to get the constante M_PI with the <math.h> include
 #include <math.h>
+
+#include "Vector2D.h"
 
 int main() {
 	

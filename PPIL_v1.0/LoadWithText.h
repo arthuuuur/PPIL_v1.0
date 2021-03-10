@@ -14,12 +14,21 @@ private:
 
 public:
 
+	/*
+	* LoadWithText's constructor's
+	*/
 	LoadWithText();
 
+	/*
+	* LoadWithText's destructor
+	*/
 	~LoadWithText();
 
 	/**
-	* TO DO
+	* The methode which add the new functionality to the shapesManager
+	* this one is used to load all the contents of a file text into the shapesManager
+	*
+	* @param {shapesManager&} Sm : The shapesManager
 	*/
 	void visite(ShapesManager& Sm);
 };

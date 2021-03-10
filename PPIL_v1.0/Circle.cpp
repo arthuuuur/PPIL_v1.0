@@ -2,15 +2,18 @@
 
 Circle::Circle(const Vector2D& v, const double radius) 
 {
-	try {
-		if (radius <= 0) {
+	try 
+	{
+		if (radius <= 0) 
+		{
 			throw Error("The radius must be postive or not null");
 		}
 		_radius = radius;
 		_center = v;
 		gravity();
 	}
-	catch (exception const& err) {
+	catch (exception const& err) 
+	{
 		cout << err.what() << endl;
 		exit(-1);
 	}
@@ -19,7 +22,8 @@ Circle::Circle(const Vector2D& v, const double radius)
 
 Circle::Circle(const string shapeColor, const Vector2D& v, const double radius) : Circle(v,radius) 
 {
-	if (Color::isAllowed(shapeColor)) {
+	if (Color::isAllowed(shapeColor)) 
+	{
 		_shapeColor = shapeColor;
 	}
 }

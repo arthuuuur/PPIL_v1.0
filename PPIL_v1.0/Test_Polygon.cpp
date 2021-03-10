@@ -1,5 +1,3 @@
-#include "Shape.h"
-#include "Vector2D.h"
 #include "Triangle.h"
 
 int main() {

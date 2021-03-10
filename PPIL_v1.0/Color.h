@@ -1,9 +1,11 @@
 #pragma once
+
 #include <vector>
 #include <string>
 #include <algorithm>
-#include "Error.h"
 #include <iostream>
+
+#include "Error.h"
 
 using namespace std;
 

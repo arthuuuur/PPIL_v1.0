@@ -1,9 +1,6 @@
 #pragma once
 
-#include <math.h>
-#include "Vector2D.h"
 #include "Shape.h"
-#include "Error.h"
 
 using namespace std;
 
@@ -24,7 +21,7 @@ private:
 public:
 
 	/**
-	* Segment
+	* Segment constructor's
 	*
 	* @param  {Vector2D} p1 : First extremity
 	* @param  {Vector2D} p2 : Seconde extremity
@@ -32,7 +29,7 @@ public:
 	Segment(const Vector2D& p1, const Vector2D& p2);
 
 	/**
-	* Segment
+	* Segment constructor's
 	*
 	* @param  {string} shapeColor : The segment's color
 	* @param  {Vector2D} p1 : First extremity

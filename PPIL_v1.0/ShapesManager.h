@@ -1,13 +1,9 @@
 #pragma once
 
-#include "Shape.h"
-#include <vector>
+#include <fstream>
+
 #include "ShapeManagerVisitor.h"
 #include "Group.h"
-#include <fstream>
-#include "Error.h"
-#include "ShapeDetector.h"
-
 
 class ShapesManager {
 
@@ -61,19 +57,21 @@ public:
 	/**
 	* Getter of listShape
 	* 
-	* @return {vector<Shape*>} : the list of Shapes
+	* @return {vector<Shape*>&} : the list of Shapes
 	*/
 	const vector<Shape*>& getListShape() const;
 	
 	/**
 	* Getter of listGroup
 	* 
-	* @return {vector<Shape*>} : the list of Groups
+	* @return {vector<Shape*>&} : the list of Groups
 	*/
 	const vector<Shape*>& getGroupShape() const;
 
 	/**
-	* TO DO
+	* Allow to accept ShapeManagerVisitor derived class to add some functionalities to the shapeManager
+	* 
+	* @param {ShapeManagerVisitor*} S : The visitor which implement the functionalities
 	*/
 	void accepte(ShapeManagerVisitor* S);
 

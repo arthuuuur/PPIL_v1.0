@@ -1,7 +1,4 @@
 #include "ShapesManager.h"
-#include "SegmentDetector.h"
-#include "CircleDetector.h"
-#include "PolygonDetector.h"
 
 using namespace std;
 
@@ -19,7 +16,8 @@ void ShapesManager::addGroup(Shape* G)
 void ShapesManager::removeShape(Shape* S) 
 {
 	for (vector<Shape*>::const_iterator it = listShape.begin(); it != listShape.end(); it++) {
-		if ((*it)->getID() == S->getID()) {
+		if ((*it)->getID() == S->getID()) 
+		{
 			listShape.erase(it);
 			break;
 		}
@@ -29,7 +27,8 @@ void ShapesManager::removeShape(Shape* S)
 void ShapesManager::removeGroup(Shape* G) 
 {
 	for (vector<Shape*>::const_iterator it = listGroup.begin(); it != listGroup.end(); it++) {
-		if ((*it)->getID() == G->getID()) {
+		if ((*it)->getID() == G->getID()) 
+		{
 			listGroup.erase(it);
 			break;
 		}
@@ -51,11 +50,6 @@ const vector<Shape*>& ShapesManager::getGroupShape() const
 {
 	return listGroup;
 }
-
-//const ShapeDetectorCOR* ShapesManager::getCOR() const
-//{
-//	return cor;
-//}
 
 void ShapesManager::accepte(ShapeManagerVisitor* S) 
 {

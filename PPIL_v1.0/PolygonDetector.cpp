@@ -1,11 +1,11 @@
 #include "PolygonDetector.h"
-#include "ConvexPolygon.h"
 
 PolygonDetector::PolygonDetector(ShapeDetector* next) :ShapeDetector(next) {}
 
 Shape* PolygonDetector::deserialize(const vector<string> data) const
 {
-	if (data[indexOf(data, "type") + 1] == "3") {
+	if (data[indexOf(data, "type") + 1] == "3") 
+	{
 		Shape* shape;
 		int nbPoint = stoi(data[indexOf(data, "nbPoint") + 1]);
 		string color = data[indexOf(data, "shapeColor") + 1];

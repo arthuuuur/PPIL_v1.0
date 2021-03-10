@@ -1,6 +1,4 @@
 #include "Circle.h"
-#include "Vector2D.h"
-#include "Shape.h"
 
 int main() {
 

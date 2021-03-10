@@ -1,5 +1,4 @@
 #include "ServerConnection.h"
-#include "Error.h"
 
 using namespace std;
 
@@ -8,7 +7,8 @@ mutex ServerConnection::_mutex;
 
 ServerConnection::ServerConnection() 
 {
-	try {
+	try 
+	{
 		WSADATA wsadata;
 		int err = WSAStartup(MAKEWORD(2, 0), &wsadata);
 		if (err) throw Error("Initialization failed");
@@ -20,7 +20,8 @@ ServerConnection::ServerConnection()
 		int protocole = IPPROTO_TCP;
 
 		sock = socket(familleAdresses, typeSocket, protocole);
-		if (sock == INVALID_SOCKET) {
+		if (sock == INVALID_SOCKET) 
+		{
 			ostringstream flux;
 			flux << "Socket creation has failed: error code = " << WSAGetLastError() << endl;
 			throw(flux.str().c_str());
@@ -37,7 +38,8 @@ ServerConnection::ServerConnection()
 		_sock = sock;
 		_sockaddr = sockaddr;
 	}
-	catch (exception const& err) {
+	catch (exception const& err) 
+	{
 		cout << err.what() << endl;
 		exit(-1);
 	}
@@ -57,12 +59,14 @@ ServerConnection* ServerConnection::getInstance()
 
 void ServerConnection::openConnection() 
 {
-	try {
+	try 
+	{
 		int err = connect(_sock, (SOCKADDR*)&_sockaddr, sizeof(_sockaddr));
 		if (err == SOCKET_ERROR) throw Error("Connection failed");
 		cout << "Connection to the drawing server worked" << endl;
 	}
-	catch (exception const& err) {
+	catch (exception const& err) 
+	{
 		cout << err.what() << endl;
 		exit(-1);
 	}
@@ -70,7 +74,8 @@ void ServerConnection::openConnection()
 
 void ServerConnection::closeConnection()
 {
-	try {
+	try 
+	{
 		int err;
 		err = shutdown(_sock, SD_BOTH);
 		if (err == SOCKET_ERROR) {
@@ -83,7 +88,8 @@ void ServerConnection::closeConnection()
 		WSACleanup();
 		cout << "Normal client stop" << endl;
 	}
-	catch (exception const& err) {
+	catch (exception const& err)
+	{
 		cout << err.what() << endl;
 		exit(-1);
 	}
