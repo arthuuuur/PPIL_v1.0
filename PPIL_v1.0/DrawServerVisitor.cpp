@@ -6,27 +6,22 @@ void DrawServerVisitor::visite(ShapesManager& Sm)
 {
 	try 
 	{
+		ServerConnection* client;
+		client = ServerConnection::getInstance();
+		client->openConnection();
 		int err;
 		char cstr[BUFSIZ];
 		char reponse[BUFSIZ];
 		string str;
 		for (vector<Shape*>::const_iterator it = Sm.getListShape().begin(); it != Sm.getListShape().end(); it++) 
 		{
-			
 			str = (*it)->serialize(); 
 			strcpy_s(cstr, sizeof(cstr), str.c_str());
 			strcat_s(cstr, "\r\n");
 			err = send(ServerConnection::getInstance()->getSocket(), cstr, strlen(cstr), 0);
-			if (err == SOCKET_ERROR) 
-			{
-				throw Error("failure to send the requeste");
-			}
-			char reponse[BUFSIZ];
+			if (err == SOCKET_ERROR) throw Error("failure to send the requeste");
 			err = recv(ServerConnection::getInstance()->getSocket(), reponse, strlen(cstr), 0);
-			if (err == SOCKET_ERROR) 
-			{
-				throw Error("failure to receive the response");
-			}
+			if (err == SOCKET_ERROR) throw Error("failure to receive the response");
 			char* p = strchr(reponse, '\n');
 			*p = '\0';
 			cout << reponse << endl;
@@ -41,20 +36,15 @@ void DrawServerVisitor::visite(ShapesManager& Sm)
 				strcpy_s(cstr, sizeof(cstr), str.c_str());
 				strcat_s(cstr, "\r\n");
 				err = send(ServerConnection::getInstance()->getSocket(), cstr, strlen(cstr), 0);
-				if (err == SOCKET_ERROR) 
-				{
-					throw Error("failure to send the requeste");
-				}
+				if (err == SOCKET_ERROR) throw Error("failure to send the requeste");
 				err = recv(ServerConnection::getInstance()->getSocket(), reponse, strlen(cstr), 0);
-				if (err == SOCKET_ERROR) 
-				{
-					throw Error("failure to receive the response");
-				}
+				if (err == SOCKET_ERROR) throw Error("failure to receive the response");
 				char* p = strchr(reponse, '\n');
 				*p = '\0';
 				cout << reponse << endl;
 			}
 		}
+		client->closeConnection();
 	}
 	catch (exception const& err) 
 	{

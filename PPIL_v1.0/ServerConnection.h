@@ -19,6 +19,13 @@ class ServerConnection {
 private:
 
 	/**
+	* ServerConnection's constructor
+	*
+	* Initialize the WSADATA structure
+	*/
+	ServerConnection();
+
+	/**
 	* The only instance of this class
 	*/
 	static ServerConnection* _client;
@@ -30,29 +37,14 @@ private:
 public:
 
 	/**
-	* The structure that contains information about the Windows Sockets implementation
-	*/
-	WSADATA _wsadata;
-
-	/**
 	* The socket for communicate with the server
 	*/
 	SOCKET _sock;
 
 	/**
-	* The structure that contains information about the server adress, the port, and the protocole
-	*/
-	SOCKADDR_IN _sockaddr;
-
-	/**
-	* ServerConnection's constructor
-	*
-	* Initialize the WSADATA structure, the SOCKADDRIN structure and the SOCKET
-	*/
-	ServerConnection();
-
-	/**
 	* ~ServerConnection
+	* 
+	* Clear the WSADATA structure
 	*/
 	~ServerConnection();
 
@@ -75,12 +67,12 @@ public:
 	static ServerConnection* getInstance();
 
 	/**
-	* Open the connection to the server
+	* Create and open the connection to the server
 	*/
 	void openConnection();
 
 	/**
-	* Close the connection to the server
+	* Close the socket and the connection to the server
 	*/
 	void closeConnection();
 

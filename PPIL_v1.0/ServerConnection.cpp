@@ -13,30 +13,6 @@ ServerConnection::ServerConnection()
 		int err = WSAStartup(MAKEWORD(2, 0), &wsadata);
 		if (err) throw Error("Initialization failed");
 		cout << "Initialization worked" << endl;
-
-		SOCKET sock;
-		int familleAdresses = AF_INET;
-		int typeSocket = SOCK_STREAM;
-		int protocole = IPPROTO_TCP;
-
-		sock = socket(familleAdresses, typeSocket, protocole);
-		if (sock == INVALID_SOCKET) 
-		{
-			ostringstream flux;
-			flux << "Socket creation has failed: error code = " << WSAGetLastError() << endl;
-			throw(flux.str().c_str());
-		}
-		cout << "Socket create" << endl;
-
-		SOCKADDR_IN sockaddr;
-
-		sockaddr.sin_family = AF_INET;
-		inet_pton(AF_INET, "127.0.0.1", &sockaddr.sin_addr.s_addr);
-		sockaddr.sin_port = htons(9111);
-
-		_wsadata = wsadata;
-		_sock = sock;
-		_sockaddr = sockaddr;
 	}
 	catch (exception const& err) 
 	{
@@ -45,7 +21,11 @@ ServerConnection::ServerConnection()
 	}
 }
 
-ServerConnection::~ServerConnection() {}
+ServerConnection::~ServerConnection() 
+{
+	WSACleanup();
+	cout << "Normal client stop" << endl;
+}
 
 ServerConnection* ServerConnection::getInstance() 
 {
@@ -59,9 +39,24 @@ ServerConnection* ServerConnection::getInstance()
 
 void ServerConnection::openConnection() 
 {
-	try 
+	try
 	{
-		int err = connect(_sock, (SOCKADDR*)&_sockaddr, sizeof(_sockaddr));
+		SOCKET sock;
+		sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+		if (sock == INVALID_SOCKET)
+		{
+			ostringstream flux;
+			flux << "Socket creation has failed: error code = " << WSAGetLastError() << endl;
+			throw(flux.str().c_str());
+		}
+		cout << "Socket create" << endl;
+
+		SOCKADDR_IN sockaddr;
+		sockaddr.sin_family = AF_INET;
+		inet_pton(AF_INET, "127.0.0.1", &sockaddr.sin_addr.s_addr);
+		sockaddr.sin_port = htons(9111);
+		_sock = sock;
+		int err = connect(_sock, (SOCKADDR*)&sockaddr, sizeof(sockaddr));
 		if (err == SOCKET_ERROR) throw Error("Connection failed");
 		cout << "Connection to the drawing server worked" << endl;
 	}
@@ -85,8 +80,6 @@ void ServerConnection::closeConnection()
 		if (err) {
 			throw Error("the closing of the socket failed");
 		}
-		WSACleanup();
-		cout << "Normal client stop" << endl;
 	}
 	catch (exception const& err)
 	{

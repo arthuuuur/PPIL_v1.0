@@ -75,37 +75,19 @@ int main() {
 	
 	ShapesManager sm = ShapesManager();
 	
-	
 	sm.addGroup(G1);
 	sm.addGroup(G2);
 	sm.addGroup(G3);
 	G2->addGroup(G3);
-
 	
 	cout << endl << sm << endl << endl;
-
 	
-
-	ShapeManagerVisitor* saveTxt;
-	saveTxt = new SaveInText;
-	ShapeManagerVisitor* loadTxt;
-	loadTxt = new LoadWithText;
-
-
-	sm.accepte(saveTxt);
-
-	sm.clean();
-
-	sm.accepte(loadTxt);
-
-	cout << endl << sm << endl << endl;
-
-	ServerConnection* client;
-	client = ServerConnection::getInstance();
-	client->openConnection();
-
 	ShapeManagerVisitor* drawWithJavaServer;
 	drawWithJavaServer = new DrawServerVisitor;
 
+	sm.accepte(drawWithJavaServer);
+
+	sm.removeGroup(G2);
+	
 	sm.accepte(drawWithJavaServer);
 }

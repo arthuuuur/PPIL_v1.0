@@ -140,6 +140,9 @@
     <ClCompile Include="Matrix2_2.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Test_Draw.cpp">
+      <Filter>Fichiers sources\Test</Filter>
+    </ClCompile>
     <ClCompile Include="Source.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -156,9 +159,6 @@
       <Filter>Fichiers sources\Test</Filter>
     </ClCompile>
     <ClCompile Include="Test_GroupShapes.cpp">
-      <Filter>Fichiers sources\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="Test_Draw.cpp">
       <Filter>Fichiers sources\Test</Filter>
     </ClCompile>
     <ClCompile Include="Test_Circle.cpp">
