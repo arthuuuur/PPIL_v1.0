@@ -95,8 +95,6 @@ $(document).ready(function(){initNavTree('class_server_connection.html',''); ini
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0adf644e7715ddbb83a53651b0804dec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server_connection.html#a0adf644e7715ddbb83a53651b0804dec">ServerConnection</a> ()</td></tr>
-<tr class="separator:a0adf644e7715ddbb83a53651b0804dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af919491d0e2ff066b0a58cc50fc0d90d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server_connection.html#af919491d0e2ff066b0a58cc50fc0d90d">~ServerConnection</a> ()</td></tr>
 <tr class="separator:af919491d0e2ff066b0a58cc50fc0d90d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4ec454e4e308a9bcfe28b864638d9d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server_connection.html#af4ec454e4e308a9bcfe28b864638d9d5">ServerConnection</a> (<a class="el" href="class_server_connection.html">ServerConnection</a> &amp;other)=delete</td></tr>
@@ -117,39 +115,14 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ab8e677d415ce7fc6a27a12f68d9fd5c6"><td class="memItemLeft" align="right" valign="top">WSADATA&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server_connection.html#ab8e677d415ce7fc6a27a12f68d9fd5c6">_wsadata</a></td></tr>
-<tr class="separator:ab8e677d415ce7fc6a27a12f68d9fd5c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a622fa9ab03b32b868475ab6103c906b3"><td class="memItemLeft" align="right" valign="top">SOCKET&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server_connection.html#a622fa9ab03b32b868475ab6103c906b3">_sock</a></td></tr>
 <tr class="separator:a622fa9ab03b32b868475ab6103c906b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d1bee99e46ae68d85770668945b40ef"><td class="memItemLeft" align="right" valign="top">SOCKADDR_IN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server_connection.html#a0d1bee99e46ae68d85770668945b40ef">_sockaddr</a></td></tr>
-<tr class="separator:a0d1bee99e46ae68d85770668945b40ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>v1 singleton pattern to initialize only once this class to have only one communication with the server </p>
 
 <p class="definition">Definition at line <a class="el" href="_server_connection_8h_source.html#l00017">17</a> of file <a class="el" href="_server_connection_8h_source.html">ServerConnection.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0adf644e7715ddbb83a53651b0804dec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0adf644e7715ddbb83a53651b0804dec">&#9670;&nbsp;</a></span>ServerConnection() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ServerConnection::ServerConnection </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p><a class="el" href="class_server_connection.html">ServerConnection</a>'s constructor</p>
-<p>Initialize the WSADATA structure, the SOCKADDRIN structure and the SOCKET </p>
-
-<p class="definition">Definition at line <a class="el" href="_server_connection_8cpp_source.html#l00008">8</a> of file <a class="el" href="_server_connection_8cpp_source.html">ServerConnection.cpp</a>.</p>
-
-</div>
-</div>
 <a id="af919491d0e2ff066b0a58cc50fc0d90d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af919491d0e2ff066b0a58cc50fc0d90d">&#9670;&nbsp;</a></span>~ServerConnection()</h2>
 
@@ -164,14 +137,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>~ServerConnection </p>
+<p>~ServerConnection</p>
+<p>Clear the WSADATA structure </p>
 
-<p class="definition">Definition at line <a class="el" href="_server_connection_8cpp_source.html#l00048">48</a> of file <a class="el" href="_server_connection_8cpp_source.html">ServerConnection.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_server_connection_8cpp_source.html#l00024">24</a> of file <a class="el" href="_server_connection_8cpp_source.html">ServerConnection.cpp</a>.</p>
 
 </div>
 </div>
 <a id="af4ec454e4e308a9bcfe28b864638d9d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4ec454e4e308a9bcfe28b864638d9d5">&#9670;&nbsp;</a></span>ServerConnection() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af4ec454e4e308a9bcfe28b864638d9d5">&#9670;&nbsp;</a></span>ServerConnection()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,9 +186,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Close the connection to the server </p>
+<p>Close the socket and the connection to the server </p>
 
-<p class="definition">Definition at line <a class="el" href="_server_connection_8cpp_source.html#l00075">75</a> of file <a class="el" href="_server_connection_8cpp_source.html">ServerConnection.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_server_connection_8cpp_source.html#l00070">70</a> of file <a class="el" href="_server_connection_8cpp_source.html">ServerConnection.cpp</a>.</p>
 
 </div>
 </div>
@@ -243,7 +217,7 @@ Public Attributes</h2></td></tr>
 <p>This is the method that create the only object of this class on the first run. On subsequents runs, it returns the existing object stored in the static field</p>
 <dl class="section return"><dt>Returns</dt><dd>{ServerConection*} : The only instance of this class </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_server_connection_8cpp_source.html#l00050">50</a> of file <a class="el" href="_server_connection_8cpp_source.html">ServerConnection.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_server_connection_8cpp_source.html#l00030">30</a> of file <a class="el" href="_server_connection_8cpp_source.html">ServerConnection.cpp</a>.</p>
 
 </div>
 </div>
@@ -264,7 +238,7 @@ Public Attributes</h2></td></tr>
 <p>Getter of _sock</p>
 <dl class="section return"><dt>Returns</dt><dd>{SOCKET} : The socket structure </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_server_connection_8cpp_source.html#l00098">98</a> of file <a class="el" href="_server_connection_8cpp_source.html">ServerConnection.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_server_connection_8cpp_source.html#l00091">91</a> of file <a class="el" href="_server_connection_8cpp_source.html">ServerConnection.cpp</a>.</p>
 
 </div>
 </div>
@@ -282,9 +256,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Open the connection to the server </p>
+<p>Create and open the connection to the server </p>
 
-<p class="definition">Definition at line <a class="el" href="_server_connection_8cpp_source.html#l00060">60</a> of file <a class="el" href="_server_connection_8cpp_source.html">ServerConnection.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_server_connection_8cpp_source.html#l00040">40</a> of file <a class="el" href="_server_connection_8cpp_source.html">ServerConnection.cpp</a>.</p>
 
 </div>
 </div>
@@ -329,47 +303,13 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The socket for communicate with the server </p>
 
-<p class="definition">Definition at line <a class="el" href="_server_connection_8h_source.html#l00040">40</a> of file <a class="el" href="_server_connection_8h_source.html">ServerConnection.h</a>.</p>
-
-</div>
-</div>
-<a id="a0d1bee99e46ae68d85770668945b40ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d1bee99e46ae68d85770668945b40ef">&#9670;&nbsp;</a></span>_sockaddr</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">SOCKADDR_IN ServerConnection::_sockaddr</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The structure that contains information about the server adress, the port, and the protocole </p>
-
-<p class="definition">Definition at line <a class="el" href="_server_connection_8h_source.html#l00045">45</a> of file <a class="el" href="_server_connection_8h_source.html">ServerConnection.h</a>.</p>
-
-</div>
-</div>
-<a id="ab8e677d415ce7fc6a27a12f68d9fd5c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8e677d415ce7fc6a27a12f68d9fd5c6">&#9670;&nbsp;</a></span>_wsadata</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WSADATA ServerConnection::_wsadata</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The structure that contains information about the Windows Sockets implementation </p>
-
-<p class="definition">Definition at line <a class="el" href="_server_connection_8h_source.html#l00035">35</a> of file <a class="el" href="_server_connection_8h_source.html">ServerConnection.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_server_connection_8h_source.html#l00042">42</a> of file <a class="el" href="_server_connection_8h_source.html">ServerConnection.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_server_connection_8h_source.html">ServerConnection.h</a></li>
-<li><a class="el" href="_server_connection_8cpp_source.html">ServerConnection.cpp</a></li>
+<li>PPIL_v1.0/<a class="el" href="_server_connection_8h_source.html">ServerConnection.h</a></li>
+<li>PPIL_v1.0/<a class="el" href="_server_connection_8cpp_source.html">ServerConnection.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

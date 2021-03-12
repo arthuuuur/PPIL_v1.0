@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: ServerConnection.h Source File</title>
+<title>My Project: PPIL_v1.0/ServerConnection.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -102,45 +102,39 @@ $(document).ready(function(){initNavTree('_server_connection_8h_source.html','')
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_server_connection.html">ServerConnection</a>* _client;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> mutex _mutex;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_server_connection.html#ab8e677d415ce7fc6a27a12f68d9fd5c6">   35</a></span>&#160;    WSADATA <a class="code" href="class_server_connection.html#ab8e677d415ce7fc6a27a12f68d9fd5c6">_wsadata</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_server_connection.html">ServerConnection</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_server_connection.html">ServerConnection</a>* _client;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">static</span> mutex _mutex;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_server_connection.html#a622fa9ab03b32b868475ab6103c906b3">   40</a></span>&#160;    SOCKET <a class="code" href="class_server_connection.html#a622fa9ab03b32b868475ab6103c906b3">_sock</a>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_server_connection.html#a0d1bee99e46ae68d85770668945b40ef">   45</a></span>&#160;    SOCKADDR_IN <a class="code" href="class_server_connection.html#a0d1bee99e46ae68d85770668945b40ef">_sockaddr</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="class_server_connection.html">ServerConnection</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    ~<a class="code" href="class_server_connection.html">ServerConnection</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_server_connection.html#af4ec454e4e308a9bcfe28b864638d9d5">   62</a></span>&#160;    <a class="code" href="class_server_connection.html#af4ec454e4e308a9bcfe28b864638d9d5">ServerConnection</a>(<a class="code" href="class_server_connection.html">ServerConnection</a>&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_server_connection.html#ac2d70a93f8923d1c9ad7e3928929176c">   67</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_server_connection.html#ac2d70a93f8923d1c9ad7e3928929176c">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_server_connection.html">ServerConnection</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_server_connection.html#a622fa9ab03b32b868475ab6103c906b3">   42</a></span>&#160;    SOCKET <a class="code" href="class_server_connection.html#a622fa9ab03b32b868475ab6103c906b3">_sock</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    ~<a class="code" href="class_server_connection.html">ServerConnection</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_server_connection.html#af4ec454e4e308a9bcfe28b864638d9d5">   54</a></span>&#160;    <a class="code" href="class_server_connection.html#af4ec454e4e308a9bcfe28b864638d9d5">ServerConnection</a>(<a class="code" href="class_server_connection.html">ServerConnection</a>&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_server_connection.html#ac2d70a93f8923d1c9ad7e3928929176c">   59</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_server_connection.html#ac2d70a93f8923d1c9ad7e3928929176c">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_server_connection.html">ServerConnection</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_server_connection.html">ServerConnection</a>* getInstance();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_server_connection.html">ServerConnection</a>* getInstance();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> openConnection();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> closeConnection();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    SOCKET getSocket();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> openConnection();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> closeConnection();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    SOCKET getSocket();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_server_connection_html"><div class="ttname"><a href="class_server_connection.html">ServerConnection</a></div><div class="ttdef"><b>Definition:</b> <a href="_server_connection_8h_source.html#l00017">ServerConnection.h:17</a></div></div>
-<div class="ttc" id="aclass_server_connection_html_a622fa9ab03b32b868475ab6103c906b3"><div class="ttname"><a href="class_server_connection.html#a622fa9ab03b32b868475ab6103c906b3">ServerConnection::_sock</a></div><div class="ttdeci">SOCKET _sock</div><div class="ttdef"><b>Definition:</b> <a href="_server_connection_8h_source.html#l00040">ServerConnection.h:40</a></div></div>
-<div class="ttc" id="aclass_server_connection_html_a0d1bee99e46ae68d85770668945b40ef"><div class="ttname"><a href="class_server_connection.html#a0d1bee99e46ae68d85770668945b40ef">ServerConnection::_sockaddr</a></div><div class="ttdeci">SOCKADDR_IN _sockaddr</div><div class="ttdef"><b>Definition:</b> <a href="_server_connection_8h_source.html#l00045">ServerConnection.h:45</a></div></div>
-<div class="ttc" id="aclass_server_connection_html_ab8e677d415ce7fc6a27a12f68d9fd5c6"><div class="ttname"><a href="class_server_connection.html#ab8e677d415ce7fc6a27a12f68d9fd5c6">ServerConnection::_wsadata</a></div><div class="ttdeci">WSADATA _wsadata</div><div class="ttdef"><b>Definition:</b> <a href="_server_connection_8h_source.html#l00035">ServerConnection.h:35</a></div></div>
+<div class="ttc" id="aclass_server_connection_html_a622fa9ab03b32b868475ab6103c906b3"><div class="ttname"><a href="class_server_connection.html#a622fa9ab03b32b868475ab6103c906b3">ServerConnection::_sock</a></div><div class="ttdeci">SOCKET _sock</div><div class="ttdef"><b>Definition:</b> <a href="_server_connection_8h_source.html#l00042">ServerConnection.h:42</a></div></div>
 <div class="ttc" id="aclass_server_connection_html_ac2d70a93f8923d1c9ad7e3928929176c"><div class="ttname"><a href="class_server_connection.html#ac2d70a93f8923d1c9ad7e3928929176c">ServerConnection::operator=</a></div><div class="ttdeci">void operator=(const ServerConnection &amp;)=delete</div></div>
 <div class="ttc" id="aclass_server_connection_html_af4ec454e4e308a9bcfe28b864638d9d5"><div class="ttname"><a href="class_server_connection.html#af4ec454e4e308a9bcfe28b864638d9d5">ServerConnection::ServerConnection</a></div><div class="ttdeci">ServerConnection(ServerConnection &amp;other)=delete</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>ServerConnection.h</b></li>
+    <li class="navelem"><a class="el" href="dir_43b3d160c1808e68f2c52cc87b8cfa8e.html">PPIL_v1.0</a></li><li class="navelem"><b>ServerConnection.h</b></li>
     <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>
