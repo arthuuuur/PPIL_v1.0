@@ -143,27 +143,6 @@
     <ClCompile Include="Test_Draw.cpp">
       <Filter>Fichiers sources\Test</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Test_Vector2D.cpp">
-      <Filter>Fichiers sources\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="Test_Segment.cpp">
-      <Filter>Fichiers sources\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="Test_Save_Load.cpp">
-      <Filter>Fichiers sources\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="Test_Polygon.cpp">
-      <Filter>Fichiers sources\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="Test_GroupShapes.cpp">
-      <Filter>Fichiers sources\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="Test_Circle.cpp">
-      <Filter>Fichiers sources\Test</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="save.txt" />

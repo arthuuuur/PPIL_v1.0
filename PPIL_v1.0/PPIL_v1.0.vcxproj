@@ -184,14 +184,7 @@
     <ClCompile Include="Group.cpp" />
     <ClCompile Include="ShapeDetector.cpp" />
     <ClCompile Include="ShapesManager.cpp" />
-    <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Test_Circle.cpp" />
     <ClCompile Include="Test_Draw.cpp" />
-    <ClCompile Include="Test_GroupShapes.cpp" />
-    <ClCompile Include="Test_Polygon.cpp" />
-    <ClCompile Include="Test_Save_Load.cpp" />
-    <ClCompile Include="Test_Segment.cpp" />
-    <ClCompile Include="Test_Vector2D.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
