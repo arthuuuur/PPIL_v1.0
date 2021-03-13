@@ -80,6 +80,7 @@ void ServerConnection::closeConnection()
 		if (err) {
 			throw Error("the closing of the socket failed");
 		}
+		cout << "Socket closed" << endl;
 	}
 	catch (exception const& err)
 	{
