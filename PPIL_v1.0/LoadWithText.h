@@ -12,12 +12,17 @@ private:
 	*/
 	ShapeDetectorCOR* cor;
 
+	/*
+	* Load file's path
+	*/
 	string _fileName;
 
 public:
 
 	/*
 	* LoadWithText's constructor's
+	* 
+	* @param {string} fileName : load file's path
 	*/
 	LoadWithText(string fileName);
 
