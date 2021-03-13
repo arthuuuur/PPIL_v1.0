@@ -12,12 +12,14 @@ private:
 	*/
 	ShapeDetectorCOR* cor;
 
+	string _fileName;
+
 public:
 
 	/*
 	* LoadWithText's constructor's
 	*/
-	LoadWithText();
+	LoadWithText(string fileName);
 
 	/*
 	* LoadWithText's destructor

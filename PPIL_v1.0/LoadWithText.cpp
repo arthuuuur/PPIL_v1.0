@@ -4,7 +4,7 @@
 #include "CircleDetector.h"
 #include "PolygonDetector.h"
 
-LoadWithText::LoadWithText()
+LoadWithText::LoadWithText(string fileName) : _fileName(fileName)
 {
 	ShapeDetector* Segment = new SegmentDetector(NULL);
 	ShapeDetector* Circle = new CircleDetector(Segment);
@@ -21,7 +21,7 @@ void LoadWithText::visite(ShapesManager& Sm)
 {
 	try 
 	{
-		ifstream save("save.txt");
+		ifstream save(_fileName);
 		if (!save) throw Error("failed to open file");
 		string line;
 		while (getline(save, line)) 

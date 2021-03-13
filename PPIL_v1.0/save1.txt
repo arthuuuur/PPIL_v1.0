@@ -4,7 +4,5 @@ type;3;ID;4;groupID;1;shapeColor;yellow;groupColor;red;nbPoint;3;list;1;1;9;5;3;
 type;1;ID;6;groupID;5;shapeColor;blue;groupColor;green;nbPoint;2;list;-2;-2;-10;-6
 type;2;ID;7;groupID;5;shapeColor;blue;groupColor;green;center;-3;-6;radius;5
 type;3;ID;8;groupID;5;shapeColor;blue;groupColor;green;nbPoint;3;list;-1;-1;-9;-5;-3;-6
-type;1;ID;10;groupID;5;shapeColor;black;groupColor;green;nbPoint;2;list;-10;-10;-20;-20
-type;2;ID;11;groupID;5;shapeColor;black;groupColor;green;center;-10;-10;radius;15
-type;1;ID;10;groupID;5;shapeColor;black;groupColor;green;nbPoint;2;list;-10;-10;-20;-20
-type;2;ID;11;groupID;5;shapeColor;black;groupColor;green;center;-10;-10;radius;15
+type;1;ID;10;groupID;9;shapeColor;black;groupColor;yellow;nbPoint;2;list;-10;-10;-20;-20
+type;2;ID;11;groupID;9;shapeColor;black;groupColor;yellow;center;-10;-10;radius;15

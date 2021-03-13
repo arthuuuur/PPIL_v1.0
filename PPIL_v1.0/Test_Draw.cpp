@@ -78,7 +78,7 @@ int main() {
 	sm.addGroup(G1);
 	sm.addGroup(G2);
 	sm.addGroup(G3);
-	G2->addGroup(G3);
+	//G2->addGroup(G3);
 	
 	cout << endl << sm << endl << endl;
 	

@@ -144,7 +144,4 @@
       <Filter>Fichiers sources\Test</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="save.txt" />
-  </ItemGroup>
 </Project>

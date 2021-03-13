@@ -52,13 +52,14 @@ int main() {
 	cout << endl << sm << endl << endl;
 
 	ShapeManagerVisitor* saveTxt;
-	saveTxt = new SaveInText;
+	saveTxt = new SaveInText("save1.txt");
 	ShapeManagerVisitor* loadTxt;
-	loadTxt = new LoadWithText;
-	
+	loadTxt = new LoadWithText("save1.txt");
+
 	sm.accepte(saveTxt);
 	sm.clean();
 	sm.accepte(loadTxt);
+
 
 	cout << endl << sm << endl << endl;
 }

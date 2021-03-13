@@ -1,10 +1,12 @@
 #include "SaveInText.h"
 
+
+
 void SaveInText::visite(ShapesManager& Sm)
 {
 	try 
 	{
-		ofstream save("save.txt");
+		ofstream save(_fileName);
 		if (!save) throw Error("failed to create a save file");
 		for (vector<Shape*>::const_iterator it = Sm.getListShape().begin(); it != Sm.getListShape().end(); it++) 
 		{

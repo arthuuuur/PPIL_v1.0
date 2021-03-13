@@ -5,7 +5,13 @@
 
 class SaveInText : public ShapeManagerVisitor {
 
+private:
+	
+	string _fileName;
+
 public:
+
+	SaveInText(string fileName) : _fileName(fileName) {}
 
 	/**
 	* The methode which add the new functionality to the shapesManager
@@ -14,4 +20,6 @@ public:
 	* @param {shapesManager&} Sm : The shapesManager
 	*/
 	void visite(ShapesManager& Sm);
+
+
 };
