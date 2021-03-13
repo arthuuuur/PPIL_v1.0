@@ -119,11 +119,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a493f9b373f382f3d304b3b91166eade3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93cc1ef79fff16a7632c8df9f37fdd18"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_shape.html">Shape</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape_detector.html#a93cc1ef79fff16a7632c8df9f37fdd18">deserialize</a> (const vector&lt; string &gt; data) const</td></tr>
 <tr class="separator:a93cc1ef79fff16a7632c8df9f37fdd18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b690e0cbaadfcc9d8bc2dde3501b6fc"><td class="memItemLeft" align="right" valign="top"><a id="a9b690e0cbaadfcc9d8bc2dde3501b6fc"></a>
-vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>split</b> (const string str, const string separator) const</td></tr>
+<tr class="memitem:a9b690e0cbaadfcc9d8bc2dde3501b6fc"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape_detector.html#a9b690e0cbaadfcc9d8bc2dde3501b6fc">split</a> (const string str, const string separator) const</td></tr>
 <tr class="separator:a9b690e0cbaadfcc9d8bc2dde3501b6fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44cf3bf267ab1b242f0b0b47f6056ff2"><td class="memItemLeft" align="right" valign="top"><a id="a44cf3bf267ab1b242f0b0b47f6056ff2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>indexOf</b> (vector&lt; string &gt; S, const string val) const</td></tr>
+<tr class="memitem:a44cf3bf267ab1b242f0b0b47f6056ff2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape_detector.html#a44cf3bf267ab1b242f0b0b47f6056ff2">indexOf</a> (vector&lt; string &gt; S, const string val) const</td></tr>
 <tr class="separator:a44cf3bf267ab1b242f0b0b47f6056ff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -239,6 +237,101 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>indexOf</b> (vector&lt
 <p>Reimplemented in <a class="el" href="class_segment_detector.html#a1bf347f8c77e1a27529b61558c49fa56">SegmentDetector</a>, <a class="el" href="class_polygon_detector.html#aa9d0d7c83d82f94c833d62bdd1bd42d2">PolygonDetector</a>, and <a class="el" href="class_circle_detector.html#a98c12ef268e018185c35428cc5f0efd7">CircleDetector</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_shape_detector_8cpp_source.html#l00005">5</a> of file <a class="el" href="_shape_detector_8cpp_source.html">ShapeDetector.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a44cf3bf267ab1b242f0b0b47f6056ff2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44cf3bf267ab1b242f0b0b47f6056ff2">&#9670;&nbsp;</a></span>indexOf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ShapeDetector::indexOf </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; string &gt;&#160;</td>
+          <td class="paramname"><em>S</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the index of a string into a vector of string</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{vector&lt;String&gt;}</td><td>S : The vector of string </td></tr>
+    <tr><td class="paramname">{string}</td><td>val : The string of which we want the index</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{int} : Return the index of a string into a vector of string </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_shape_detector_8cpp_source.html#l00024">24</a> of file <a class="el" href="_shape_detector_8cpp_source.html">ShapeDetector.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9b690e0cbaadfcc9d8bc2dde3501b6fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b690e0cbaadfcc9d8bc2dde3501b6fc">&#9670;&nbsp;</a></span>split()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; string &gt; ShapeDetector::split </td>
+          <td>(</td>
+          <td class="paramtype">const string&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string&#160;</td>
+          <td class="paramname"><em>separator</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Split a string into a vector of string with a specific separator</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{string}</td><td>str : The string to split <br  />
+ </td></tr>
+    <tr><td class="paramname">{string}</td><td>separator : The separator</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{vector&lt;string&gt;} : Return a vector of string created by splitting the string parameter into several pieces according to the separator parameter. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_shape_detector_8cpp_source.html#l00010">10</a> of file <a class="el" href="_shape_detector_8cpp_source.html">ShapeDetector.cpp</a>.</p>
 
 </div>
 </div>

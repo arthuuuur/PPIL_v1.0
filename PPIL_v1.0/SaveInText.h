@@ -7,14 +7,14 @@ class SaveInText : public ShapeManagerVisitor {
 
 private:
 	
-	/*
+	/**
 	* Save file's path
 	*/
 	string _fileName;
 
 public:
 
-	/*
+	/**
 	* SaveInText's constructor
 	* 
 	* @param {string} fileName : save file's path

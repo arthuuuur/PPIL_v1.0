@@ -1,13 +1,6 @@
 var searchData=
 [
-  ['segment_158',['Segment',['../class_segment.html#a0619da18917dfa04e6d4d1a93f88e8df',1,'Segment::Segment(const Vector2D &amp;p1, const Vector2D &amp;p2)'],['../class_segment.html#a2654cfa1c135a0e38e5e66b6913634b7',1,'Segment::Segment(const string shapeColor, const Vector2D &amp;p1, const Vector2D &amp;p2)']]],
-  ['segmentdetector_159',['SegmentDetector',['../class_segment_detector.html#add2a60e12997d35e5c93d0abbea879b2',1,'SegmentDetector']]],
-  ['serialize_160',['serialize',['../class_circle.html#ac7cfd25d95a3d82ccced9fb551ff0bdd',1,'Circle::serialize()'],['../class_polygon.html#a8a0b7718756494fee60f3e49e5ec9bda',1,'Polygon::serialize()'],['../class_segment.html#abef156cff76f56cef3aff87de4164efe',1,'Segment::serialize()'],['../class_shape.html#aca61d77ba361f6e33499ab0d831b8013',1,'Shape::serialize()']]],
-  ['serverconnection_161',['ServerConnection',['../class_server_connection.html#af4ec454e4e308a9bcfe28b864638d9d5',1,'ServerConnection']]],
-  ['setcolorifgrouped_162',['setColorIfGrouped',['../class_group.html#a094238c43d8241606ae2e4e5ef86c54a',1,'Group::setColorIfGrouped()'],['../class_shape.html#ab2283ca365e05a4964fbad6e133779c1',1,'Shape::setColorIfGrouped()']]],
-  ['setfather_163',['setFather',['../class_shape.html#aa8e5eb951c7dc8b9e42575f5cf152fc8',1,'Shape']]],
-  ['setgroupid_164',['setGroupID',['../class_group.html#a3c875e263cf6d770a1aac815205d597b',1,'Group']]],
-  ['setshapecolor_165',['setShapeColor',['../class_group.html#a947243bd440dc0eb626da0f227f50134',1,'Group::setShapeColor()'],['../class_shape.html#a9996858233dc1ec378554684bb0b6ca0',1,'Shape::setShapeColor()']]],
-  ['shape_166',['Shape',['../class_shape.html#a447521b15dfd710d47a6eec7bdb56a8c',1,'Shape::Shape(const string shapeColor=Color::RED)'],['../class_shape.html#af2ee7b41d50c5328a3e9e35740d188c4',1,'Shape::Shape(const Shape &amp;S)']]],
-  ['shapedetector_167',['ShapeDetector',['../class_shape_detector.html#a493f9b373f382f3d304b3b91166eade3',1,'ShapeDetector']]]
+  ['removegroup_163',['removeGroup',['../class_group.html#aca9ed4fd49c5201ab26ae4b14a477f6f',1,'Group::removeGroup()'],['../class_shapes_manager.html#a6a98626e374b4db6ed7b7447d80b6d93',1,'ShapesManager::removeGroup()']]],
+  ['removeshape_164',['removeShape',['../class_group.html#ad5352c5537c06bb065f3e733f162524c',1,'Group::removeShape()'],['../class_shapes_manager.html#a3adf3b7649a0ad507721c6aea236f241',1,'ShapesManager::removeShape()']]],
+  ['rotation_165',['rotation',['../class_circle.html#a6849bf6ccbdea9d3c70215bf3032e1ea',1,'Circle::rotation()'],['../class_convex_polygon.html#ac2a60a6719f2539c26a8be183ab379af',1,'ConvexPolygon::rotation()'],['../class_group.html#af698cf574783d269d8a8e8b4d5c62c4e',1,'Group::rotation()'],['../class_polygon.html#ad62d424182c83d0a4c991e83eaf5b10b',1,'Polygon::rotation()'],['../class_segment.html#a9ab82c52949bfe569906e7408046fa2e',1,'Segment::rotation()'],['../class_shape.html#abbdd9f5ad4069f30ab69943511fd156c',1,'Shape::rotation()'],['../class_vector2_d.html#a1f8f96eafa5a64202714bbcaa8bb154a',1,'Vector2D::rotation()']]]
 ];

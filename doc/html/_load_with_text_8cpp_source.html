@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('_load_with_text_8cpp_source.html','');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;CircleDetector.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;PolygonDetector.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;LoadWithText::LoadWithText()</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_load_with_text.html#a05262ad56447fc2433c8c1393c9278fa">    7</a></span>&#160;<a class="code" href="class_load_with_text.html#a05262ad56447fc2433c8c1393c9278fa">LoadWithText::LoadWithText</a>(<span class="keywordtype">string</span> fileName) : _fileName(fileName)</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_shape_detector.html">ShapeDetector</a>* <a class="code" href="class_segment.html">Segment</a> = <span class="keyword">new</span> <a class="code" href="class_segment_detector.html">SegmentDetector</a>(NULL);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_shape_detector.html">ShapeDetector</a>* <a class="code" href="class_circle.html">Circle</a> = <span class="keyword">new</span> <a class="code" href="class_circle_detector.html">CircleDetector</a>(<a class="code" href="class_segment.html">Segment</a>);</div>
@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('_load_with_text_8cpp_source.html','');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    cor = <a class="code" href="class_polygon.html">Polygon</a>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;LoadWithText::~LoadWithText()</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_load_with_text.html#a0f77992bf8eea72a7251de5af4108c8f">   15</a></span>&#160;<a class="code" href="class_load_with_text.html#a0f77992bf8eea72a7251de5af4108c8f">LoadWithText::~LoadWithText</a>()</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    free(cor);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('_load_with_text_8cpp_source.html','');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">try</span> </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        ifstream save(<span class="stringliteral">&quot;save.txt&quot;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        ifstream save(_fileName);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">if</span> (!save) <span class="keywordflow">throw</span> <a class="code" href="class_error.html">Error</a>(<span class="stringliteral">&quot;failed to open file&quot;</span>);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">string</span> line;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">while</span> (getline(save, line)) </div>
@@ -116,12 +116,12 @@ $(document).ready(function(){initNavTree('_load_with_text_8cpp_source.html','');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="class_shape.html">Shape</a>* var =cor-&gt;<a class="code" href="class_shape_detector_c_o_r.html#ac928ae2119e32197da0eaab011bb7c9f">charge</a>(line);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">if</span> (var != NULL) </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keywordflow">if</span> (var-&gt;<a class="code" href="class_shape.html#a16b3d7d47a4e6400301134849b16e1fe">getID</a>() != var-&gt;getGroupID()) </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keywordflow">if</span> (var-&gt;<a class="code" href="class_shape.html#a16b3d7d47a4e6400301134849b16e1fe">getID</a>() != var-&gt;<a class="code" href="class_shape.html#a1fe03d9dccf93da0649794d943ea73b4">getGroupID</a>()) </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                { </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                    <span class="keywordtype">bool</span> here = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                    <span class="keywordflow">for</span> (vector&lt;Shape*&gt;::const_iterator it = Sm.<a class="code" href="class_shapes_manager.html#aa0e6b69aa74188969772a2fe7c93146c">getGroupShape</a>().begin(); it != Sm.<a class="code" href="class_shapes_manager.html#aa0e6b69aa74188969772a2fe7c93146c">getGroupShape</a>().end(); it++) </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    { </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                        <span class="keywordflow">if</span> ((*it)-&gt;getID() == var-&gt;getGroupID()) </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                        <span class="keywordflow">if</span> ((*it)-&gt;getID() == var-&gt;<a class="code" href="class_shape.html#a1fe03d9dccf93da0649794d943ea73b4">getGroupID</a>()) </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                        {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                            here = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                            <span class="keywordflow">if</span> (here) {</div>
@@ -132,8 +132,8 @@ $(document).ready(function(){initNavTree('_load_with_text_8cpp_source.html','');
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    <span class="keywordflow">if</span> (!here) </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                        <a class="code" href="class_group.html">Group</a>* G = <span class="keyword">new</span> <a class="code" href="class_group.html">Group</a>(var-&gt;<a class="code" href="class_shape.html#ad778cb01f6b1dcbbf6a90c53c47ff752">getColorIfGrouped</a>());</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        G-&gt;<a class="code" href="class_group.html#a3c875e263cf6d770a1aac815205d597b">setGroupID</a>(var-&gt;getGroupID());</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        G-&gt;setID(var-&gt;getGroupID());</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        G-&gt;<a class="code" href="class_group.html#a3c875e263cf6d770a1aac815205d597b">setGroupID</a>(var-&gt;<a class="code" href="class_shape.html#a1fe03d9dccf93da0649794d943ea73b4">getGroupID</a>());</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        G-&gt;<a class="code" href="class_shape.html#a7b56c09e7eb7a58a3282c45ca2ef955c">setID</a>(var-&gt;<a class="code" href="class_shape.html#a1fe03d9dccf93da0649794d943ea73b4">getGroupID</a>());</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                        G-&gt;<a class="code" href="class_group.html#a5148b6cd8f3bba4698ea214e4659ccf5">addShape</a>(var);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                        Sm.<a class="code" href="class_shapes_manager.html#a1d59b831d7272389b94f741ec0f2c76f">addGroup</a>(G);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        here = <span class="keyword">false</span>;</div>
@@ -162,6 +162,7 @@ $(document).ready(function(){initNavTree('_load_with_text_8cpp_source.html','');
 <div class="ttc" id="aclass_polygon_detector_html"><div class="ttname"><a href="class_polygon_detector.html">PolygonDetector</a></div><div class="ttdef"><b>Definition:</b> <a href="_polygon_detector_8h_source.html#l00006">PolygonDetector.h:6</a></div></div>
 <div class="ttc" id="aclass_shapes_manager_html_af40703153f2bd20590e9036f242c68df"><div class="ttname"><a href="class_shapes_manager.html#af40703153f2bd20590e9036f242c68df">ShapesManager::addShape</a></div><div class="ttdeci">void addShape(Shape *S)</div><div class="ttdef"><b>Definition:</b> <a href="_shapes_manager_8cpp_source.html#l00005">ShapesManager.cpp:5</a></div></div>
 <div class="ttc" id="aclass_circle_detector_html"><div class="ttname"><a href="class_circle_detector.html">CircleDetector</a></div><div class="ttdef"><b>Definition:</b> <a href="_circle_detector_8h_source.html#l00006">CircleDetector.h:6</a></div></div>
+<div class="ttc" id="aclass_shape_html_a1fe03d9dccf93da0649794d943ea73b4"><div class="ttname"><a href="class_shape.html#a1fe03d9dccf93da0649794d943ea73b4">Shape::getGroupID</a></div><div class="ttdeci">const int getGroupID() const</div><div class="ttdef"><b>Definition:</b> <a href="_shape_8cpp_source.html#l00124">Shape.cpp:124</a></div></div>
 <div class="ttc" id="aclass_shape_detector_html"><div class="ttname"><a href="class_shape_detector.html">ShapeDetector</a></div><div class="ttdef"><b>Definition:</b> <a href="_shape_detector_8h_source.html#l00005">ShapeDetector.h:5</a></div></div>
 <div class="ttc" id="aclass_segment_html"><div class="ttname"><a href="class_segment.html">Segment</a></div><div class="ttdef"><b>Definition:</b> <a href="_segment_8h_source.html#l00007">Segment.h:7</a></div></div>
 <div class="ttc" id="aclass_error_html"><div class="ttname"><a href="class_error.html">Error</a></div><div class="ttdef"><b>Definition:</b> <a href="_error_8h_source.html#l00008">Error.h:8</a></div></div>
@@ -175,10 +176,13 @@ $(document).ready(function(){initNavTree('_load_with_text_8cpp_source.html','');
 <div class="ttc" id="aclass_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdef"><b>Definition:</b> <a href="_shape_8h_source.html#l00012">Shape.h:12</a></div></div>
 <div class="ttc" id="aclass_group_html_a3c875e263cf6d770a1aac815205d597b"><div class="ttname"><a href="class_group.html#a3c875e263cf6d770a1aac815205d597b">Group::setGroupID</a></div><div class="ttdeci">void setGroupID(const int GID)</div><div class="ttdef"><b>Definition:</b> <a href="_group_8cpp_source.html#l00115">Group.cpp:115</a></div></div>
 <div class="ttc" id="aclass_segment_detector_html"><div class="ttname"><a href="class_segment_detector.html">SegmentDetector</a></div><div class="ttdef"><b>Definition:</b> <a href="_segment_detector_8h_source.html#l00006">SegmentDetector.h:6</a></div></div>
+<div class="ttc" id="aclass_load_with_text_html_a0f77992bf8eea72a7251de5af4108c8f"><div class="ttname"><a href="class_load_with_text.html#a0f77992bf8eea72a7251de5af4108c8f">LoadWithText::~LoadWithText</a></div><div class="ttdeci">~LoadWithText()</div><div class="ttdef"><b>Definition:</b> <a href="_load_with_text_8cpp_source.html#l00015">LoadWithText.cpp:15</a></div></div>
 <div class="ttc" id="aclass_polygon_html"><div class="ttname"><a href="class_polygon.html">Polygon</a></div><div class="ttdef"><b>Definition:</b> <a href="_polygon_8h_source.html#l00007">Polygon.h:7</a></div></div>
 <div class="ttc" id="aclass_shape_detector_c_o_r_html_ac928ae2119e32197da0eaab011bb7c9f"><div class="ttname"><a href="class_shape_detector_c_o_r.html#ac928ae2119e32197da0eaab011bb7c9f">ShapeDetectorCOR::charge</a></div><div class="ttdeci">virtual Shape * charge(string data) const =0</div></div>
 <div class="ttc" id="aclass_shapes_manager_html_aa0e6b69aa74188969772a2fe7c93146c"><div class="ttname"><a href="class_shapes_manager.html#aa0e6b69aa74188969772a2fe7c93146c">ShapesManager::getGroupShape</a></div><div class="ttdeci">const vector&lt; Shape * &gt; &amp; getGroupShape() const</div><div class="ttdef"><b>Definition:</b> <a href="_shapes_manager_8cpp_source.html#l00049">ShapesManager.cpp:49</a></div></div>
+<div class="ttc" id="aclass_load_with_text_html_a05262ad56447fc2433c8c1393c9278fa"><div class="ttname"><a href="class_load_with_text.html#a05262ad56447fc2433c8c1393c9278fa">LoadWithText::LoadWithText</a></div><div class="ttdeci">LoadWithText(string fileName)</div><div class="ttdef"><b>Definition:</b> <a href="_load_with_text_8cpp_source.html#l00007">LoadWithText.cpp:7</a></div></div>
 <div class="ttc" id="aclass_shapes_manager_html_a1d59b831d7272389b94f741ec0f2c76f"><div class="ttname"><a href="class_shapes_manager.html#a1d59b831d7272389b94f741ec0f2c76f">ShapesManager::addGroup</a></div><div class="ttdeci">void addGroup(Shape *G)</div><div class="ttdef"><b>Definition:</b> <a href="_shapes_manager_8cpp_source.html#l00010">ShapesManager.cpp:10</a></div></div>
+<div class="ttc" id="aclass_shape_html_a7b56c09e7eb7a58a3282c45ca2ef955c"><div class="ttname"><a href="class_shape.html#a7b56c09e7eb7a58a3282c45ca2ef955c">Shape::setID</a></div><div class="ttdeci">void setID(const int id)</div><div class="ttdef"><b>Definition:</b> <a href="_shape_8cpp_source.html#l00134">Shape.cpp:134</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

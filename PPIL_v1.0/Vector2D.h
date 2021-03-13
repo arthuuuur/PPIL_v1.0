@@ -62,7 +62,7 @@ public:
 	inline const Vector2D operator/ (const double& a) const;
 
 	/**
-	* @return {Vector2D}  : The inverse of the vector
+	* @return {Vector2D*}  : The inverse of the vector
 	*/
 	inline const Vector2D operator - () const;
 
@@ -80,6 +80,11 @@ public:
 	*/
 	inline bool operator!=(Vector2D& v2);
 
+	/**
+	* @param {Matrix2_2} M : The matrix that multiplie the vector
+	* 
+	* @return {Vector2D*} The vector resulting from the mutluplication 
+	*/
 	inline const Vector2D operator* (const Matrix2_2& M) const;
 
 	/**
@@ -177,7 +182,6 @@ inline const Vector2D Vector2D::operator*(const Matrix2_2& M) const
 {
 	vector<vector<double>> matrix = M.getMatrix();
 	return Vector2D(matrix[0][0] * x + matrix[0][1] * y, matrix[1][0] * x + matrix[1][1] * y);
-	//utiliser produit scalaire
 }
 
 inline Vector2D Vector2D::translation(const Vector2D& v) const 

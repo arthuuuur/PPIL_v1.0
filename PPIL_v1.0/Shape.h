@@ -153,21 +153,21 @@ public:
 	*/
 	const int getID() const;
 
-	/*
+	/**
 	* Getter of groupID
 	* 
 	* @return {int}  : The group's id in which the shape is 
 	*/
 	const int getGroupID() const;
 
-	/*
+	/**
 	* Setter of ID
 	*
 	* @param {int} id  : The new shape's id
 	*/
 	void setID(const int id);
 
-	/*
+	/**
 	* Setter of groupID
 	*
 	* @param {int} GID  : The new group's id

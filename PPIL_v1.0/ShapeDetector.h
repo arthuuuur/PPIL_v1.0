@@ -38,7 +38,7 @@ protected:
 	*/
 	virtual Shape* deserialize(const vector<string> data) const;
 
-	/*
+	/**
 	* Split a string into a vector of string with a specific separator
 	* 
 	* @param {string} str   : The string to split  
@@ -48,7 +48,7 @@ protected:
 	*/
 	vector<string> split(const string str, const string separator) const;
 
-	/*
+	/**
 	* Return the index of a string into a vector of string 
 	*
 	* @param {vector<String>} S   : The vector of string

@@ -139,16 +139,17 @@ $(document).ready(function(){initNavTree('_test___save___load_8cpp_source.html',
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    cout &lt;&lt; endl &lt;&lt; sm &lt;&lt; endl &lt;&lt; endl;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="class_shape_manager_visitor.html">ShapeManagerVisitor</a>* saveTxt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    saveTxt = <span class="keyword">new</span> <a class="code" href="class_save_in_text.html">SaveInText</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    saveTxt = <span class="keyword">new</span> <a class="code" href="class_save_in_text.html">SaveInText</a>(<span class="stringliteral">&quot;save1.txt&quot;</span>);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="class_shape_manager_visitor.html">ShapeManagerVisitor</a>* loadTxt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    loadTxt = <span class="keyword">new</span> <a class="code" href="class_load_with_text.html">LoadWithText</a>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    loadTxt = <span class="keyword">new</span> <a class="code" href="class_load_with_text.html">LoadWithText</a>(<span class="stringliteral">&quot;save1.txt&quot;</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    sm.<a class="code" href="class_shapes_manager.html#ad29e6705f6c1f1391571e1d94b99cb73">accepte</a>(saveTxt);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    sm.<a class="code" href="class_shapes_manager.html#a6fc49090d93db812438c1888a9913d7f">clean</a>();</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    sm.<a class="code" href="class_shapes_manager.html#ad29e6705f6c1f1391571e1d94b99cb73">accepte</a>(loadTxt);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    cout &lt;&lt; endl &lt;&lt; sm &lt;&lt; endl &lt;&lt; endl;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    cout &lt;&lt; endl &lt;&lt; sm &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_triangle_html"><div class="ttname"><a href="class_triangle.html">Triangle</a></div><div class="ttdef"><b>Definition:</b> <a href="_triangle_8h_source.html#l00007">Triangle.h:7</a></div></div>
